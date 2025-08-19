@@ -1,0 +1,6 @@
+option(
+    'platform-name',
+    type: 'string',
+    value: 'nvidia-gb200',
+    description: 'Platform to init (Temporary)',
+)
