@@ -1,0 +1,12 @@
+[Unit]
+Description=Start up the platform hardware
+Before=xyz.openbmc_project.FruDevice.service
+
+[Service]
+Type=notify
+ExecStart=/usr/libexec/platform init @PLATFORM_NAME@
+SyslogIdentifier=platform-init
+TimeoutStartSec=5000
+
+[Install]
+WantedBy=multi-user.target
