@@ -1,0 +1,123 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "87cd81be_f29900c4",
+        "filename": ".gitignore",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1002504
+      },
+      "writtenOn": "2025-08-21T00:38:27Z",
+      "side": 1,
+      "message": "mind putting a *.swp in for us poor vim users?",
+      "revId": "6ce709d574323ce93f9f6d6b9ecaf05e62a5dffb",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "51990d04_eb21136e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002504
+      },
+      "writtenOn": "2025-08-21T00:38:27Z",
+      "side": 1,
+      "message": "Big thing IMO, is how much we\u0027re going to break apart different platforms across different files, or if we\u0027re just going to ship one executable. My preference is to not ship a mega-executable, but that\u0027s just my first thought.",
+      "revId": "6ce709d574323ce93f9f6d6b9ecaf05e62a5dffb",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "22224641_9d8674cc",
+        "filename": "platform.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1002504
+      },
+      "writtenOn": "2025-08-21T00:38:27Z",
+      "side": 1,
+      "message": "mind breaking this and other gpio files into a helper header+source? same with rebind i2c, assuming we\u0027re",
+      "revId": "6ce709d574323ce93f9f6d6b9ecaf05e62a5dffb",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "edda198d_e6ad4467",
+        "filename": "platform.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1002504
+      },
+      "writtenOn": "2025-08-21T00:38:27Z",
+      "side": 1,
+      "message": "I can go either way with this, but it\u0027d be nice to avoid which typing here, considering these are generally in the same numeric range. how much do you hate the idea of enum clases?",
+      "revId": "6ce709d574323ce93f9f6d6b9ecaf05e62a5dffb",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "47156376_4ea9705a",
+        "filename": "platform.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 314,
+      "author": {
+        "id": 1002504
+      },
+      "writtenOn": "2025-08-21T00:38:27Z",
+      "side": 1,
+      "message": "this is extremely gb200 specific. should we just be putting stuff like this in a gb200 namespace?",
+      "revId": "6ce709d574323ce93f9f6d6b9ecaf05e62a5dffb",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ba561832_1ad19e89",
+        "filename": "platform.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 392,
+      "author": {
+        "id": 1002504
+      },
+      "writtenOn": "2025-08-21T00:38:27Z",
+      "side": 1,
+      "message": "this is kind of hard to read. mind making a map of bus numbers to special function registers? we can do it lazily, as people need to add more busses. also, it could make updating across filesystem breakages easier...rather than hunting down every use of magic numbers, we just update the map/rebind function.",
+      "revId": "6ce709d574323ce93f9f6d6b9ecaf05e62a5dffb",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "47fd1734_593e2dae",
+        "filename": "platform.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 422,
+      "author": {
+        "id": 1002504
+      },
+      "writtenOn": "2025-08-21T00:38:27Z",
+      "side": 1,
+      "message": "i was assuming that we\u0027d have separate executables for different platforms, I\u0027m not sure if I prefer one way or the other. I can see this getting very unwieldy being in one file however rather quickly.",
+      "revId": "6ce709d574323ce93f9f6d6b9ecaf05e62a5dffb",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
