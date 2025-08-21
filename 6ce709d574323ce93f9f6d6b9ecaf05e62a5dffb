@@ -302,6 +302,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "071664ce_2ba013fd",
+        "filename": "meson.build",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2025-08-21T18:34:09Z",
+      "side": 1,
+      "message": "Are we expecting humans to call it or systemd services?  I\u0027d think we\u0027d mostly be calling this from systemd services and therefore we don\u0027t want it to pollute the $PATH.  (That\u0027s the point of libexec)",
+      "parentUuid": "c69e2aca_1b745549",
+      "range": {
+        "startLine": 12,
+        "startChar": 38,
+        "endLine": 12,
+        "endChar": 63
+      },
+      "revId": "6ce709d574323ce93f9f6d6b9ecaf05e62a5dffb",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "82b41ea2_de782ea1",
         "filename": "meson.build",
         "patchSetId": 1
