@@ -89,6 +89,23 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "068ed2f2_871f5b38",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002504
+      },
+      "writtenOn": "2025-08-21T01:02:38Z",
+      "side": 1,
+      "message": "I\u0027m fine with this as is but this file is already too big. We need to break out the file structure in a follow up commit and make some of these common functions like gpio and rebinding i2c controllers to be common and (slightly) more strongly typed. Doesn\u0027t block the initial commit though.",
+      "revId": "6ce709d574323ce93f9f6d6b9ecaf05e62a5dffb",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "22224641_9d8674cc",
