@@ -90,6 +90,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e33c79d9_7362f51c",
+        "filename": "platform.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1002504
+      },
+      "writtenOn": "2025-08-21T00:52:59Z",
+      "side": 1,
+      "message": "this is an arbitrary and large timeout. It\u0027d be nice to make this configurable through the constructor. not blocking.",
+      "revId": "6ce709d574323ce93f9f6d6b9ecaf05e62a5dffb",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "edda198d_e6ad4467",
         "filename": "platform.cpp",
         "patchSetId": 1
@@ -118,6 +135,23 @@
       "writtenOn": "2025-08-21T00:38:27Z",
       "side": 1,
       "message": "this is extremely gb200 specific. should we just be putting stuff like this in a gb200 namespace?",
+      "revId": "6ce709d574323ce93f9f6d6b9ecaf05e62a5dffb",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "001c398c_3f3ac8d9",
+        "filename": "platform.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 381,
+      "author": {
+        "id": 1002504
+      },
+      "writtenOn": "2025-08-21T00:52:59Z",
+      "side": 1,
+      "message": "is this supposed to be commented out? same below on line 387.",
       "revId": "6ce709d574323ce93f9f6d6b9ecaf05e62a5dffb",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
@@ -153,6 +187,23 @@
       "side": 1,
       "message": "the key here (input to function) could also be the strongly typed thing, if we go down that path.",
       "parentUuid": "ba561832_1ad19e89",
+      "revId": "6ce709d574323ce93f9f6d6b9ecaf05e62a5dffb",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "042e1580_112964dd",
+        "filename": "platform.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 416,
+      "author": {
+        "id": 1002504
+      },
+      "writtenOn": "2025-08-21T00:52:59Z",
+      "side": 1,
+      "message": "this piece we could just move into main rather than requiring every platform_init to do it. not blocking.",
       "revId": "6ce709d574323ce93f9f6d6b9ecaf05e62a5dffb",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
