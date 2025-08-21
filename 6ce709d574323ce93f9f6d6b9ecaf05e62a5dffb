@@ -848,6 +848,30 @@
       },
       "revId": "6ce709d574323ce93f9f6d6b9ecaf05e62a5dffb",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f1bd93b2_45c9b56d",
+        "filename": "platform_init.service",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2025-08-21T18:36:15Z",
+      "side": 1,
+      "message": "My preference would be that we using something valid for `Inventory.Decorator.Compatible.Names` (com.nvidia.Hardware...).  Second preference would be something matching an EM config.  Ideally we\u0027d at least have a vendor name here.",
+      "parentUuid": "91029bd5_d1607f82",
+      "range": {
+        "startLine": 7,
+        "startChar": 37,
+        "endLine": 7,
+        "endChar": 42
+      },
+      "revId": "6ce709d574323ce93f9f6d6b9ecaf05e62a5dffb",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
