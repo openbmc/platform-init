@@ -74,6 +74,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "720a2091_5763fc32",
+        "filename": ".gitignore",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1000153
+      },
+      "writtenOn": "2025-08-22T22:03:59Z",
+      "side": 1,
+      "message": "Yeah, Patrick is technically right, I mostly just don\u0027t care 😊\n\nMost of the per-editor configs we got were because we automatically generated the .gitignore from gitignore.io, but those turned out to be a bad idea anyway.",
+      "parentUuid": "667ab09e_eaa83338",
+      "revId": "6ce709d574323ce93f9f6d6b9ecaf05e62a5dffb",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "51990d04_eb21136e",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 1
@@ -202,6 +220,48 @@
       "side": 1,
       "message": "👍",
       "parentUuid": "55703860_aa80f117",
+      "revId": "6ce709d574323ce93f9f6d6b9ecaf05e62a5dffb",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5db3713d_061a72fe",
+        "filename": "meson.build",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000153
+      },
+      "writtenOn": "2025-08-22T22:03:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "facdf8b6_9a8b59af",
+      "revId": "6ce709d574323ce93f9f6d6b9ecaf05e62a5dffb",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9f3ee4bb_68ca36a2",
+        "filename": "meson.build",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000153
+      },
+      "writtenOn": "2025-08-22T22:03:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "08b3b8c0_d56bb360",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 8
+      },
       "revId": "6ce709d574323ce93f9f6d6b9ecaf05e62a5dffb",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
@@ -343,6 +403,54 @@
         "startChar": 38,
         "endLine": 12,
         "endChar": 63
+      },
+      "revId": "6ce709d574323ce93f9f6d6b9ecaf05e62a5dffb",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "26792006_1df5c3bb",
+        "filename": "meson.build",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000153
+      },
+      "writtenOn": "2025-08-22T22:03:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6722ccde_d71aef30",
+      "range": {
+        "startLine": 12,
+        "startChar": 38,
+        "endLine": 12,
+        "endChar": 63
+      },
+      "revId": "6ce709d574323ce93f9f6d6b9ecaf05e62a5dffb",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "29aecc52_be39c404",
+        "filename": "meson.build",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000153
+      },
+      "writtenOn": "2025-08-22T22:03:59Z",
+      "side": 1,
+      "message": "Fixed, and just inlined the get_option call.",
+      "parentUuid": "a05ad365_3e857a11",
+      "range": {
+        "startLine": 12,
+        "startChar": 10,
+        "endLine": 12,
+        "endChar": 37
       },
       "revId": "6ce709d574323ce93f9f6d6b9ecaf05e62a5dffb",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
@@ -666,6 +774,24 @@
       "side": 1,
       "message": "just an empty enum class for strong typing. There\u0027s probably a better way.",
       "parentUuid": "a6f95b63_e1e27306",
+      "revId": "6ce709d574323ce93f9f6d6b9ecaf05e62a5dffb",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "32a04e7e_be4f777f",
+        "filename": "platform.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1000153
+      },
+      "writtenOn": "2025-08-22T22:03:59Z",
+      "side": 1,
+      "message": "if we do that, we always have to static_cast at hte call site, right?\n\nnew_device(static_cast\u003cBus\u003e(1), static_cast\u003cAddress\u003e(0x20));\n\nSeems way worse?  Or I\u0027m missing something.",
+      "parentUuid": "1ad0e0bf_e38d9970",
       "revId": "6ce709d574323ce93f9f6d6b9ecaf05e62a5dffb",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
