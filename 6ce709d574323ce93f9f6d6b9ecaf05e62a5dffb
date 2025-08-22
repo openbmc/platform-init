@@ -326,6 +326,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6722ccde_d71aef30",
+        "filename": "meson.build",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000153
+      },
+      "writtenOn": "2025-08-22T20:30:58Z",
+      "side": 1,
+      "message": "I was thinking the debug use case, but that\u0027s not compelling enough to move it to bin.  ACK.",
+      "parentUuid": "071664ce_2ba013fd",
+      "range": {
+        "startLine": 12,
+        "startChar": 38,
+        "endLine": 12,
+        "endChar": 63
+      },
+      "revId": "6ce709d574323ce93f9f6d6b9ecaf05e62a5dffb",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "82b41ea2_de782ea1",
         "filename": "meson.build",
         "patchSetId": 1
@@ -864,6 +888,30 @@
       "side": 1,
       "message": "My preference would be that we using something valid for `Inventory.Decorator.Compatible.Names` (com.nvidia.Hardware...).  Second preference would be something matching an EM config.  Ideally we\u0027d at least have a vendor name here.",
       "parentUuid": "91029bd5_d1607f82",
+      "range": {
+        "startLine": 7,
+        "startChar": 37,
+        "endLine": 7,
+        "endChar": 42
+      },
+      "revId": "6ce709d574323ce93f9f6d6b9ecaf05e62a5dffb",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "348df0e5_83de065a",
+        "filename": "platform_init.service",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000153
+      },
+      "writtenOn": "2025-08-22T20:30:58Z",
+      "side": 1,
+      "message": "what does using Inventory.Decorator.Compatible.Names get us here?\n\nI really want to avoid the whole \"com.nvidia\" thing.  it adds a lot of unnecessary noise, and doesn\u0027t help define ownership.  Technically per IANA rules, all of these are \"xzy.openbmc_project.\" if we\u0027re being specific about it, right?\n\nI do think that we need something that includes the vendor ID.  I can get that added.  nvidia-gb200 is what I would probably suggest as a starting point.",
+      "parentUuid": "f1bd93b2_45c9b56d",
       "range": {
         "startLine": 7,
         "startChar": 37,
