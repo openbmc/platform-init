@@ -882,6 +882,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ac9d6ad3_0ef86069",
+        "filename": "platform.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1002504
+      },
+      "writtenOn": "2025-08-25T16:47:46Z",
+      "side": 1,
+      "message": "so, I\u0027m probably in the minority on this one. I\u0027d rather have to type out static_cast\u003cBus\u003e(1) or make_bus(1) or make\u003cBus\u003e(1) whatever than have to hunt down where I put the wrong int in the wrong position. That said, I\u0027m not going to die on this hill.",
+      "parentUuid": "32a04e7e_be4f777f",
+      "revId": "6ce709d574323ce93f9f6d6b9ecaf05e62a5dffb",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "47156376_4ea9705a",
         "filename": "platform.cpp",
         "patchSetId": 1
