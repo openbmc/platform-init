@@ -704,6 +704,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "05cfc0cb_2896db5f",
+        "filename": "meson.options",
+        "patchSetId": 1
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1000153
+      },
+      "writtenOn": "2025-08-25T23:45:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9106c4c1_abc45310",
+      "revId": "6ce709d574323ce93f9f6d6b9ecaf05e62a5dffb",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a6ab433a_335186f6",
@@ -898,6 +916,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e0828a6a_bf96f899",
+        "filename": "platform.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1000153
+      },
+      "writtenOn": "2025-08-25T23:45:39Z",
+      "side": 1,
+      "message": "I\u0027d be for something like\n\nnew_device(Bus(1), Address(1));\n\nLets follow up on that in a next patch and discuss options.",
+      "parentUuid": "ac9d6ad3_0ef86069",
+      "revId": "6ce709d574323ce93f9f6d6b9ecaf05e62a5dffb",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "47156376_4ea9705a",
@@ -946,6 +982,24 @@
       "writtenOn": "2025-08-21T00:52:59Z",
       "side": 1,
       "message": "is this supposed to be commented out? same below on line 387.",
+      "revId": "6ce709d574323ce93f9f6d6b9ecaf05e62a5dffb",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9dc49ccf_600b368b",
+        "filename": "platform.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 381,
+      "author": {
+        "id": 1000153
+      },
+      "writtenOn": "2025-08-25T23:45:39Z",
+      "side": 1,
+      "message": "Yes.  The goal is to continue if something doesn\u0027t exist so we can still init as much as we can.",
+      "parentUuid": "001c398c_3f3ac8d9",
       "revId": "6ce709d574323ce93f9f6d6b9ecaf05e62a5dffb",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
@@ -1016,6 +1070,24 @@
       "writtenOn": "2025-08-21T00:52:59Z",
       "side": 1,
       "message": "this piece we could just move into main rather than requiring every platform_init to do it. not blocking.",
+      "revId": "6ce709d574323ce93f9f6d6b9ecaf05e62a5dffb",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a68f42c4_4309d6c7",
+        "filename": "platform.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 416,
+      "author": {
+        "id": 1000153
+      },
+      "writtenOn": "2025-08-25T23:45:39Z",
+      "side": 1,
+      "message": "If we add other things, I\u0027d rather this stays here for now.",
+      "parentUuid": "042e1580_112964dd",
       "revId": "6ce709d574323ce93f9f6d6b9ecaf05e62a5dffb",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
