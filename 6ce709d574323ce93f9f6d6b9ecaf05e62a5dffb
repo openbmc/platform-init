@@ -503,6 +503,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c107870c_75f37e60",
+        "filename": "meson.build",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000153
+      },
+      "writtenOn": "2025-08-25T16:29:10Z",
+      "side": 1,
+      "message": "It\u0027s a secondary platform now, platform option is moved to a meson option (for now) but we have a mega binary, please reopen if you had something else in mind.",
+      "parentUuid": "d365d40c_208dca4e",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 44
+      },
+      "revId": "6ce709d574323ce93f9f6d6b9ecaf05e62a5dffb",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "00726444_33bc8007",
@@ -550,6 +574,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ead312d9_4bcbe4fe",
+        "filename": "meson.build",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000153
+      },
+      "writtenOn": "2025-08-25T16:29:10Z",
+      "side": 1,
+      "message": "Fixed in latest",
+      "parentUuid": "a265052b_477f5863",
+      "range": {
+        "startLine": 31,
+        "startChar": 48,
+        "endLine": 31,
+        "endChar": 68
+      },
+      "revId": "6ce709d574323ce93f9f6d6b9ecaf05e62a5dffb",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "da0b452f_dec2465e",
@@ -585,6 +633,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3e80cd63_5b2c2798",
+        "filename": "meson.options",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000153
+      },
+      "writtenOn": "2025-08-25T16:29:10Z",
+      "side": 1,
+      "message": "This option is now gone.",
+      "parentUuid": "d0fdc65c_7c8c5742",
+      "revId": "6ce709d574323ce93f9f6d6b9ecaf05e62a5dffb",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "46b23e3e_26cd7034",
@@ -616,6 +682,24 @@
       "side": 1,
       "message": "It all compiles, there\u0027s an if constexpr that makes sure it doesn\u0027t get included.",
       "parentUuid": "46b23e3e_26cd7034",
+      "revId": "6ce709d574323ce93f9f6d6b9ecaf05e62a5dffb",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9106c4c1_abc45310",
+        "filename": "meson.options",
+        "patchSetId": 1
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1000153
+      },
+      "writtenOn": "2025-08-25T16:29:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f94fb447_870c8a95",
       "revId": "6ce709d574323ce93f9f6d6b9ecaf05e62a5dffb",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
