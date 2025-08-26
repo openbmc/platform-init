@@ -1376,6 +1376,30 @@
       },
       "revId": "6ce709d574323ce93f9f6d6b9ecaf05e62a5dffb",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5af49e00_6a0da80b",
+        "filename": "platform_init.service",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2025-08-26T20:27:12Z",
+      "side": 1,
+      "message": "I\u0027m not expecting this to provide a dbus interface but I am anticipating it being a dbus client.  We talked in the design document about something like a \"detect\" as the argument, which would be used to indicate \"go to entity-manager to decide what kind of device this is\".",
+      "parentUuid": "5c7e8115_da8eb445",
+      "range": {
+        "startLine": 7,
+        "startChar": 37,
+        "endLine": 7,
+        "endChar": 42
+      },
+      "revId": "6ce709d574323ce93f9f6d6b9ecaf05e62a5dffb",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
