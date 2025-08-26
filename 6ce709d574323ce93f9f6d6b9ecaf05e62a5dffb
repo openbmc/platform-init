@@ -1328,6 +1328,30 @@
       },
       "revId": "6ce709d574323ce93f9f6d6b9ecaf05e62a5dffb",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b704240d_ea436fa4",
+        "filename": "platform_init.service",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2025-08-26T13:16:32Z",
+      "side": 1,
+      "message": "\u003e what does using Inventory.Decorator.Compatible.Names get us here?\n\nIt lets us be able to match against EM records?  Isn\u0027t that a good thing?\n\n\u003e I really want to avoid the whole \"com.nvidia\" thing. it adds a lot of unnecessary noise, and doesn\u0027t help define ownership.\n\nIf you don\u0027t like the way Compatible.Names is defined, maybe propose a change?  \"I don\u0027t like it\" wouldn\u0027t fly for anyone else on the project, would it?\n\nI\u0027m not following how \"com.nvidia.\" is really that much more noise than \"nvidia-\".  From a Yocto perspective, you should already be defining `OBMC_COMPATIBLE_NAMES` in your platform and we can have the recipe, by default, use that for the @PLATFORM@ identifier.  This isn\u0027t something you\u0027re going to be typing.",
+      "parentUuid": "348df0e5_83de065a",
+      "range": {
+        "startLine": 7,
+        "startChar": 37,
+        "endLine": 7,
+        "endChar": 42
+      },
+      "revId": "6ce709d574323ce93f9f6d6b9ecaf05e62a5dffb",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
