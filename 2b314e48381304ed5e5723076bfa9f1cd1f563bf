@@ -1,0 +1,11 @@
+Verified+1: OpenBMC CI <openbmcbump-ci@yahoo.com>
+Code-Review+1: Patrick Williams <patrick@stwcx.xyz>
+Code-Review+2: Ed Tanous <ed@tanous.net>
+Code-Review+1: Marc Olberding <molberding@nvidia.com>
+Submitted-by: Ed Tanous <ed@tanous.net>
+Submitted-at: Tue, 26 Aug 2025 18:05:14 +0000
+Reviewed-on: https://gerrit.openbmc.org/c/openbmc/platform-init/+/82947
+Comments-Total: 71
+Comments-Unresolved: 2
+Project: openbmc/platform-init
+Branch: refs/heads/main
