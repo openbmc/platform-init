@@ -1023,6 +1023,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "14adc886_f53de42b",
+        "filename": "platform.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 314,
+      "author": {
+        "id": 1000153
+      },
+      "writtenOn": "2025-08-26T01:17:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9782d086_a1b7a170",
+      "revId": "6ce709d574323ce93f9f6d6b9ecaf05e62a5dffb",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "001c398c_3f3ac8d9",
