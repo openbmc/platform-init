@@ -1352,6 +1352,30 @@
       },
       "revId": "6ce709d574323ce93f9f6d6b9ecaf05e62a5dffb",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5c7e8115_da8eb445",
+        "filename": "platform_init.service",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000153
+      },
+      "writtenOn": "2025-08-26T18:05:00Z",
+      "side": 1,
+      "message": "Let me think on that some more.  In the design doc this intentionally didn\u0027t have a dbus interface, so I need to understand why we\u0027re trying to apply DBus semantics to something that as currently defined doesn\u0027t have DBus.\n\nLike you said, lets merge this, and follow up.\n\n\u003e maybe propose a change?\n\nI haven\u0027t needed to use compatible names yet, so I\u0027m not fully read up on what it provides.  I will fix that on my end and read up.\n\nYou\u0027re right, \"more noise\" isn\u0027t a good technical argument, so I will retract it for now.",
+      "parentUuid": "b704240d_ea436fa4",
+      "range": {
+        "startLine": 7,
+        "startChar": 37,
+        "endLine": 7,
+        "endChar": 42
+      },
+      "revId": "6ce709d574323ce93f9f6d6b9ecaf05e62a5dffb",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
