@@ -12,11 +12,14 @@ libsystemd_dep = dependency('libsystemd')
 
 cli11_dep = dependency('CLI11', required: true, include_type: 'system')
 
+platform_srcs = files('nvidia/gb200.cpp')
+util_srcs = files('i2c.cpp', 'gpio.cpp', 'utilities.cpp')
+
 exe = executable(
     'platform',
-    ['platform.cpp', 'i2c.cpp', 'gpio.cpp', 'utilities.cpp'],
+    ['platform.cpp'] + platform_srcs + util_srcs,
     dependencies: [gpiodcxx_dep, libsystemd_dep, cli11_dep],
-    include_directories: ['.'],
+    include_directories: ['.', 'nvidia'],
     install: true,
     install_dir: get_option('libexecdir'),
 )
@@ -31,5 +34,3 @@ configure_file(
         {'PLATFORM_NAME': get_option('platform-name')},
     ),
 )
-
-
