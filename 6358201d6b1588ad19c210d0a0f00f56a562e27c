@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "78f51b4a_ab452fa2",
+        "filename": "gpio.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1002504
+      },
+      "writtenOn": "2025-08-27T21:49:26Z",
+      "side": 1,
+      "message": "this needs documentation probably, and elsewhere",
+      "revId": "6358201d6b1588ad19c210d0a0f00f56a562e27c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f9b28b73_d9218308",
+        "filename": "i2c.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1002504
+      },
+      "writtenOn": "2025-08-27T21:49:26Z",
+      "side": 1,
+      "message": "no tabs. Also will follow up with stronger typing in a followup review.",
+      "revId": "6358201d6b1588ad19c210d0a0f00f56a562e27c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
