@@ -14,7 +14,7 @@ cli11_dep = dependency('CLI11', required: true, include_type: 'system')
 
 exe = executable(
     'platform',
-    'platform.cpp',
+    ['platform.cpp', 'i2c.cpp', 'gpio.cpp', 'utilities.cpp'],
     dependencies: [gpiodcxx_dep, libsystemd_dep, cli11_dep],
     include_directories: ['.'],
     install: true,
@@ -31,3 +31,5 @@ configure_file(
         {'PLATFORM_NAME': get_option('platform-name')},
     ),
 )
+
+
