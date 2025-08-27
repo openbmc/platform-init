@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "44d531fd_52f88ed1",
+        "filename": "gpio.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000153
+      },
+      "writtenOn": "2025-08-27T22:25:41Z",
+      "side": 1,
+      "message": "Let me get on that.",
+      "parentUuid": "e16f5ac5_2e93401f",
+      "revId": "6358201d6b1588ad19c210d0a0f00f56a562e27c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "78f51b4a_ab452fa2",
         "filename": "gpio.hpp",
         "patchSetId": 1
@@ -60,6 +78,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "52269f55_6c297cf7",
+        "filename": "gpio.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000153
+      },
+      "writtenOn": "2025-08-27T22:25:41Z",
+      "side": 1,
+      "message": "This one adds logging.  Might not be needed other than that.",
+      "parentUuid": "e8ad03eb_dbbe75ed",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 31
+      },
+      "revId": "6358201d6b1588ad19c210d0a0f00f56a562e27c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5344d608_3f905b26",
         "filename": "i2c.cpp",
         "patchSetId": 1
@@ -88,6 +130,46 @@
       "writtenOn": "2025-08-27T21:49:26Z",
       "side": 1,
       "message": "no tabs. Also will follow up with stronger typing in a followup review.",
+      "revId": "6358201d6b1588ad19c210d0a0f00f56a562e27c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "78631d6a_8ae5a219",
+        "filename": "platform.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1000153
+      },
+      "writtenOn": "2025-08-27T22:25:41Z",
+      "side": 1,
+      "message": "I really liked how you could read the old one like a sentence.  Oh well, I guess this is progress.",
+      "range": {
+        "startLine": 74,
+        "startChar": 4,
+        "endLine": 74,
+        "endChar": 13
+      },
+      "revId": "6358201d6b1588ad19c210d0a0f00f56a562e27c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b0fdd40d_e32bca61",
+        "filename": "utilities.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000153
+      },
+      "writtenOn": "2025-08-27T22:25:41Z",
+      "side": 1,
+      "message": "This is the laziest way I found to write this.  Could use inotify in the future.",
       "revId": "6358201d6b1588ad19c210d0a0f00f56a562e27c",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
