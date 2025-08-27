@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e16f5ac5_2e93401f",
+        "filename": "gpio.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2025-08-27T22:02:26Z",
+      "side": 1,
+      "message": "Would be nice to get these converted to lg2 to align with the rest of the project.",
+      "revId": "6358201d6b1588ad19c210d0a0f00f56a562e27c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "78f51b4a_ab452fa2",
         "filename": "gpio.hpp",
         "patchSetId": 1
@@ -14,6 +31,46 @@
       "writtenOn": "2025-08-27T21:49:26Z",
       "side": 1,
       "message": "this needs documentation probably, and elsewhere",
+      "revId": "6358201d6b1588ad19c210d0a0f00f56a562e27c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e8ad03eb_dbbe75ed",
+        "filename": "gpio.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2025-08-27T22:02:26Z",
+      "side": 1,
+      "message": "Is there any reason why this is better than just using libgpiod-cxx directly?  It isn\u0027t clear to me...",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 31
+      },
+      "revId": "6358201d6b1588ad19c210d0a0f00f56a562e27c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5344d608_3f905b26",
+        "filename": "i2c.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2025-08-27T22:02:26Z",
+      "side": 1,
+      "message": "How do we plan to handle two different DC-SCM in the same server: Aspeed-2600 and Aspeed-2700 (as examples)?  The bus numbers could change between the two BMC chips.",
       "revId": "6358201d6b1588ad19c210d0a0f00f56a562e27c",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
