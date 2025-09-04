@@ -35,6 +35,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "05a65bcd_02c90e12",
+        "filename": "i2c.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1002504
+      },
+      "writtenOn": "2025-09-04T20:02:15Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "45d655b4_0b209456",
+      "revId": "f9369f5285045ac8e92af7e7167c7b5a616ef292",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ac6f0f9a_4d9a49de",
@@ -112,6 +130,24 @@
       "writtenOn": "2025-09-04T18:48:06Z",
       "side": 1,
       "message": "nit, can we make this a utility that opens devmem directly instead of calling system?",
+      "revId": "f9369f5285045ac8e92af7e7167c7b5a616ef292",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ed5aee22_921ffcb6",
+        "filename": "nvidia/nvl32.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1002504
+      },
+      "writtenOn": "2025-09-04T20:02:15Z",
+      "side": 1,
+      "message": "we\u0027re going to do this in a followup",
+      "parentUuid": "6bc00200_544d3246",
       "revId": "f9369f5285045ac8e92af7e7167c7b5a616ef292",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
