@@ -73,6 +73,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "53b8596b_5dd094f8",
+        "filename": "gpio.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2025-09-04T16:22:25Z",
+      "side": 1,
+      "message": "Yeah, can we get some doxygen here?",
+      "parentUuid": "78f51b4a_ab452fa2",
+      "revId": "6358201d6b1588ad19c210d0a0f00f56a562e27c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e8ad03eb_dbbe75ed",
         "filename": "gpio.hpp",
         "patchSetId": 1
@@ -118,6 +136,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a39432f2_e42f2ce6",
+        "filename": "gpio.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2025-09-04T16:22:25Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "52269f55_6c297cf7",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 31
+      },
+      "revId": "6358201d6b1588ad19c210d0a0f00f56a562e27c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5344d608_3f905b26",
@@ -149,6 +191,24 @@
       "side": 1,
       "message": "There was some back and forth on this on Ed\u0027s patch. The idea was to change this to be a bus number rather than this crappy string, and keep a map internally to this function. We could expand that to do a check internally based on the SoC (we should be able to get that from the filesystem somewhere, or from a reg in the absolute worst case). I\u0027m not sold on this idea, just a thought. I do (in a future patch), want to get rid of this hacky string passing.",
       "parentUuid": "5344d608_3f905b26",
+      "revId": "6358201d6b1588ad19c210d0a0f00f56a562e27c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "785c56fe_d0c9b762",
+        "filename": "i2c.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2025-09-04T16:22:25Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "c06ac42d_8699aa62",
       "revId": "6358201d6b1588ad19c210d0a0f00f56a562e27c",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
