@@ -1,0 +1,95 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "26f48e44_a51047bb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000153
+      },
+      "writtenOn": "2025-09-04T18:48:06Z",
+      "side": 1,
+      "message": "incremental comments",
+      "revId": "f9369f5285045ac8e92af7e7167c7b5a616ef292",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "45d655b4_0b209456",
+        "filename": "i2c.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1000153
+      },
+      "writtenOn": "2025-09-04T18:48:06Z",
+      "side": 1,
+      "message": "Log something before you throw please.  And arguably we should be catching the throw so init can continue if this fails.",
+      "revId": "f9369f5285045ac8e92af7e7167c7b5a616ef292",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ac6f0f9a_4d9a49de",
+        "filename": "i2c.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1000153
+      },
+      "writtenOn": "2025-09-04T18:48:06Z",
+      "side": 1,
+      "message": "nit, newline to be consistent.",
+      "revId": "f9369f5285045ac8e92af7e7167c7b5a616ef292",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f651399b_218ba453",
+        "filename": "i2c.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000153
+      },
+      "writtenOn": "2025-09-04T18:48:06Z",
+      "side": 1,
+      "message": "Not sure if this was intentional, but we should probably support both move constructors or neither.",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 36
+      },
+      "revId": "f9369f5285045ac8e92af7e7167c7b5a616ef292",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6bc00200_544d3246",
+        "filename": "nvidia/nvl32.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000153
+      },
+      "writtenOn": "2025-09-04T18:48:06Z",
+      "side": 1,
+      "message": "nit, can we make this a utility that opens devmem directly instead of calling system?",
+      "revId": "f9369f5285045ac8e92af7e7167c7b5a616ef292",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
