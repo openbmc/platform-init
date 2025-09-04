@@ -163,6 +163,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d911c11e_3c85528b",
+        "filename": "gpio.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2025-09-04T18:58:28Z",
+      "side": 1,
+      "message": "sdbusplus also does.  It even generates doxygen for the bindings it creates, from the YAML definitions.\n\nMany of our non-library [application] repositories also do.\n\n```\n$ rg \"@param\" -t cpp -l | sed \"s#/.*##\" | sort | uniq | gh gist create          \n- Creating gist...\n✓ Created secret gist\n```\nhttps://gist.github.com/williamspatrick/e0ffb79138f36beea51dd1c834b9b2d0",
+      "parentUuid": "49f370d3_ab09642b",
+      "revId": "6358201d6b1588ad19c210d0a0f00f56a562e27c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e8ad03eb_dbbe75ed",
         "filename": "gpio.hpp",
         "patchSetId": 1
