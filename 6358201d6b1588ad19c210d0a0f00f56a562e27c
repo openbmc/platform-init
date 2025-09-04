@@ -127,6 +127,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "face0ff6_ab40f607",
+        "filename": "gpio.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000153
+      },
+      "writtenOn": "2025-09-04T18:38:58Z",
+      "side": 1,
+      "message": "If it\u0027s ok, I\u0027d like to not hold up this refactor on that.  I added these methods originally, I can go clean them up if we\u0027re going to require doxygen.\n\nsdbusplus doesn\u0027t use doxygen anywhere, does it?  stdplus doesn\u0027t that I can see.  libcper/libpldm doesn\u0027t.  What common library does openbmc use do a good job of doxygen strings?  I\u0027m happy to start with platform-init, I\u0027m just a little surprised at the request.",
+      "parentUuid": "b6030cb2_ece8a7b5",
+      "revId": "6358201d6b1588ad19c210d0a0f00f56a562e27c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e8ad03eb_dbbe75ed",
         "filename": "gpio.hpp",
         "patchSetId": 1
