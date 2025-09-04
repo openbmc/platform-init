@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "10ae0a38_37f84cdd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2025-09-04T16:22:09Z",
+      "side": 1,
+      "message": "@ed@tanous.net - Can you give feedback on this?  New files are being added with other commits with new SPDX-FileCopyrightText and we don\u0027t have a project policy to add those.",
+      "revId": "9439282ae3d27760c0a9c10996472ad49475a25c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
