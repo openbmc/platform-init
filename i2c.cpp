@@ -3,9 +3,22 @@
 
 #include "i2c.hpp"
 
+#include <fcntl.h>
+#include <linux/i2c-dev.h>
+#include <sys/ioctl.h>
+#include <unistd.h>
+
+#include <filesystem>
 #include <format>
 #include <fstream>
 #include <iostream>
+
+extern "C"
+{
+#include <i2c/smbus.h>
+#include <linux/i2c-dev.h>
+}
+
 namespace i2c
 {
 
@@ -68,4 +81,42 @@ void new_device(unsigned int bus, unsigned int address,
 
     std::cerr << std::format("{} device created at bus {}", device_type, bus);
 }
+
+RawDevice::RawDevice(size_t bus, uint8_t address)
+{
+    std::string bus_path = std::format("/dev/i2c-{}", bus);
+    std::filesystem::path dev_path = bus_path;
+    fd = open(dev_path.c_str(), O_RDWR);
+    if (fd < 0)
+    {
+        throw std::runtime_error(
+            std::format("Failed to open {}", dev_path.native()));
+    }
+
+    if (ioctl(fd, I2C_SLAVE, address) < 0)
+    {
+        // dtor won't be called since we never finished constructing it, clean
+        // up our fd
+        close(fd);
+        throw std::runtime_error(
+            std::format("Failed to specify address {}", address));
+    }
+}
+
+RawDevice::~RawDevice()
+{
+    close(fd);
+}
+int RawDevice::read_byte(uint8_t reg, uint8_t& val)
+{
+    int result = i2c_smbus_read_byte_data(fd, reg);
+    if (result < 0)
+    {
+        return -result;
+    }
+
+    val = result;
+    return 0;
+}
+
 } // namespace i2c
