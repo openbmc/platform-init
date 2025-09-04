@@ -34,6 +34,24 @@
       "parentUuid": "10ae0a38_37f84cdd",
       "revId": "9439282ae3d27760c0a9c10996472ad49475a25c",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2cf27ea6_3fc4cae8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2025-09-04T18:38:13Z",
+      "side": 1,
+      "message": "\u003e Does these existing have a practical problem I can come back to?\n\nMy issue is that they quickly become inaccurate, as code changes, and are in my opinion noise.  Nearly no files in the Linux kernel have such a flag.  I don\u0027t see why we should start adding them.\n\nAs part of the CLA you\u0027ve already given a copyright grant, including our ability to _relicense_ and _sublicense_ your code.\n\n```\nArguably I also should\u0027ve added\n// SPDX-FileCopyrightText: Copyright OpenBMC Authors\n```\n\nI\u0027ve seen this in a few places, but I\u0027m entirely unsure why.  A copyright is by the creator, which is a legal entity.  There is no such \"OpenBMC Authors\" as a legal entity so, in my eyes, any statement like that is entirely non-beneficial.\n\nIf we had to satisfy every company\u0027s arbitrary \"legal department\" requirements, I don\u0027t think we\u0027d make it anywhere as a project.  I really don\u0027t see it appropriate that your internal policies somehow trickle out into the project, at least not without any discussion.",
+      "parentUuid": "77796dd2_f75b7078",
+      "revId": "9439282ae3d27760c0a9c10996472ad49475a25c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
