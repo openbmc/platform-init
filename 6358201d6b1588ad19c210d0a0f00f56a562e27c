@@ -109,6 +109,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b6030cb2_ece8a7b5",
+        "filename": "gpio.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2025-09-04T18:10:54Z",
+      "side": 1,
+      "message": "It was mean as a short hand for documenting the interfaces in doxygen/javadocs style. I don’t care about the tools themselves but it’s pretty standard way to document C++ and widely used in openbmc, yes.",
+      "parentUuid": "0500ddae_899b4400",
+      "revId": "6358201d6b1588ad19c210d0a0f00f56a562e27c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e8ad03eb_dbbe75ed",
         "filename": "gpio.hpp",
         "patchSetId": 1
