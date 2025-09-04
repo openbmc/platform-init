@@ -145,6 +145,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "49f370d3_ab09642b",
+        "filename": "gpio.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000153
+      },
+      "writtenOn": "2025-09-04T18:42:35Z",
+      "side": 1,
+      "message": "Sorry, this was slightly wrong, libpldm does in fact do doxygen.",
+      "parentUuid": "face0ff6_ab40f607",
+      "revId": "6358201d6b1588ad19c210d0a0f00f56a562e27c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e8ad03eb_dbbe75ed",
         "filename": "gpio.hpp",
         "patchSetId": 1
