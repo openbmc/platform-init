@@ -181,6 +181,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2b0b3b5b_1d5db8a9",
+        "filename": "gpio.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000153
+      },
+      "writtenOn": "2025-09-04T19:35:19Z",
+      "side": 1,
+      "message": "Yep... right you are.  I was looking at a file that didn\u0027t have docs.  I\u0027ll get them added at the top of this series.",
+      "parentUuid": "d911c11e_3c85528b",
+      "revId": "6358201d6b1588ad19c210d0a0f00f56a562e27c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e8ad03eb_dbbe75ed",
         "filename": "gpio.hpp",
         "patchSetId": 1
