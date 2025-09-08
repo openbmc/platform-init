@@ -21,6 +21,9 @@ void sleep_milliseconds(std::chrono::milliseconds milliseconds)
 void wait_for_path_to_exist(std::string_view path,
                             std::chrono::milliseconds timeout)
 {
+    auto now = std::chrono::steady_clock::now();
+    auto end = now + timeout;
+    std::cerr << std::format("waiting for {} to exist\n", path);
     while (true)
     {
         std::error_code ec;
@@ -29,8 +32,13 @@ void wait_for_path_to_exist(std::string_view path,
         {
             return;
         }
-        sleep_milliseconds(1ms);
-        timeout -= 1ms;
+        std::this_thread::sleep_for(1ms);
+
+        now = std::chrono::steady_clock::now();
+        if (now > end)
+        {
+            break;
+        }
     }
-    std::cerr << std::format("Failed to wait for {} to exist", path);
+    std::cerr << std::format("Failed to wait for {} to exist\n", path);
 }
