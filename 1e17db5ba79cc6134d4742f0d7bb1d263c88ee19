@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "53763ab3_f3993172",
+        "filename": "gpio.hpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1001198
+      },
+      "writtenOn": "2025-09-09T06:54:45Z",
+      "side": 1,
+      "message": "In the https://github.com/openbmc/docs/blob/master/cpp-style-and-conventions.md#variables, the variable/function\u0027s name should be lowerCamelCase. Could you update the name of variables and functions to follow this rule? please check others",
+      "range": {
+        "startLine": 16,
+        "startChar": 5,
+        "endLine": 16,
+        "endChar": 12
+      },
+      "revId": "1e17db5ba79cc6134d4742f0d7bb1d263c88ee19",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
