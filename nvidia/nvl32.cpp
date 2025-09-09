@@ -4,12 +4,19 @@
 
 #include <systemd/sd-daemon.h>
 
+#include <sdbusplus/asio/connection.hpp>
+
 #include <chrono>
 #include <filesystem>
 #include <fstream>
 #include <iostream>
 #include <thread>
+#include <unordered_map>
 
+using JsonVariantType =
+    std::variant<uint8_t, std::vector<std::string>, std::vector<double>,
+                 std::string, int64_t, uint64_t, double, int32_t, uint32_t,
+                 int16_t, uint16_t, bool>;
 namespace nvidia
 {
 
@@ -65,6 +72,8 @@ void probe_dev(size_t bus, uint8_t address, std::string_view dev_type)
 {
     std::filesystem::path path =
         std::format("/sys/bus/i2c/devices/i2c-{}/new_device", bus);
+
+    wait_for_path_to_exist(path.native(), std::chrono::milliseconds{1000});
 
     std::ofstream f{path};
     if (!f.good())
@@ -171,22 +180,281 @@ void bringup_cx8_mcio(size_t mux_addr, size_t channel, bool has_cx8)
     bringup_gpus_on_mcio(bus);
 }
 
-void enumerate_mctp(int dev_num)
-{
-    // TODO: Make this a proper dbus client
-    std::string preamble = "busctl call au.com.codeconstruct.MCTP1";
-    std::string postamble =
-        "au.com.codeconstruct.MCTP1.BusOwner1 AssignEndpoint ay 0";
+const char* mctpd_service = "au.com.codeconstruct.MCTP1";
+const char* mctp_obj = "/au/com/codeconstruct/mctp1/";
+const char* mctp_busowner = "au.com.codeconstruct.MCTP.BusOwner1";
+const char* mctp_bridge = "au.com.codeconstruct.MCTP.Bridge1";
 
-    std::string cmd =
-        std::format("{} /au/com/codeconstruct/mctp1/interfaces/mctpusb{} {}",
-                    preamble, dev_num, postamble);
-    logged_system(cmd);
+template <typename PropertyType>
+PropertyType get_property(const char* service, const char* object,
+                          const char* interface, const char* property_name)
+{
+    auto b = sdbusplus::bus::new_default_system();
+    auto m = b.new_method_call(service, object,
+                               "org.freedesktop.DBus.Properties", "Get");
+    m.append(interface, property_name);
+
+    std::variant<PropertyType> t;
+    auto reply = b.call(m);
+
+    reply.read(t);
+    return std::get<PropertyType>(t);
 }
 
-void wait_for_usb_to_probe()
+// given a device index
+// enumerate the mctp interface
+// and give back the eid
+uint8_t enumerate_mctp(uint8_t device_idx)
 {
-    std::this_thread::sleep_for(std::chrono::seconds{20});
+    std::vector<uint8_t> address = {};
+    std::string obj = std::format(
+        "/au/com/codeconstruct/mctp1/interfaces/mctpusb{}", device_idx);
+
+    std::cerr << "calling " << obj << std::endl;
+
+    auto b = sdbusplus::bus::new_default_system();
+    auto m = b.new_method_call(mctpd_service, obj.c_str(), mctp_busowner,
+                               "AssignEndpoint");
+    m.append(address);
+
+    auto reply = b.call(m);
+
+    uint8_t eid;
+    int32_t net;
+    std::string intf;
+    bool probed;
+    reply.read(eid, net, intf, probed);
+
+    return eid;
+}
+
+// We need to get the pool start and size
+std::tuple<uint8_t, uint8_t> get_pool_start_and_size(uint8_t eid)
+{
+    std::string obj =
+        std::format("/au/com/codeconstruct/mctp1/networks/1/endpoints/{}", eid);
+    std::cerr << "calling " << obj << std::endl;
+
+    uint8_t poolstart = get_property<uint8_t>(mctpd_service, obj.c_str(),
+                                              mctp_bridge, "PoolStart");
+    uint8_t poolsize = get_property<uint8_t>(mctpd_service, obj.c_str(),
+                                             mctp_bridge, "PoolSize");
+
+    std::cerr << std::format("eid {} has pool start {} and size {}", eid,
+                             poolstart, poolsize)
+              << std::endl;
+    return {poolstart, poolsize};
+}
+
+int get_device_from_port_string(std::string_view port_string)
+{
+    std::filesystem::path path = port_string;
+    path /= "net";
+    int dev_index = -1;
+    auto p = path.native();
+    wait_for_path_to_exist(p, std::chrono::milliseconds{20000});
+
+    for (const auto& dir : std::filesystem::directory_iterator(path))
+    {
+        // this looks something like:
+        // /sys/devices/platform/ahb/1e6a3000.usb/usb1/1-1/1-1.2/1-1.2.3/1-1.2.3:1.0/net/mctpusb7
+        // we want to extract the final "7"
+        std::cerr << "Looking at " << dir.path().native() << std::endl;
+
+        auto f_name = dir.path().filename().native();
+        if (f_name.starts_with("mctpusb"))
+        {
+            std::from_chars(f_name.data() + 7, f_name.data() + f_name.size(),
+                            dev_index);
+            break;
+        }
+    }
+
+    if (dev_index == -1)
+    {
+        std::cerr << std::format("Unable to find an mctpusb net device at {}\n",
+                                 path.native());
+    }
+
+    std::cerr << "found mctp device index " << dev_index << std::endl;
+    return dev_index;
+}
+
+bool is_populated(std::string board, std::string name)
+{
+    std::string obj = std::format(
+        "/xyz/openbmc_project/inventory/system/board/{}/{}", board, name);
+    std::cerr << "inspecting " << obj << std::endl;
+    try
+    {
+        uint8_t eid = get_property<uint8_t>(
+            "xyz.openbmc_project.EntityManager", obj.c_str(),
+            "xyz.openbmc_project.Configuration.NvidiaMctpVdm", "StaticEid");
+        (void)eid;
+        return true;
+    }
+    catch (...)
+    {
+        return false;
+    }
+}
+
+void force_rescan()
+{
+    auto b = sdbusplus::bus::new_default_system();
+    auto m = b.new_method_call("xyz.openbmc_project.EntityManager",
+                               "/xyz/openbmc_project/EntityManager",
+                               "xyz.openbmc_project.EntityManager", "ReScan");
+    b.call(m);
+}
+
+void populate_gpu(std::string board, uint8_t eid, std::string name)
+{
+    if (is_populated(board, name))
+    {
+        std::cerr << name << " already exists" << std::endl;
+        return;
+    }
+
+    std::string obj =
+        std::format("/xyz/openbmc_project/inventory/system/board/{}", board);
+
+    std::cerr << "calling with " << obj << std::endl;
+
+    std::chrono::steady_clock::time_point start =
+        std::chrono::steady_clock::now();
+    std::chrono::steady_clock::time_point end = start + std::chrono::minutes{3};
+    auto b = sdbusplus::bus::new_default_system();
+    auto m = b.new_method_call("xyz.openbmc_project.EntityManager", obj.c_str(),
+                               "xyz.openbmc_project.AddObject", "AddObject");
+    std::unordered_map<std::string, JsonVariantType> param;
+    param["Name"] = name;
+    param["StaticEid"] = eid;
+    param["Type"] = "NvidiaMctpVdm";
+
+    m.append(param);
+
+    do
+    {
+        auto now = std::chrono::steady_clock::now();
+        if (now >= end)
+        {
+            std::cerr << "Timeout: Failed to add " << obj << std::endl;
+            return;
+        }
+        try
+        {
+            b.call(m);
+            return;
+        }
+        catch (...)
+        {
+            std::cerr << "Failed to find " << obj << " trying again"
+                      << std::endl;
+            std::this_thread::sleep_for(std::chrono::seconds{10});
+            continue;
+        }
+    } while (true);
+}
+
+struct bridge_device
+{
+    std::string name;
+    std::string board_name;
+};
+
+void bringup_devices()
+{
+    // There's a lot of hackery going on here
+    // This is for handling (as of today) unsupported bridged endpoints
+    // The MCU's on this platform act as MCTP bridges
+    // We know their absolute USB path through the platform hub, and that's
+    // symlinked to a mctp net device So we will start there we also know that
+    // each device the USB device is bridging to will always have the same
+    // relative ordering
+    //  inside of a given pool. This is not a generally true assumption but it
+    //  is true for our MCU's
+    // So we can put each bridge and is downstream devices through enumeration
+    // with mctpd, when we get the response, we know the bridges eid we can then
+    // ask mctpd what the pool size and start eid is for the bridge pool. From
+    // there we can infer the eid of each bridged device behind it and call
+    // AddObject on EntityManager for each board to bring up the requisite nodes
+    // beneath it which will allow the rest of the system to start behaving as
+    // expected. Once we have real support for bridged eid's, we can and should
+    // delete this mess.
+    const std::unordered_map<std::string, bridge_device> device_name_map = {
+        {"/sys/devices/platform/ahb/1e6a3000.usb/usb1/1-1/1-1.2/1-1.2.1/1-1.2.1:1.0",
+         {.name = "GPU_0", .board_name = "Nvidia_RTX6000_GPU_50"}},
+        {"/sys/devices/platform/ahb/1e6a3000.usb/usb1/1-1/1-1.1/1-1.1.2/1-1.1.2.1/1-1.1.2.1:1.0",
+         {.name = "GPU_1", .board_name = "Nvidia_RTX6000_GPU_51"}},
+        {"/sys/devices/platform/ahb/1e6a3000.usb/usb1/1-1/1-1.4/1-1.4.1/1-1.4.1:1.0",
+         {.name = "GPU_2", .board_name = "Nvidia_RTX6000_GPU_54"}},
+        {"/sys/devices/platform/ahb/1e6a3000.usb/usb1/1-1/1-1.2/1-1.2.2/1-1.2.2:1.0",
+         {.name = "GPU_3", .board_name = "Nvidia_RTX6000_GPU_55"}},
+        {"/sys/devices/platform/ahb/1e6a3000.usb/usb1/1-1/1-1.1/1-1.1.4/1-1.1.4.1/1-1.1.4.1:1.0",
+         {.name = "GPU_4", .board_name = "Nvidia_RTX6000_GPU_58"}},
+        {"/sys/devices/platform/ahb/1e6a3000.usb/usb1/1-1/1-1.1/1-1.1.2/1-1.1.2.2/1-1.1.2.2:1.0",
+         {.name = "GPU_5", .board_name = "Nvidia_RTX6000_GPU_59"}},
+        {"/sys/devices/platform/ahb/1e6a3000.usb/usb1/1-1/1-1.4/1-1.4.2/1-1.4.2:1.0",
+         {.name = "GPU_6", .board_name = "Nvidia_RTX6000_GPU_62"}},
+        {"/sys/devices/platform/ahb/1e6a3000.usb/usb1/1-1/1-1.2/1-1.2.3/1-1.2.3:1.0",
+         {.name = "CX8_0", .board_name = "NVIDIA_Alon_cx8_Fru"}},
+        {"/sys/devices/platform/ahb/1e6a3000.usb/usb1/1-1/1-1.1/1-1.1.4/1-1.1.4.2/1-1.1.4.2:1.0",
+         {.name = "GPU_7", .board_name = "Nvidia_RTX6000_GPU_63"}},
+        {"/sys/devices/platform/ahb/1e6a3000.usb/usb1/1-1/1-1.1/1-1.1.2/1-1.1.2.3/1-1.1.2.3:1.0",
+         {.name = "CX8_1", .board_name = "NVIDIA_Alon_cx8_Fru"}}};
+
+    for (const auto& [path, dev] : device_name_map)
+    {
+        std::cerr << "looking at device " << dev.name << std::endl;
+        int dev_index = get_device_from_port_string(path);
+        if (dev_index < 0)
+        {
+            std::cerr << std::format(
+                "Unable to bring up {} because it doesn't seem to exist\n",
+                dev.name);
+            continue;
+        }
+
+        // enumerate the bridge device
+        uint8_t bridge_eid = enumerate_mctp(dev_index);
+
+        auto [pool_start, pool_size] = get_pool_start_and_size(bridge_eid);
+
+        std::this_thread::sleep_for(std::chrono::milliseconds{500});
+
+        // yes this sucks, no I don't like it but we know we'll only have two
+        // types of bridged endpoints on this platform and its 9PM the night
+        // before it needs to work so we're going to do it *to* it
+        if (dev.name.starts_with("GPU"))
+        {
+            // each GPU has an SMA, as well as a GPU, they both talk over vdm
+            // so add both as seperate nodes
+            std::cerr << "Adding SMA\n";
+            populate_gpu(dev.board_name, bridge_eid, dev.name + "SMA");
+            std::cerr << "Adding GPU\n";
+            populate_gpu(dev.board_name, pool_start, dev.name);
+        }
+        else if (dev.name.starts_with("CX8"))
+        {
+            // TODO: deal with this
+            std::cerr << "Skipping CX8's for now\n";
+        }
+        else
+        {
+            std::cerr << std::format(
+                "Something awful happened with path: {}, name {}\n", path,
+                dev.name);
+        }
+    }
+}
+
+void wait_for_frus_to_probe()
+{
+    std::string path = "/sys/bus/i2c/devices/17-0056";
+    wait_for_path_to_exist(path, std::chrono::milliseconds{30 * 1000});
+
+    std::this_thread::sleep_for(std::chrono::seconds{2});
 }
 
 int init_nvl32()
@@ -195,6 +463,7 @@ int init_nvl32()
     sd_notify(0, "READY=1");
 
     wait_for_i2c_ready();
+    std::this_thread::sleep_for(std::chrono::seconds{1});
 
     create_i2c_mux(5, 0x70, "pca9548");
     create_i2c_mux(5, 0x71, "pca9548");
@@ -206,11 +475,18 @@ int init_nvl32()
     bringup_cx8_mcio(0x73, 3, true);
     bringup_cx8_mcio(0x73, 7, false);
 
-    wait_for_usb_to_probe();
-    for (int ctr = 0; ctr < 10; ++ctr)
-    {
-        enumerate_mctp(ctr);
-    }
+    // there's a weird bug in EntityManager
+    // Where Fru devices don't probe automatically
+    // We'll wait for the drivers to be probed
+    // and then force a rescan
+    // we'll follow up with a proper fix
+    wait_for_frus_to_probe();
+
+    force_rescan();
+    std::this_thread::sleep_for(std::chrono::seconds{30});
+    force_rescan();
+    std::this_thread::sleep_for(std::chrono::seconds{1});
+    bringup_devices();
     std::cerr << "platform init complete\n";
     pause();
     std::cerr << "Releasing platform\n";

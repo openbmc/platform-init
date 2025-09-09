@@ -9,6 +9,8 @@ project(
 gpiodcxx_dep = dependency('libgpiodcxx', default_options: ['bindings=cxx'])
 systemd_dep = dependency('systemd')
 libsystemd_dep = dependency('libsystemd')
+sdbusplus = dependency('sdbusplus', include_type: 'system')
+
 
 cli11_dep = dependency('CLI11', required: true, include_type: 'system')
 i2c_dep = meson.get_compiler('cpp').find_library('i2c')
@@ -18,7 +20,7 @@ util_srcs = files('gpio.cpp', 'i2c.cpp', 'utilities.cpp')
 exe = executable(
     'platform',
     ['platform.cpp'] + platform_srcs + util_srcs,
-    dependencies: [gpiodcxx_dep, libsystemd_dep, cli11_dep, i2c_dep],
+    dependencies: [gpiodcxx_dep, libsystemd_dep, cli11_dep, i2c_dep, sdbusplus],
     include_directories: ['.', 'nvidia'],
     install: true,
     install_dir: get_option('libexecdir'),
