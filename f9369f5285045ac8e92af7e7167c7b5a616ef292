@@ -55,6 +55,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "dca59018_9d370706",
+        "filename": "i2c.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1002504
+      },
+      "writtenOn": "2025-09-09T00:25:56Z",
+      "side": 1,
+      "message": "I never fixed this, apologies. will uprev.",
+      "parentUuid": "05a65bcd_02c90e12",
+      "revId": "f9369f5285045ac8e92af7e7167c7b5a616ef292",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ac6f0f9a_4d9a49de",
         "filename": "i2c.cpp",
         "patchSetId": 1
@@ -135,6 +153,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "28770b61_77cfc15a",
+        "filename": "i2c.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1002504
+      },
+      "writtenOn": "2025-09-09T00:25:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bfafe58c_e84a152f",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 36
+      },
+      "revId": "f9369f5285045ac8e92af7e7167c7b5a616ef292",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6bc00200_544d3246",
@@ -166,6 +208,24 @@
       "side": 1,
       "message": "we\u0027re going to do this in a followup",
       "parentUuid": "6bc00200_544d3246",
+      "revId": "f9369f5285045ac8e92af7e7167c7b5a616ef292",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b67be988_a67b3aa5",
+        "filename": "nvidia/nvl32.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1002504
+      },
+      "writtenOn": "2025-09-09T00:25:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ed5aee22_921ffcb6",
       "revId": "f9369f5285045ac8e92af7e7167c7b5a616ef292",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
