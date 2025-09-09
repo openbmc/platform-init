@@ -1,0 +1,9 @@
+Code-Review+2: Ed Tanous <ed@tanous.net>
+Verified+1: OpenBMC CI <openbmcbump-ci@yahoo.com>
+Submitted-by: Ed Tanous <ed@tanous.net>
+Submitted-at: Tue, 09 Sep 2025 21:59:19 +0000
+Reviewed-on: https://gerrit.openbmc.org/c/openbmc/platform-init/+/83152
+Comments-Total: 26
+Comments-Unresolved: 1
+Project: openbmc/platform-init
+Branch: refs/heads/main
