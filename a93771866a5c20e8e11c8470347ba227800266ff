@@ -1,0 +1,256 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9af1785c_51466eac",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000153
+      },
+      "writtenOn": "2025-09-11T17:21:46Z",
+      "side": 1,
+      "message": "would\u0027ve liked to see this in another commit, but meh, this isn\u0027t that big and the i2c stuff is isolated.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 57
+      },
+      "revId": "a93771866a5c20e8e11c8470347ba227800266ff",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c55c2b63_4bc40fb6",
+        "filename": "i2c.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1000153
+      },
+      "writtenOn": "2025-09-11T17:21:46Z",
+      "side": 1,
+      "message": "You probably want to catch this now everywhere this class is constructed.",
+      "revId": "a93771866a5c20e8e11c8470347ba227800266ff",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7ca99667_0a2b613a",
+        "filename": "nvidia/nvl32.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1000153
+      },
+      "writtenOn": "2025-09-11T17:21:46Z",
+      "side": 1,
+      "message": "We need some kind of sanity \"Bail out if this doesn\u0027t happen for N minutes\" so we don\u0027t get stuck in a polling loop.",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 43,
+        "endChar": 13
+      },
+      "revId": "a93771866a5c20e8e11c8470347ba227800266ff",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4ff098ba_3ff2a9fe",
+        "filename": "nvidia/nvl32.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1000153
+      },
+      "writtenOn": "2025-09-11T17:21:46Z",
+      "side": 1,
+      "message": "probably just throw an exception here?",
+      "range": {
+        "startLine": 52,
+        "startChar": 0,
+        "endLine": 52,
+        "endChar": 36
+      },
+      "revId": "a93771866a5c20e8e11c8470347ba227800266ff",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a34b8077_d2cdb4b9",
+        "filename": "nvidia/nvl32.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1000153
+      },
+      "writtenOn": "2025-09-11T17:21:46Z",
+      "side": 1,
+      "message": "This is a subtle use after free bug.\n\nstd::format produces a string as an rvalue\n\nwait_for_path_to_exist takes a string view\n\nthe rvalue is used to construct the string_view, then destroyed.\n\nThis likely works most of the time, becuase very little happens in between, but it\u0027s still technically a bug.",
+      "range": {
+        "startLine": 80,
+        "startChar": 8,
+        "endLine": 80,
+        "endChar": 67
+      },
+      "revId": "a93771866a5c20e8e11c8470347ba227800266ff",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bd012a42_0296f420",
+        "filename": "nvidia/nvl32.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1000153
+      },
+      "writtenOn": "2025-09-11T17:21:46Z",
+      "side": 1,
+      "message": "throw.",
+      "revId": "a93771866a5c20e8e11c8470347ba227800266ff",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0eaf680d_07b9e76a",
+        "filename": "nvidia/nvl32.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1000153
+      },
+      "writtenOn": "2025-09-11T17:21:46Z",
+      "side": 1,
+      "message": "?\n\nidle_f \u003c\u003c \"-2\";\n\nseems like less pomp and circumstance, but would be simpelr?",
+      "range": {
+        "startLine": 98,
+        "startChar": 0,
+        "endLine": 98,
+        "endChar": 36
+      },
+      "revId": "a93771866a5c20e8e11c8470347ba227800266ff",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "acecf9f7_672a373d",
+        "filename": "nvidia/nvl32.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1000153
+      },
+      "writtenOn": "2025-09-11T17:21:46Z",
+      "side": 1,
+      "message": "use the non throwing version of this (hand it an ec) so that you don\u0027t crash if it fails.",
+      "range": {
+        "startLine": 108,
+        "startChar": 0,
+        "endLine": 108,
+        "endChar": 67
+      },
+      "revId": "a93771866a5c20e8e11c8470347ba227800266ff",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "beabc330_78b00cb3",
+        "filename": "nvidia/nvl32.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1000153
+      },
+      "writtenOn": "2025-09-11T17:21:46Z",
+      "side": 1,
+      "message": "You need to check the result of from_chars before using.",
+      "revId": "a93771866a5c20e8e11c8470347ba227800266ff",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3a6851b2_e10a40f3",
+        "filename": "nvidia/nvl32.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1000153
+      },
+      "writtenOn": "2025-09-11T17:21:46Z",
+      "side": 1,
+      "message": "a comment about what this is doing would be good.  14 and 1 are magic here.",
+      "revId": "a93771866a5c20e8e11c8470347ba227800266ff",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0d5a6825_0cfd3276",
+        "filename": "nvidia/nvl32.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1000153
+      },
+      "writtenOn": "2025-09-11T17:21:46Z",
+      "side": 1,
+      "message": "nit, be more specific \"GPU\" is the card, I suspect this is bringin up sma.",
+      "range": {
+        "startLine": 139,
+        "startChar": 5,
+        "endLine": 139,
+        "endChar": 16
+      },
+      "revId": "a93771866a5c20e8e11c8470347ba227800266ff",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a2cbda36_4b303ae5",
+        "filename": "nvidia/nvl32.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1000153
+      },
+      "writtenOn": "2025-09-11T17:21:46Z",
+      "side": 1,
+      "message": "meh, maybe.",
+      "range": {
+        "startLine": 176,
+        "startChar": 0,
+        "endLine": 176,
+        "endChar": 43
+      },
+      "revId": "a93771866a5c20e8e11c8470347ba227800266ff",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
