@@ -70,6 +70,24 @@
       "parentUuid": "2cf27ea6_3fc4cae8",
       "revId": "9439282ae3d27760c0a9c10996472ad49475a25c",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8cbe0cd6_2f7f1e4f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2025-09-11T17:17:38Z",
+      "side": 1,
+      "message": "Ratan or Manoj also pointed to this blog recently w.r.t. SPDM.  Let\u0027s get something added to docs to say \"either no copyright or a SPDX-FileCopyrightText with ... per LF guidelines\"?  And then yes, ideally we\u0027d change all the ones in this repo to match (coming from someone at NV).",
+      "parentUuid": "77e212e7_4f372def",
+      "revId": "9439282ae3d27760c0a9c10996472ad49475a25c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
