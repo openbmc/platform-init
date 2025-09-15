@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6aafffb9_b03b5066",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1002504
+      },
+      "writtenOn": "2025-09-15T16:40:34Z",
+      "side": 1,
+      "message": "I had that thought as well.",
+      "parentUuid": "9af1785c_51466eac",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 57
+      },
+      "revId": "a93771866a5c20e8e11c8470347ba227800266ff",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c55c2b63_4bc40fb6",
         "filename": "i2c.cpp",
         "patchSetId": 7
@@ -43,6 +67,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3ff9735e_b3c22fd5",
+        "filename": "i2c.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1002504
+      },
+      "writtenOn": "2025-09-15T16:40:34Z",
+      "side": 1,
+      "message": "probably. If this fails for nvl32, we\u0027re just kind of hosed. Everything is predicated on this working, but we can fail more gracefully than an exception.",
+      "parentUuid": "c55c2b63_4bc40fb6",
+      "revId": "a93771866a5c20e8e11c8470347ba227800266ff",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7ca99667_0a2b613a",
         "filename": "nvidia/nvl32.cpp",
         "patchSetId": 7
@@ -54,6 +96,30 @@
       "writtenOn": "2025-09-11T17:21:46Z",
       "side": 1,
       "message": "We need some kind of sanity \"Bail out if this doesn\u0027t happen for N minutes\" so we don\u0027t get stuck in a polling loop.",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 43,
+        "endChar": 13
+      },
+      "revId": "a93771866a5c20e8e11c8470347ba227800266ff",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "04c55e81_16dcf96f",
+        "filename": "nvidia/nvl32.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1002504
+      },
+      "writtenOn": "2025-09-15T16:40:34Z",
+      "side": 1,
+      "message": "yep, good catch.",
+      "parentUuid": "7ca99667_0a2b613a",
       "range": {
         "startLine": 43,
         "startChar": 0,
@@ -89,6 +155,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8db1d544_c0002959",
+        "filename": "nvidia/nvl32.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1002504
+      },
+      "writtenOn": "2025-09-15T16:40:34Z",
+      "side": 1,
+      "message": "sure.",
+      "parentUuid": "4ff098ba_3ff2a9fe",
+      "range": {
+        "startLine": 52,
+        "startChar": 0,
+        "endLine": 52,
+        "endChar": 36
+      },
+      "revId": "a93771866a5c20e8e11c8470347ba227800266ff",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a34b8077_d2cdb4b9",
         "filename": "nvidia/nvl32.cpp",
         "patchSetId": 7
@@ -100,6 +190,30 @@
       "writtenOn": "2025-09-11T17:21:46Z",
       "side": 1,
       "message": "This is a subtle use after free bug.\n\nstd::format produces a string as an rvalue\n\nwait_for_path_to_exist takes a string view\n\nthe rvalue is used to construct the string_view, then destroyed.\n\nThis likely works most of the time, becuase very little happens in between, but it\u0027s still technically a bug.",
+      "range": {
+        "startLine": 80,
+        "startChar": 8,
+        "endLine": 80,
+        "endChar": 67
+      },
+      "revId": "a93771866a5c20e8e11c8470347ba227800266ff",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "21d8a98b_2065d7ac",
+        "filename": "nvidia/nvl32.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1002504
+      },
+      "writtenOn": "2025-09-15T16:40:34Z",
+      "side": 1,
+      "message": "good catch. I\u0027ll move to an lvalue locally.",
+      "parentUuid": "a34b8077_d2cdb4b9",
       "range": {
         "startLine": 80,
         "startChar": 8,
@@ -152,6 +266,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "bee42a19_1456b6f3",
+        "filename": "nvidia/nvl32.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1002504
+      },
+      "writtenOn": "2025-09-15T16:40:34Z",
+      "side": 1,
+      "message": "doh! you\u0027re right",
+      "parentUuid": "0eaf680d_07b9e76a",
+      "range": {
+        "startLine": 98,
+        "startChar": 0,
+        "endLine": 98,
+        "endChar": 36
+      },
+      "revId": "a93771866a5c20e8e11c8470347ba227800266ff",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "acecf9f7_672a373d",
         "filename": "nvidia/nvl32.cpp",
         "patchSetId": 7
@@ -163,6 +301,30 @@
       "writtenOn": "2025-09-11T17:21:46Z",
       "side": 1,
       "message": "use the non throwing version of this (hand it an ec) so that you don\u0027t crash if it fails.",
+      "range": {
+        "startLine": 108,
+        "startChar": 0,
+        "endLine": 108,
+        "endChar": 67
+      },
+      "revId": "a93771866a5c20e8e11c8470347ba227800266ff",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5e65db39_820b5a1a",
+        "filename": "nvidia/nvl32.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1002504
+      },
+      "writtenOn": "2025-09-15T16:40:34Z",
+      "side": 1,
+      "message": "ack.",
+      "parentUuid": "acecf9f7_672a373d",
       "range": {
         "startLine": 108,
         "startChar": 0,
@@ -192,6 +354,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "67447572_099cb955",
+        "filename": "nvidia/nvl32.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1002504
+      },
+      "writtenOn": "2025-09-15T16:40:34Z",
+      "side": 1,
+      "message": "ack.",
+      "parentUuid": "beabc330_78b00cb3",
+      "revId": "a93771866a5c20e8e11c8470347ba227800266ff",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3a6851b2_e10a40f3",
         "filename": "nvidia/nvl32.cpp",
         "patchSetId": 7
@@ -209,6 +389,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2dda857d_d347d212",
+        "filename": "nvidia/nvl32.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1002504
+      },
+      "writtenOn": "2025-09-15T16:40:34Z",
+      "side": 1,
+      "message": "ack.",
+      "parentUuid": "3a6851b2_e10a40f3",
+      "revId": "a93771866a5c20e8e11c8470347ba227800266ff",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0d5a6825_0cfd3276",
         "filename": "nvidia/nvl32.cpp",
         "patchSetId": 7
@@ -220,6 +418,30 @@
       "writtenOn": "2025-09-11T17:21:46Z",
       "side": 1,
       "message": "nit, be more specific \"GPU\" is the card, I suspect this is bringin up sma.",
+      "range": {
+        "startLine": 139,
+        "startChar": 5,
+        "endLine": 139,
+        "endChar": 16
+      },
+      "revId": "a93771866a5c20e8e11c8470347ba227800266ff",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "036f9c98_06d83f85",
+        "filename": "nvidia/nvl32.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1002504
+      },
+      "writtenOn": "2025-09-15T16:40:34Z",
+      "side": 1,
+      "message": "ack.",
+      "parentUuid": "0d5a6825_0cfd3276",
       "range": {
         "startLine": 139,
         "startChar": 5,
