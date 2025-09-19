@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "02cd77f1_b69145f9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002504
+      },
+      "writtenOn": "2025-09-19T22:03:14Z",
+      "side": 1,
+      "message": "everything should be addressed. Also, a small change in getting the poolsize was required to an API change from mctpd from the early patchset",
+      "revId": "c9c8612b9cdccc232311ca12ebd25b9f4a08491f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}

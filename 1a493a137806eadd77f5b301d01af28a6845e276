@@ -36,6 +36,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c4709c16_1f289e9d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002504
+      },
+      "writtenOn": "2025-09-19T22:03:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1ce9c3fe_0366d02a",
+      "revId": "1a493a137806eadd77f5b301d01af28a6845e276",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fe2263df_6402c7c9",
@@ -73,6 +91,30 @@
       "side": 1,
       "message": "Acknowledged",
       "parentUuid": "fe2263df_6402c7c9",
+      "range": {
+        "startLine": 73,
+        "startChar": 4,
+        "endLine": 73,
+        "endChar": 19
+      },
+      "revId": "1a493a137806eadd77f5b301d01af28a6845e276",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1c85eaba_4b89f412",
+        "filename": "nvidia/nvl32.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1002504
+      },
+      "writtenOn": "2025-09-19T22:03:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1d8047f8_60f6dd42",
       "range": {
         "startLine": 73,
         "startChar": 4,
@@ -130,6 +172,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ae71eea0_5f3fd1e5",
+        "filename": "nvidia/nvl32.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 385,
+      "author": {
+        "id": 1002504
+      },
+      "writtenOn": "2025-09-19T22:03:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8b0a820b_1b4276dd",
+      "range": {
+        "startLine": 385,
+        "startChar": 15,
+        "endLine": 385,
+        "endChar": 28
+      },
+      "revId": "1a493a137806eadd77f5b301d01af28a6845e276",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "083e2ff7_1c0833e8",
@@ -177,6 +243,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9af94f6a_16095fff",
+        "filename": "nvidia/nvl32.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 405,
+      "author": {
+        "id": 1002504
+      },
+      "writtenOn": "2025-09-19T22:03:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "faf70210_ad85b40b",
+      "range": {
+        "startLine": 405,
+        "startChar": 28,
+        "endLine": 405,
+        "endChar": 38
+      },
+      "revId": "1a493a137806eadd77f5b301d01af28a6845e276",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8da2bcce_312bbbf4",
@@ -214,6 +304,30 @@
       "side": 1,
       "message": "Yeah, Mark wrote this workaround but that\u0027s what I expect is happening",
       "parentUuid": "8da2bcce_312bbbf4",
+      "range": {
+        "startLine": 466,
+        "startChar": 0,
+        "endLine": 466,
+        "endChar": 57
+      },
+      "revId": "1a493a137806eadd77f5b301d01af28a6845e276",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aac7a9af_ee5c70b9",
+        "filename": "nvidia/nvl32.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 466,
+      "author": {
+        "id": 1002504
+      },
+      "writtenOn": "2025-09-19T22:03:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "89e9490b_8c47504b",
       "range": {
         "startLine": 466,
         "startChar": 0,
@@ -295,6 +409,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d57eb823_3957b634",
+        "filename": "nvidia/nvl32.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 479,
+      "author": {
+        "id": 1002504
+      },
+      "writtenOn": "2025-09-19T22:03:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "acc9704d_15ad47a2",
+      "range": {
+        "startLine": 479,
+        "startChar": 0,
+        "endLine": 479,
+        "endChar": 50
+      },
+      "revId": "1a493a137806eadd77f5b301d01af28a6845e276",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e39110e3_832546c6",
@@ -332,6 +470,30 @@
       "side": 1,
       "message": "Desperate attempts to get it to work the night before it was due. This worked. I can revisit and clean it up.",
       "parentUuid": "e39110e3_832546c6",
+      "range": {
+        "startLine": 484,
+        "startChar": 0,
+        "endLine": 488,
+        "endChar": 57
+      },
+      "revId": "1a493a137806eadd77f5b301d01af28a6845e276",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7cbf8955_2363d4b8",
+        "filename": "nvidia/nvl32.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 488,
+      "author": {
+        "id": 1002504
+      },
+      "writtenOn": "2025-09-19T22:03:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9050769a_c579ce30",
       "range": {
         "startLine": 484,
         "startChar": 0,
