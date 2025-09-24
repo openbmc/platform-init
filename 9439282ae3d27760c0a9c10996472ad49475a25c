@@ -88,6 +88,24 @@
       "parentUuid": "77e212e7_4f372def",
       "revId": "9439282ae3d27760c0a9c10996472ad49475a25c",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a43e5c67_e7695654",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2025-09-24T19:33:12Z",
+      "side": 1,
+      "message": "I added the following proposal in docs:\n\nremote:   https://gerrit.openbmc.org/c/openbmc/docs/+/83998 CONTRIBUTING: add statement on SPDX usage [NEW]",
+      "parentUuid": "8cbe0cd6_2f7f1e4f",
+      "revId": "9439282ae3d27760c0a9c10996472ad49475a25c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
