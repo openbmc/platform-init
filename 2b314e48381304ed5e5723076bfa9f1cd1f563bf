@@ -61,6 +61,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d9aa7d31_bf05ca5e",
+        "filename": "platform.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1001712
+      },
+      "writtenOn": "2025-10-01T09:39:20Z",
+      "side": 1,
+      "message": "https://www.kernel.org/doc/html/latest/admin-guide/gpio/gpio-sim.html\n\njust needs the right kernel config enabled",
+      "parentUuid": "d2ee3a0d_bcb7b750",
+      "revId": "2b314e48381304ed5e5723076bfa9f1cd1f563bf",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "26223b0b_14e07c83",
         "filename": "platform.cpp",
         "patchSetId": 4
@@ -90,6 +108,24 @@
       "side": 1,
       "message": "Or possibly just std::print.  These aren\u0027t intended to be platform level logs, only debug diagnostics.",
       "parentUuid": "26223b0b_14e07c83",
+      "revId": "2b314e48381304ed5e5723076bfa9f1cd1f563bf",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2d6aa7c6_5b2df3b3",
+        "filename": "platform.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1001712
+      },
+      "writtenOn": "2025-10-01T09:39:20Z",
+      "side": 1,
+      "message": "yes but even for that flow there are different log levels one might want to have.",
+      "parentUuid": "c9579772_2230d8e8",
       "revId": "2b314e48381304ed5e5723076bfa9f1cd1f563bf",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
@@ -225,6 +261,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a004c212_0c65f53b",
+        "filename": "platform.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1001712
+      },
+      "writtenOn": "2025-10-01T09:39:20Z",
+      "side": 1,
+      "message": "Yes, it\u0027s not super important to me. My comments here do not have that much weight anyways since the code is already merged. I was mostly curious about how the development/review process went and the initial code.",
+      "parentUuid": "33266bcf_8c4634bf",
+      "range": {
+        "startLine": 128,
+        "startChar": 8,
+        "endLine": 128,
+        "endChar": 35
+      },
+      "revId": "2b314e48381304ed5e5723076bfa9f1cd1f563bf",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "50235b35_7c38f387",
         "filename": "platform.cpp",
         "patchSetId": 4
@@ -295,6 +355,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e5f70563_e622705f",
+        "filename": "platform.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1001712
+      },
+      "writtenOn": "2025-10-01T09:39:20Z",
+      "side": 1,
+      "message": "Yes but the function here tries to rebind. It can return an error code and the caller can decide what to do with it or discard the error and continue.\n\nIMO it\u0027s a decision for the caller to make.",
+      "parentUuid": "7b1567b2_aaefa8f4",
+      "revId": "2b314e48381304ed5e5723076bfa9f1cd1f563bf",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "aa9f3ccd_26b9d5bd",
         "filename": "platform.cpp",
         "patchSetId": 4
@@ -359,6 +437,24 @@
       "side": 1,
       "message": "Nope, could be fixed.  I don\u0027t think it hurts anything though.",
       "parentUuid": "dc42c99c_a765eb78",
+      "revId": "2b314e48381304ed5e5723076bfa9f1cd1f563bf",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e18341fd_fffcceca",
+        "filename": "platform.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 1001712
+      },
+      "writtenOn": "2025-10-01T09:39:20Z",
+      "side": 1,
+      "message": "It\u0027s extra code doing things which ofstream is already taking care of.\n\nMight be a nit.",
+      "parentUuid": "3a679ed6_38fa8453",
       "revId": "2b314e48381304ed5e5723076bfa9f1cd1f563bf",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
