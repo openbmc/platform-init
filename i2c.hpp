@@ -4,7 +4,9 @@
 #pragma once
 
 #include <cstdint>
+#include <expected>
 #include <string>
+#include <system_error>
 
 namespace i2c
 {
@@ -23,7 +25,7 @@ struct RawDevice
     RawDevice& operator=(RawDevice&&) = default;
     RawDevice(RawDevice&&) = default;
 
-    int read_byte(uint8_t reg, uint8_t& val);
+    std::expected<uint8_t, std::error_code> read_byte(uint8_t reg);
 
     int fd;
 };

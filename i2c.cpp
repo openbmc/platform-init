@@ -109,16 +109,16 @@ RawDevice::~RawDevice()
     close(fd);
 }
 
-int RawDevice::read_byte(uint8_t reg, uint8_t& val)
+std::expected<uint8_t, std::error_code> RawDevice::read_byte(uint8_t reg)
 {
     int result = i2c_smbus_read_byte_data(fd, reg);
     if (result < 0)
     {
-        return -result;
+        return std::unexpected(
+            std::error_code(-result, std::system_category()));
     }
 
-    val = result;
-    return 0;
+    return result;
 }
 
 } // namespace i2c

@@ -7,6 +7,7 @@
 #include <sdbusplus/asio/connection.hpp>
 
 #include <chrono>
+#include <expected>
 #include <filesystem>
 #include <fstream>
 #include <iostream>
@@ -59,19 +60,19 @@ void wait_for_i2c_ready()
     while (steady_clock::now() < end)
     {
         static constexpr uint8_t i2c_ready = 0xf2;
-        uint8_t result;
-        int rc = cpld.read_byte(i2c_ready, result);
-        if (rc)
-        {
-            std::string err =
-                std::format("Unable to communicate with cpld. rc: {}\n", rc);
-            std::cerr << err;
-            throw std::runtime_error(err);
-        }
+        const auto result = cpld.read_byte(i2c_ready);
 
-        if (result == 1)
+        if (result.has_value() && *result == 1)
         {
             return;
+        }
+        else
+        {
+            std::string err =
+                std::format("Unable to communicate with cpld. rc: {}\n",
+                            result.error().value());
+            std::cerr << err;
+            throw std::runtime_error(err);
         }
 
         std::this_thread::sleep_for(std::chrono::seconds{10});
