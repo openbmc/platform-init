@@ -51,34 +51,132 @@ void handle_passthrough_registers(bool enable)
     logged_system(command);
 }
 
-void wait_for_i2c_ready()
+void setup_post_complete()
 {
-    // hpm cpld is at bus 4, address 0x17
+    // making a dedicated gpio driver for this is crazy
+    // as it would be a single line regmap driver
+    // this is kind of hacky, but oh well
+    // we're going to make a gpiosim device
+    // and poll post complete quasi regularly
+    // x86-power-control will take this thing
+    // by line handle, which handily enough,
+    // we can configure through configfs.
+    namespace fs = std::filesystem;
+
+    // first we'll create the gpiosim device under
+    // /sys/kernel/config/gpio-sim
+    fs::path configfs{"/sys/kernel/config/gpio-sim"};
+    fs::path device = configfs / "gpio-device";
+    fs::create_directory(device);
+
+    // add a bank and set the number of lines to 1
+    // we only need one gpio
+    fs::path bank = device / "gpio-bank0";
+    fs::create_directory(bank);
+
+    std::ofstream of{bank / "num_lines"};
+    if (!of.good())
+    {
+        return;
+    }
+    of << "1";
+    of.flush();
+    // add a single line inside of the bank
+    // with a handle
+    fs::path line = bank / "line0";
+    fs::create_directory(line);
+
+    fs::path name = line / "name";
+    std::ofstream name_f(name);
+    if (!name_f.good())
+    {
+        return;
+    }
+
+    name_f << "POST_COMPLETE";
+    name_f.flush();
+    // now mark the thing as alive
+    fs::path live = device / "live";
+    std::ofstream live_f(live);
+    if (!live_f.good())
+    {
+        return;
+    }
+
+    live_f << "1";
+    live_f.flush();
+}
+
+std::expected<std::filesystem::path, std::error_code> findSubDir(
+    const std::filesystem::path& path, std::string_view startsWith)
+{
+    std::filesystem::path subDir;
+    for (const auto& entry : std::filesystem::directory_iterator(path))
+    {
+        if (entry.path().filename().string().starts_with(startsWith))
+        {
+            return entry.path();
+        }
+    }
+    return std::unexpected(
+        std::make_error_code(std::errc::no_such_file_or_directory));
+}
+
+std::expected<std::filesystem::path, std::error_code> getPostCompletePath()
+{
+    // the path here looks something like
+    // /sys/devices/platform/gpio-sim.0/gpiochip13/sim_gpio0/
+    std::filesystem::path path = "/sys/devices/platform/gpio-sim.0";
+
+    return findSubDir(path, "gpiochip").and_then([](auto path) {
+        return findSubDir(path, "sim_gpio");
+    });
+}
+
+void setPostComplete(std::filesystem::path path, bool enable)
+{
+    std::filesystem::path pull = path / "pull";
+    std::ofstream of{pull};
+    if (!of.good())
+    {
+        return;
+    }
+
+    if (enable)
+    {
+        of << "pull-up";
+    }
+    else
+    {
+        of << "pull-down";
+    }
+}
+
+std::expected<bool, std::error_code> getPostComplete()
+{
     i2c::RawDevice cpld{4, 0x17};
+    static constexpr uint8_t postComplete = 0xf2;
+    return cpld.read_byte(postComplete)
+        .and_then([](uint8_t result) -> std::expected<bool, std::error_code> {
+            return result == 1;
+        });
+}
+
+std::expected<void, std::error_code> wait_for_i2c_ready()
+{
     auto now = steady_clock::now();
     auto end = now + 20min;
     while (steady_clock::now() < end)
     {
-        static constexpr uint8_t i2c_ready = 0xf2;
-        const auto result = cpld.read_byte(i2c_ready);
-
-        if (result.has_value() && *result == 1)
+        auto post_complete = getPostComplete();
+        if (post_complete && *post_complete)
         {
-            return;
+            return {};
         }
-        else if (result.error())
-        {
-            std::string err =
-                std::format("Unable to communicate with cpld. rc: {}\n",
-                            result.error().value());
-            std::cerr << err;
-            throw std::runtime_error(err);
-        }
-
         std::this_thread::sleep_for(std::chrono::seconds{10});
     }
 
-    throw std::runtime_error("Waiting for host timed out!\n");
+    return std::unexpected(std::make_error_code(std::errc::timed_out));
 }
 
 void probe_dev(size_t bus, uint8_t address, std::string_view dev_type)
@@ -502,10 +600,34 @@ void wait_for_frus_to_probe()
 int init_nvl32()
 {
     setup_devmem();
+    setup_post_complete();
+
+    std::expected<std::filesystem::path, std::error_code> postCompletePath =
+        getPostCompletePath().and_then(
+            [](const std::filesystem::path& path)
+                -> std::expected<std::filesystem::path, std::error_code> {
+                getPostComplete().transform([&path](auto result) {
+                    setPostComplete(path, result);
+                });
+                return path;
+            });
+
     handle_passthrough_registers(false);
     sd_notify(0, "READY=1");
 
-    wait_for_i2c_ready();
+    std::expected<void, std::error_code> success =
+        wait_for_i2c_ready().transform([&postCompletePath]() {
+            if (postCompletePath)
+            {
+                setPostComplete(*postCompletePath, true);
+            }
+        });
+
+    if (!success)
+    {
+        std::cerr
+            << "Failed to determine whether POST completed, MCTP enumeration may fail\n";
+    }
     // we suspect that the CPLD tells us we're ready before
     // we actually are. This sleep stabilizes this discrepency
     std::this_thread::sleep_for(std::chrono::seconds{1});
