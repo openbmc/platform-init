@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: Apache-2.0
-// SPDX-FileCopyrightText: 2025 NVIDIA
+// SPDX-FileCopyrightText: Copyright OpenBMC Authors
 
 #include "i2c.hpp"
 
