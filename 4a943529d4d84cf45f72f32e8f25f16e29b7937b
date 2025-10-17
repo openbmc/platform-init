@@ -1,0 +1,7 @@
+Verified+1: OpenBMC CI <openbmcbump-ci@yahoo.com>
+Code-Review+2: Patrick Williams <patrick@stwcx.xyz>
+Submitted-by: Patrick Williams <patrick@stwcx.xyz>
+Submitted-at: Fri, 17 Oct 2025 15:03:23 +0000
+Reviewed-on: https://gerrit.openbmc.org/c/openbmc/platform-init/+/84509
+Project: openbmc/platform-init
+Branch: refs/heads/main
