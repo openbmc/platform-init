@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7258fc8c_5342f42a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000153
+      },
+      "writtenOn": "2025-10-23T20:15:16Z",
+      "side": 1,
+      "message": "This is gonna be tough to stomach.  Lets talk this through, but I don\u0027t think this even works as a hack.",
+      "revId": "ccf8a79b708b93d331041f1120e48d902989a26c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
