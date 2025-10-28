@@ -66,7 +66,7 @@ void wait_for_i2c_ready()
         {
             return;
         }
-        else if (result.error())
+        else if (!result.has_value())
         {
             std::string err =
                 std::format("Unable to communicate with cpld. rc: {}\n",
