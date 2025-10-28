@@ -57,22 +57,23 @@ void wait_for_i2c_ready()
     i2c::RawDevice cpld{4, 0x17};
     auto now = steady_clock::now();
     auto end = now + 20min;
+
     while (steady_clock::now() < end)
     {
         static constexpr uint8_t i2c_ready = 0xf2;
         const auto result = cpld.read_byte(i2c_ready);
 
-        if (result.has_value() && *result == 1)
-        {
-            return;
-        }
-        else if (result.error())
-        {
+        if (!result.has_value()) {
             std::string err =
                 std::format("Unable to communicate with cpld. rc: {}\n",
                             result.error().value());
             std::cerr << err;
             throw std::runtime_error(err);
+        }
+
+        if (*result == 1)
+        {
+            return;
         }
 
         std::this_thread::sleep_for(std::chrono::seconds{10});
