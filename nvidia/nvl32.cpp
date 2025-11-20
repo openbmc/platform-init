@@ -504,6 +504,7 @@ void wait_for_frus_to_probe()
 int init_nvl32()
 {
     setup_devmem();
+    gpio::set("BMC_INIT_DONE", 1);
     handle_passthrough_registers(false);
     sd_notify(0, "READY=1");
 
