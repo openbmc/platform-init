@@ -3,6 +3,7 @@
 
 #include "gpio.hpp"
 #include "i2c.hpp"
+#include "intel.hpp"
 #include "nvidia.hpp"
 #include "utilities.hpp"
 
@@ -18,8 +19,10 @@
 #include <string_view>
 #include <utility>
 
-constexpr std::array<std::pair<std::string_view, int (*)()>, 3> init_functions{
-    {{"nvidia-gb200", nvidia::init_gb200_base},
+constexpr std::array<std::pair<std::string_view, int (*)()>, 5> init_functions{
+    {{"intel-acrp", intel::init_acrp},
+     {"intel-jcrp", intel::init_jcrp},
+     {"nvidia-gb200", nvidia::init_gb200_base},
      {"nvidia-gb200-with-p2020", nvidia::init_gb200_with_p2020},
      {"nvidia-nvl32", nvidia::init_nvl32}}};
 
