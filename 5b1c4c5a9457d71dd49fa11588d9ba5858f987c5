@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e24986b1_6687d11e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000153
+      },
+      "writtenOn": "2025-12-23T16:56:43Z",
+      "side": 1,
+      "message": "Looks fine, couple minor comments.",
+      "revId": "5b1c4c5a9457d71dd49fa11588d9ba5858f987c5",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6393053a_54b58bfe",
+        "filename": "intel/jcrp.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000153
+      },
+      "writtenOn": "2025-12-23T16:56:43Z",
+      "side": 1,
+      "message": "Seeing as how these are using numbers, not names (could they use names instead). could you please include some comments about what they\u0027re doing?",
+      "revId": "5b1c4c5a9457d71dd49fa11588d9ba5858f987c5",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "435034d3_699ea6b3",
+        "filename": "platform.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000153
+      },
+      "writtenOn": "2025-12-23T16:56:43Z",
+      "side": 1,
+      "message": "nit, lets keep this list alphabetical.",
+      "revId": "5b1c4c5a9457d71dd49fa11588d9ba5858f987c5",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
