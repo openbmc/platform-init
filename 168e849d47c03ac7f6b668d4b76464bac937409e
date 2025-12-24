@@ -16,6 +16,23 @@
       "message": "Until https://gerrit.openbmc.org/c/openbmc/entity-manager/+/85991 merges, this patch breaks the platform.",
       "revId": "168e849d47c03ac7f6b668d4b76464bac937409e",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4bcc1328_56bd3cf0",
+        "filename": "nvidia/nvl32.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1002504
+      },
+      "writtenOn": "2025-12-24T22:39:03Z",
+      "side": 1,
+      "message": "this can also go.",
+      "revId": "168e849d47c03ac7f6b668d4b76464bac937409e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
