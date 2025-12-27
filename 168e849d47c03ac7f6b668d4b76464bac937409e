@@ -33,6 +33,24 @@
       "message": "this can also go.",
       "revId": "168e849d47c03ac7f6b668d4b76464bac937409e",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "db74b330_cf1312b4",
+        "filename": "nvidia/nvl32.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2025-12-27T17:15:47Z",
+      "side": 1,
+      "message": "Ack, confirmed through testing as well.",
+      "parentUuid": "4bcc1328_56bd3cf0",
+      "revId": "168e849d47c03ac7f6b668d4b76464bac937409e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
