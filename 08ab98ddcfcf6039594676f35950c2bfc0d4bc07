@@ -34,6 +34,24 @@
       "parentUuid": "d57e8507_815214bb",
       "revId": "08ab98ddcfcf6039594676f35950c2bfc0d4bc07",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "efd3123a_2120b3d4",
+        "filename": "nvidia/nvl32.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2025-12-27T19:20:39Z",
+      "side": 0,
+      "message": "@molberding@nvidia.com I\u0027m on this. I\u0027m still working on the bridged endpoints; but you will see few new patches under the same topic that enable platform config driven sensors for the SMAs.",
+      "parentUuid": "d894a666_6cd4ee60",
+      "revId": "08ab98ddcfcf6039594676f35950c2bfc0d4bc07",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
