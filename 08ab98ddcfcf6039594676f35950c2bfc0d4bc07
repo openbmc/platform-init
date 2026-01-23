@@ -52,6 +52,24 @@
       "parentUuid": "d894a666_6cd4ee60",
       "revId": "08ab98ddcfcf6039594676f35950c2bfc0d4bc07",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "18537d04_fe2d0c33",
+        "filename": "nvidia/nvl32.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2026-01-23T15:51:55Z",
+      "side": 0,
+      "message": "Bridged EID support is in now @molberding@nvidia.com.",
+      "parentUuid": "efd3123a_2120b3d4",
+      "revId": "08ab98ddcfcf6039594676f35950c2bfc0d4bc07",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
