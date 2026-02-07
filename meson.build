@@ -23,16 +23,24 @@ i2c_dep = meson.get_compiler('cpp').find_library('i2c')
 platform_srcs = files(
     'platforms/intel/acrp.cpp',
     'platforms/intel/jcrp.cpp',
+    'platforms/meta/catalina.cpp',
     'platforms/nvidia/gb200.cpp',
     'platforms/nvidia/nvl32.cpp',
     'platforms/nvidia/vr_nvl.cpp',
 )
 util_srcs = files('gpio.cpp', 'i2c.cpp', 'utilities.cpp')
 
-exe = executable(
+executable(
     'platform',
     ['platform.cpp'] + platform_srcs + util_srcs,
-    dependencies: [gpiodcxx_dep, libsystemd_dep, cli11_dep, i2c_dep, sdbusplus],
+    dependencies: [
+        gpiodcxx_dep,
+        libsystemd_dep,
+        cli11_dep,
+        i2c_dep,
+        sdbusplus,
+        phosphor_logging_dep,
+    ],
     include_directories: ['.', 'platforms'],
     install: true,
     install_dir: get_option('libexecdir'),
