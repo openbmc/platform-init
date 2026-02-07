@@ -4,6 +4,7 @@
 #include "gpio.hpp"
 #include "i2c.hpp"
 #include "intel/platforms.hpp"
+#include "meta/platforms.hpp"
 #include "nvidia/platforms.hpp"
 #include "utilities.hpp"
 
@@ -23,6 +24,7 @@ constexpr auto init_functions =
     std::to_array<std::pair<std::string_view, int (*)()>>(
         {{"intel-acrp", intel::init_acrp},
          {"intel-jcrp", intel::init_jcrp},
+         {"meta-catalina", meta::init_catalina_base},
          {"nvidia-gb200", nvidia::init_gb200_base},
          {"nvidia-gb200-with-p2020", nvidia::init_gb200_with_p2020},
          {"nvidia-nvl32", nvidia::init_nvl32},
