@@ -11,18 +11,21 @@ systemd_dep = dependency('systemd')
 libsystemd_dep = dependency('libsystemd')
 sdbusplus = dependency('sdbusplus', include_type: 'system')
 
-
 cli11_dep = dependency('CLI11', required: true, include_type: 'system')
 i2c_dep = meson.get_compiler('cpp').find_library('i2c')
 
-platform_srcs = files('nvidia/gb200.cpp', 'nvidia/nvl32.cpp')
+platform_srcs = files(
+    'meta/catalina.cpp',
+    'nvidia/gb200.cpp',
+    'nvidia/nvl32.cpp',
+)
 util_srcs = files('gpio.cpp', 'i2c.cpp', 'utilities.cpp')
 
-exe = executable(
+executable(
     'platform',
     ['platform.cpp'] + platform_srcs + util_srcs,
     dependencies: [gpiodcxx_dep, libsystemd_dep, cli11_dep, i2c_dep, sdbusplus],
-    include_directories: ['.', 'nvidia'],
+    include_directories: ['.', 'meta', 'nvidia'],
     install: true,
     install_dir: get_option('libexecdir'),
 )
