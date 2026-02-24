@@ -473,7 +473,7 @@ void bringup_devices()
         if (name.starts_with("GPU"))
         {
             // each GPU has an SMA, as well as a GPU, they both talk over vdm
-            // so add both as seperate nodes
+            // so add both as separate nodes
             std::cerr << "Adding SMA\n";
             populate_gpu(board_name, bridge_eid, name + "SMA");
             std::cerr << "Adding GPU\n";
@@ -510,7 +510,7 @@ int init_nvl32()
 
     wait_for_i2c_ready();
     // we suspect that the CPLD tells us we're ready before
-    // we actually are. This sleep stabilizes this discrepency
+    // we actually are. This sleep stabilizes this discrepancy
     std::this_thread::sleep_for(std::chrono::seconds{1});
 
     create_i2c_mux(5, 0x70, "pca9548");
