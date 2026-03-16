@@ -10,6 +10,8 @@ gpiodcxx_dep = dependency('libgpiodcxx', default_options: ['bindings=cxx'])
 systemd_dep = dependency('systemd')
 libsystemd_dep = dependency('libsystemd')
 sdbusplus = dependency('sdbusplus', include_type: 'system')
+phosphor_dbus_interfaces_dep = dependency('phosphor-dbus-interfaces')
+phosphor_logging_dep = dependency('phosphor-logging')
 
 cli11_dep = dependency(
     'CLI11',
@@ -25,13 +27,24 @@ platform_srcs = files(
     'nvidia/gb200.cpp',
     'nvidia/nvl32.cpp',
 )
+
+cmos_reset_srcs = files('cmos-reset/cmos_reset.cpp')
+
 util_srcs = files('gpio.cpp', 'i2c.cpp', 'utilities.cpp')
 
 executable(
     'platform',
-    ['platform.cpp'] + platform_srcs + util_srcs,
-    dependencies: [gpiodcxx_dep, libsystemd_dep, cli11_dep, i2c_dep, sdbusplus],
-    include_directories: ['.', 'intel', 'meta', 'nvidia'],
+    ['platform.cpp'] + platform_srcs + cmos_reset_srcs + util_srcs,
+    dependencies: [
+        gpiodcxx_dep,
+        libsystemd_dep,
+        cli11_dep,
+        i2c_dep,
+        sdbusplus,
+        phosphor_dbus_interfaces_dep,
+        phosphor_logging_dep,
+    ],
+    include_directories: ['.', 'cmos-reset', 'intel', 'meta', 'nvidia'],
     install: true,
     install_dir: get_option('libexecdir'),
 )
@@ -40,6 +53,16 @@ systemd_system_unit_dir = systemd_dep.get_variable('systemd_system_unit_dir')
 configure_file(
     input: 'platform_init.service.in',
     output: 'platform_init.service',
+    install_dir: systemd_system_unit_dir,
+    install: true,
+    configuration: configuration_data(
+        {'PLATFORM_NAME': get_option('platform-name')},
+    ),
+)
+
+configure_file(
+    input: 'cmos-reset/xyz.openbmc_project.Software.Host.Updater0.service.in',
+    output: 'xyz.openbmc_project.Software.Host.Updater0.service',
     install_dir: systemd_system_unit_dir,
     install: true,
     configuration: configuration_data(
