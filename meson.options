@@ -4,3 +4,10 @@ option(
     value: 'nvidia-gb200',
     description: 'Platform to init (Temporary)',
 )
+
+option(
+    'cmos-reset',
+    type: 'feature',
+    value: 'disabled',
+    description: 'Enable CMOS reset service',
+)
