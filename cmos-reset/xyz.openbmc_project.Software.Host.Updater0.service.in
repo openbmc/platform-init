@@ -1,0 +1,12 @@
+[Unit]
+Description=Start up the platform cmos reset service
+Before=xyz.openbmc_project.FruDevice.service
+
+[Service]
+ExecStart=/usr/libexec/platform/cmos-reset @PLATFORM_NAME@
+Restart=always
+Type=dbus
+BusName=xyz.openbmc_project.Software.Host.Updater0
+
+[Install]
+WantedBy=multi-user.target

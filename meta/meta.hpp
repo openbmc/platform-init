@@ -8,5 +8,6 @@ namespace meta
 
 // list your platform initialization callbacks here
 int init_catalina_base();
+void catalina_cmos_reset();
 
 } // namespace meta

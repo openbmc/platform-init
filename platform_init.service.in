@@ -4,7 +4,7 @@ Before=xyz.openbmc_project.FruDevice.service
 
 [Service]
 Type=notify
-ExecStart=/usr/libexec/platform init @PLATFORM_NAME@
+ExecStart=/usr/libexec/platform/platform init @PLATFORM_NAME@
 SyslogIdentifier=platform-init
 TimeoutStartSec=5000
 
