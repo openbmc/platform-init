@@ -10,6 +10,7 @@ gpiodcxx_dep = dependency('libgpiodcxx', default_options: ['bindings=cxx'])
 systemd_dep = dependency('systemd')
 libsystemd_dep = dependency('libsystemd')
 sdbusplus = dependency('sdbusplus', include_type: 'system')
+phosphor_dbus_interfaces_dep = dependency('phosphor-dbus-interfaces')
 
 cli11_dep = dependency('CLI11', required: true, include_type: 'system')
 i2c_dep = meson.get_compiler('cpp').find_library('i2c')
@@ -21,12 +22,19 @@ platform_srcs = files(
     'nvidia/gb200.cpp',
     'nvidia/nvl32.cpp',
 )
-util_srcs = files('gpio.cpp', 'i2c.cpp', 'utilities.cpp')
+util_srcs = files('cmos_reset.cpp', 'gpio.cpp', 'i2c.cpp', 'utilities.cpp')
 
 executable(
     'platform',
     ['platform.cpp'] + platform_srcs + util_srcs,
-    dependencies: [gpiodcxx_dep, libsystemd_dep, cli11_dep, i2c_dep, sdbusplus],
+    dependencies: [
+        gpiodcxx_dep,
+        libsystemd_dep,
+        cli11_dep,
+        i2c_dep,
+        sdbusplus,
+        phosphor_dbus_interfaces_dep,
+    ],
     include_directories: ['.', 'intel', 'meta', 'nvidia'],
     install: true,
     install_dir: get_option('libexecdir'),
