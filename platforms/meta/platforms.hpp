@@ -4,6 +4,7 @@
 #pragma once
 
 #include <phosphor-logging/lg2.hpp>
+#include <sdbusplus/async.hpp>
 
 PHOSPHOR_LOG2_USING;
 
@@ -12,5 +13,6 @@ namespace meta
 
 // list your platform initialization callbacks here
 int init_catalina_base();
+sdbusplus::async::task<bool> catalina_cmos_reset(sdbusplus::async::context&);
 
 } // namespace meta
