@@ -32,7 +32,13 @@ installdir = join_paths(get_option('libexecdir'), 'platform-init')
 executable(
     'platform',
     ['platform.cpp'] + platform_srcs + util_srcs,
-    dependencies: [gpiodcxx_dep, libsystemd_dep, cli11_dep, i2c_dep, sdbusplus],
+    dependencies: [
+        gpiodcxx_dep,
+        libsystemd_dep,
+        cli11_dep,
+        i2c_dep,
+        sdbusplus,
+    ],
     include_directories: ['.', 'intel', 'meta', 'nvidia'],
     install: true,
     install_dir: installdir,
@@ -48,3 +54,7 @@ configure_file(
         {'PLATFORM_NAME': get_option('platform-name')},
     ),
 )
+
+if get_option('cmos-reset').allowed()
+    subdir('cmos-reset')
+endif
