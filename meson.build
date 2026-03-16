@@ -28,11 +28,14 @@ platform_srcs = files(
     'platforms/nvidia/nvl32.cpp',
     'platforms/nvidia/vr_nvl.cpp',
 )
+
+cmos_reset_srcs = files('cmos-reset/cmos_reset.cpp')
+
 util_srcs = files('gpio.cpp', 'i2c.cpp', 'utilities.cpp')
 
 executable(
     'platform',
-    ['platform.cpp'] + platform_srcs + util_srcs,
+    ['platform.cpp'] + platform_srcs + cmos_reset_srcs + util_srcs,
     dependencies: [
         gpiodcxx_dep,
         libsystemd_dep,
@@ -40,8 +43,9 @@ executable(
         i2c_dep,
         sdbusplus,
         phosphor_logging_dep,
+        phosphor_dbus_interfaces_dep,
     ],
-    include_directories: ['.', 'platforms'],
+    include_directories: ['.', 'cmos-reset', 'platforms'],
     install: true,
     install_dir: get_option('libexecdir'),
 )
@@ -50,6 +54,16 @@ systemd_system_unit_dir = systemd_dep.get_variable('systemd_system_unit_dir')
 configure_file(
     input: 'platform_init.service.in',
     output: 'platform_init.service',
+    install_dir: systemd_system_unit_dir,
+    install: true,
+    configuration: configuration_data(
+        {'PLATFORM_NAME': get_option('platform-name')},
+    ),
+)
+
+configure_file(
+    input: 'cmos-reset/xyz.openbmc_project.Software.Host.Updater0.service.in',
+    output: 'xyz.openbmc_project.Software.Host.Updater0.service',
     install_dir: systemd_system_unit_dir,
     install: true,
     configuration: configuration_data(
