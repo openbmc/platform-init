@@ -29,7 +29,7 @@ platform_srcs = files(
     'platforms/nvidia/vr_nvl.cpp',
 )
 
-cmos_reset_srcs = files('cmos-reset/cmos_reset.cpp')
+cmos_reset_srcs = files('cmos-reset/cmos_reset.cpp', 'cmos-reset/host_power.cpp')
 
 util_srcs = files('gpio.cpp', 'i2c.cpp', 'utilities.cpp')
 
@@ -70,3 +70,11 @@ configure_file(
         {'PLATFORM_NAME': get_option('platform-name')},
     ),
 )
+
+conf = configuration_data()
+conf.set(
+    'HOST_STATE_TRANSITION_TIMEOUT',
+    get_option('host-state-transition-timeout'),
+)
+configure_file(output: 'config.h', configuration: conf)
+
