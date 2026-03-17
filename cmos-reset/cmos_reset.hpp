@@ -5,6 +5,7 @@
 #include <sdbusplus/bus.hpp>
 #include <xyz/openbmc_project/Common/FactoryReset/aserver.hpp>
 #include <xyz/openbmc_project/Common/FactoryReset/event.hpp>
+#include <xyz/openbmc_project/Software/ActivationBlocksTransition/aserver.hpp>
 
 PHOSPHOR_LOG2_USING;
 
