@@ -11,3 +11,10 @@ option(
     value: 'disabled',
     description: 'Enable CMOS reset service',
 )
+
+option(
+    'host-state-transition-timeout',
+    type: 'integer',
+    value: 60,
+    description: 'Timeout for host state transition.',
+)
