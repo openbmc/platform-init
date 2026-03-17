@@ -1,6 +1,8 @@
 // SPDX-License-Identifier: Apache-2.0
 // SPDX-FileCopyrightText: Copyright OpenBMC Authors
 
+#include "activation.hpp"
+
 #include <sdbusplus/bus.hpp>
 #include <xyz/openbmc_project/Common/FactoryReset/server.hpp>
 #include <xyz/openbmc_project/ObjectMapper/client.hpp>
@@ -42,6 +44,8 @@ class CmosReset : public CmosResetInherit
     CmosResetMethod resetMethod;
     bool isHostRunning();
     void requestHostTransition(HostState::Transition transition);
+    std::unique_ptr<activation::BiosResetActivationBlocksTransition>
+        activationBlocksTransition = nullptr;
 };
 
 void init_service(CmosResetMethod resetMethod);

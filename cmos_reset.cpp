@@ -146,9 +146,18 @@ void CmosReset::reset()
             }
         }
 
+        activationBlocksTransition =
+            std::make_unique<activation::BiosResetActivationBlocksTransition>(
+                bus, getSoftwareInstancePath().c_str());
+
+        activationBlocksTransition->emit_added();
+
         resetMethod();
 
+        activationBlocksTransition.reset(nullptr);
+
         requestHostTransition(HostState::Transition::On);
+
         return;
     }
     return;
