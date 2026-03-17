@@ -3,10 +3,14 @@
 
 #include "cmos_reset.hpp"
 
+#include "host_power.hpp"
+
 #include <phosphor-logging/commit.hpp>
 
 namespace cmos
 {
+
+using namespace host_power;
 
 sdbusplus::async::task<> CmosReset::startReset()
 {
@@ -39,11 +43,46 @@ sdbusplus::async::task<bool> CmosReset::doReset()
         co_return false;
     }
 
+    // NOLINTNEXTLINE(clang-analyzer-core.uninitialized.Branch)
+    auto powerstate = co_await HostPower::getState(ctx);
+
+    if (powerstate != stateOn && powerstate != stateOff)
+    {
+        error("Invalid host state {STATE}", "STATE", powerstate);
+        co_return false;
+    }
+
+    bool restorePowerState = false;
+    if (powerstate == stateOn)
+    {
+        info("Host is running, transitioning to off");
+        bool success = co_await HostPower::setState(ctx, stateOff);
+
+        if (!success)
+        {
+            error("Error host power off");
+            co_return false;
+        }
+
+        restorePowerState = true;
+    }
+
     bool success = co_await resetMethod(ctx);
     if (!success)
     {
         error("CMOS reset failed");
         co_return false;
+    }
+
+    if (restorePowerState)
+    {
+        bool success = co_await HostPower::setState(ctx, stateOn);
+
+        if (!success)
+        {
+            error("Error restoring power state");
+            co_return false;
+        }
     }
 
     co_return true;
