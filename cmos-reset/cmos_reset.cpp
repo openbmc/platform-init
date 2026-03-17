@@ -67,11 +67,18 @@ sdbusplus::async::task<bool> CmosReset::doReset()
         restorePowerState = true;
     }
 
-    bool success = co_await resetMethod(ctx);
-    if (!success)
     {
-        error("CMOS reset failed");
-        co_return false;
+        auto abt = sdbusplus::aserver::xyz::openbmc_project::software::
+            ActivationBlocksTransition<CmosReset, void>(ctx, softwarePath);
+
+        abt.emit_added();
+
+        bool success = co_await resetMethod(ctx);
+        if (!success)
+        {
+            error("CMOS reset failed");
+            co_return false;
+        }
     }
 
     if (restorePowerState)
