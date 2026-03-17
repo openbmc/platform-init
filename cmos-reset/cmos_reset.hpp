@@ -4,6 +4,7 @@
 #include <sdbusplus/bus.hpp>
 #include <xyz/openbmc_project/Common/FactoryReset/aserver.hpp>
 #include <xyz/openbmc_project/Common/FactoryReset/event.hpp>
+#include <xyz/openbmc_project/Software/ActivationBlocksTransition/aserver.hpp>
 
 namespace cmos
 {
