@@ -6,7 +6,7 @@ cmos_platform_srcs = files('../meta/catalina.cpp')
 
 executable(
     'cmos-reset',
-    ['cmos_reset.cpp', 'cmos_reset_main.cpp'] + cmos_platform_srcs,
+    ['cmos_reset.cpp', 'cmos_reset_main.cpp', 'host_power.cpp'] + cmos_platform_srcs,
     dependencies: [
         gpiodcxx_dep,
         cli11_dep,
@@ -30,3 +30,10 @@ configure_file(
         {'PLATFORM_NAME': get_option('platform-name')},
     ),
 )
+
+conf = configuration_data()
+conf.set(
+    'HOST_STATE_TRANSITION_TIMEOUT',
+    get_option('host-state-transition-timeout'),
+)
+configure_file(output: 'config.h', configuration: conf)
