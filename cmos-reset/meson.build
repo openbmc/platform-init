@@ -1,10 +1,11 @@
 phosphor_dbus_interfaces_dep = dependency('phosphor-dbus-interfaces')
 
 cmos_platform_srcs = files('../meta/catalina.cpp')
+cmos_util_srcs = files('../gpio.cpp', '../utilities.cpp')
 
 executable(
     'cmos-reset',
-    ['cmos_reset.cpp', 'cmos_reset_main.cpp'] + cmos_platform_srcs,
+    ['cmos_reset.cpp', 'cmos_reset_main.cpp'] + cmos_platform_srcs + cmos_util_srcs,
     dependencies: [
         gpiodcxx_dep,
         libsystemd_dep,
