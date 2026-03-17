@@ -4,3 +4,10 @@ option(
     value: 'nvidia-gb200',
     description: 'Platform to init (Temporary)',
 )
+
+option(
+    'host-state-transition-timeout',
+    type: 'integer',
+    value: 60,
+    description: 'Timeout for host state transition.',
+)
