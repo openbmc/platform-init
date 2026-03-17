@@ -3,10 +3,11 @@ phosphor_logging_dep = dependency('phosphor-logging')
 sdbusplus_dep = dependency('sdbusplus')
 
 cmos_platform_srcs = files('../meta/catalina.cpp')
+cmos_util_srcs = files('../gpio.cpp', '../utilities.cpp')
 
 executable(
     'cmos-reset',
-    ['cmos_reset.cpp', 'cmos_reset_main.cpp', 'host_power.cpp'] + cmos_platform_srcs,
+    ['cmos_reset.cpp', 'cmos_reset_main.cpp', 'host_power.cpp'] + cmos_platform_srcs + cmos_util_srcs,
     dependencies: [
         gpiodcxx_dep,
         cli11_dep,
