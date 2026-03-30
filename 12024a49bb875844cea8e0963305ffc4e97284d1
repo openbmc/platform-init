@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f0aa3d5c_f2670a4f",
+        "filename": "meta/catalina.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1001712
+      },
+      "writtenOn": "2026-03-30T11:38:54Z",
+      "side": 1,
+      "message": "redundant return statement in void function",
+      "revId": "12024a49bb875844cea8e0963305ffc4e97284d1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
