@@ -1,0 +1,84 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8fb23bef_1175da9e",
+        "filename": "cmos-reset/cmos_reset.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1001712
+      },
+      "writtenOn": "2026-03-30T11:30:51Z",
+      "side": 1,
+      "message": "stray newline",
+      "revId": "7dac5f1c9c9bed92da755741b0e55e18cf3200b4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b081a5e0_965d6108",
+        "filename": "cmos-reset/cmos_reset.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1001712
+      },
+      "writtenOn": "2026-03-30T11:30:51Z",
+      "side": 1,
+      "message": "```suggestion\nsdbusplus::message::object_path getHostStatePath()\n```",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 2
+      },
+      "revId": "7dac5f1c9c9bed92da755741b0e55e18cf3200b4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4a5f854e_fb7203e8",
+        "filename": "cmos-reset/cmos_reset.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1001712
+      },
+      "writtenOn": "2026-03-30T11:30:51Z",
+      "side": 1,
+      "message": "This is not an error, why are we logging to stderr?\n\nThis applies to other places as well, i am just trying to understand why we do this.",
+      "revId": "7dac5f1c9c9bed92da755741b0e55e18cf3200b4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a86698e4_56bdf286",
+        "filename": "cmos-reset/cmos_reset.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1001712
+      },
+      "writtenOn": "2026-03-30T11:30:51Z",
+      "side": 1,
+      "message": "redundant return statement in void function",
+      "range": {
+        "startLine": 112,
+        "startChar": 4,
+        "endLine": 112,
+        "endChar": 10
+      },
+      "revId": "7dac5f1c9c9bed92da755741b0e55e18cf3200b4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
