@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4e3bae0b_2fe59b96",
+        "filename": "meson.build",
+        "patchSetId": 3
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1001712
+      },
+      "writtenOn": "2026-03-30T09:28:46Z",
+      "side": 0,
+      "message": "nit: stray diff (newline removed)\n\nThis can make your patch harder to revert / rebase and its easier to get merge conflicts.",
+      "revId": "346bac865c76f1e059391d25cfc8d50ec28dbda9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}

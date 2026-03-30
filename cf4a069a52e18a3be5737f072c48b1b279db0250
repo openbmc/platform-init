@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "79ec2078_7cd460db",
+        "filename": "meson.build",
+        "patchSetId": 3
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1001712
+      },
+      "writtenOn": "2026-03-30T09:28:46Z",
+      "side": 1,
+      "message": "Also cleanup like this (remove unused meson variable) can be done in a separate patch outside this relation chain.",
+      "range": {
+        "startLine": 25,
+        "startChar": 1,
+        "endLine": 26,
+        "endChar": 11
+      },
+      "revId": "cf4a069a52e18a3be5737f072c48b1b279db0250",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
