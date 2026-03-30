@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "43edf80a_1f6459b4",
+        "filename": "activation.hpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001712
+      },
+      "writtenOn": "2026-03-30T11:34:14Z",
+      "side": 1,
+      "message": "I don\u0027t think you need to do any inheritance here.\n\nThere is nothing implemented here on top of the class you are inheriting from.",
+      "revId": "e67f59542f77f157ce5b0bbbbd058ed85e353426",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0edb2289_afc4cce4",
+        "filename": "cmos-reset/cmos_reset.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1001712
+      },
+      "writtenOn": "2026-03-30T11:34:14Z",
+      "side": 1,
+      "message": "stray newline",
+      "revId": "e67f59542f77f157ce5b0bbbbd058ed85e353426",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
