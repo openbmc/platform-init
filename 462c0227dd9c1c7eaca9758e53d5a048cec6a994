@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "296443e9_b764a0cc",
+        "filename": "cmos-reset/cmos_reset.hpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1001712
+      },
+      "writtenOn": "2026-03-30T11:19:16Z",
+      "side": 1,
+      "message": "nit: IMO overkill to make 2 namespaces here, given that the class already contains `Reset` phrase.\n\nWould suggest `namespace cmos` to keep it simple.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 1
+      },
+      "revId": "462c0227dd9c1c7eaca9758e53d5a048cec6a994",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9ee1ec5f_091abc9a",
+        "filename": "meta/catalina.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1001712
+      },
+      "writtenOn": "2026-03-30T11:19:16Z",
+      "side": 1,
+      "message": "stray newline",
+      "revId": "462c0227dd9c1c7eaca9758e53d5a048cec6a994",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
