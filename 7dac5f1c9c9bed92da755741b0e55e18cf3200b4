@@ -18,6 +18,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c652d8ee_500b6803",
+        "filename": "cmos-reset/cmos_reset.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1002065
+      },
+      "writtenOn": "2026-04-02T16:28:09Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "8fb23bef_1175da9e",
+      "revId": "7dac5f1c9c9bed92da755741b0e55e18cf3200b4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b081a5e0_965d6108",
@@ -31,6 +49,30 @@
       "writtenOn": "2026-03-30T11:30:51Z",
       "side": 1,
       "message": "```suggestion\nsdbusplus::message::object_path getHostStatePath()\n```",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 2
+      },
+      "revId": "7dac5f1c9c9bed92da755741b0e55e18cf3200b4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a20ce3e4_4c8cb08b",
+        "filename": "cmos-reset/cmos_reset.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1002065
+      },
+      "writtenOn": "2026-04-02T16:28:09Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "b081a5e0_965d6108",
       "range": {
         "startLine": 17,
         "startChar": 0,
@@ -58,6 +100,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4ef5a1f7_117c60e0",
+        "filename": "cmos-reset/cmos_reset.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1002065
+      },
+      "writtenOn": "2026-04-02T16:28:09Z",
+      "side": 1,
+      "message": "I have been following what was already used in the repo. Pulling in phosphor-logging now instead though.",
+      "parentUuid": "4a5f854e_fb7203e8",
+      "revId": "7dac5f1c9c9bed92da755741b0e55e18cf3200b4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a86698e4_56bdf286",
@@ -71,6 +131,30 @@
       "writtenOn": "2026-03-30T11:30:51Z",
       "side": 1,
       "message": "redundant return statement in void function",
+      "range": {
+        "startLine": 112,
+        "startChar": 4,
+        "endLine": 112,
+        "endChar": 10
+      },
+      "revId": "7dac5f1c9c9bed92da755741b0e55e18cf3200b4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "62194162_4f0e43fa",
+        "filename": "cmos-reset/cmos_reset.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1002065
+      },
+      "writtenOn": "2026-04-02T16:28:09Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "a86698e4_56bdf286",
       "range": {
         "startLine": 112,
         "startChar": 4,
