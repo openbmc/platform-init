@@ -24,6 +24,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bb6bf60e_aa3d8cba",
+        "filename": "cmos-reset/cmos_reset.hpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1002065
+      },
+      "writtenOn": "2026-04-02T16:26:44Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "296443e9_b764a0cc",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 1
+      },
+      "revId": "462c0227dd9c1c7eaca9758e53d5a048cec6a994",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9ee1ec5f_091abc9a",
@@ -37,6 +61,24 @@
       "writtenOn": "2026-03-30T11:19:16Z",
       "side": 1,
       "message": "stray newline",
+      "revId": "462c0227dd9c1c7eaca9758e53d5a048cec6a994",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0290753c_a28fcc11",
+        "filename": "meta/catalina.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1002065
+      },
+      "writtenOn": "2026-04-02T16:26:44Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "9ee1ec5f_091abc9a",
       "revId": "462c0227dd9c1c7eaca9758e53d5a048cec6a994",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
