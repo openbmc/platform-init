@@ -3,6 +3,7 @@
 
 #include "cmos_reset.hpp"
 
+#include <phosphor-logging/commit.hpp>
 #include <phosphor-logging/lg2.hpp>
 
 PHOSPHOR_LOG2_USING;
@@ -19,10 +20,18 @@ sdbusplus::async::task<> CmosReset::startReset()
     if (!success)
     {
         error("CMOS reset failed");
+        co_await lg2::commit(
+            ctx, ResetFailure("RESET_CAUSE", "Manual CMOS reset", "SOURCE",
+                              sdbusplus::object_path(softwarePath)));
         co_return;
     }
 
     info("CMOS reset successful");
+    const auto logPath = co_await lg2::commit(
+        ctx, ResetSuccess("RESET_CAUSE", "Manual CMOS reset", "SOURCE",
+                          sdbusplus::object_path(softwarePath)));
+
+    co_await lg2::resolve(ctx, logPath);
 }
 
 sdbusplus::async::task<bool> CmosReset::doReset()
