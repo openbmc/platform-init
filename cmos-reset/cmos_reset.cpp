@@ -3,6 +3,8 @@
 
 #include "cmos_reset.hpp"
 
+#include <phosphor-logging/commit.hpp>
+
 namespace cmos
 {
 
@@ -15,10 +17,18 @@ sdbusplus::async::task<> CmosReset::startReset()
     if (!success)
     {
         error("CMOS reset failed");
+        co_await lg2::commit(
+            ctx, ResetFailure("SOURCE",
+                              sdbusplus::message::object_path(softwarePath)));
         co_return;
     }
 
     info("CMOS reset successful");
+    const auto logPath = co_await lg2::commit(
+        ctx,
+        ResetSuccess("SOURCE", sdbusplus::message::object_path(softwarePath)));
+
+    co_await lg2::resolve(ctx, logPath);
 }
 
 sdbusplus::async::task<bool> CmosReset::doReset()
