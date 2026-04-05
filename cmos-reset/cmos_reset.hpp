@@ -3,6 +3,7 @@
 
 #include <sdbusplus/bus.hpp>
 #include <xyz/openbmc_project/Common/FactoryReset/aserver.hpp>
+#include <xyz/openbmc_project/Common/FactoryReset/event.hpp>
 
 namespace cmos
 {
@@ -12,6 +13,11 @@ constexpr const char* busName = "xyz.openbmc_project.Software.Host.Updater0";
 
 using CmosResetMethod =
     std::function<sdbusplus::async::task<bool>(sdbusplus::async::context& ctx)>;
+
+using ResetFailure =
+    sdbusplus::error::xyz::openbmc_project::common::FactoryReset::ResetFailure;
+using ResetSuccess =
+    sdbusplus::event::xyz::openbmc_project::common::FactoryReset::ResetSuccess;
 
 class CmosReset :
     public sdbusplus::aserver::xyz::openbmc_project::common::FactoryReset<
