@@ -23,13 +23,15 @@ platform_srcs = files(
 )
 util_srcs = files('gpio.cpp', 'i2c.cpp', 'utilities.cpp')
 
+installdir = join_paths(get_option('libexecdir'), 'platform-init')
+
 executable(
     'platform',
     ['platform.cpp'] + platform_srcs + util_srcs,
     dependencies: [gpiodcxx_dep, libsystemd_dep, cli11_dep, i2c_dep, sdbusplus],
     include_directories: ['.', 'intel', 'meta', 'nvidia'],
     install: true,
-    install_dir: get_option('libexecdir'),
+    install_dir: installdir,
 )
 
 systemd_system_unit_dir = systemd_dep.get_variable('systemd_system_unit_dir')
