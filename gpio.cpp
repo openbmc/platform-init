@@ -58,7 +58,7 @@ void set(const char* line_name, int value,
         std::cerr << std::format("{} Set to {}\n", line_name, value);
         return;
     }
-    std::cerr << std::format("{} Settingto {}\n", line_name, value);
+    std::cerr << std::format("{} Setting to {}\n", line_name, value);
     line.set_value(value);
 }
 
