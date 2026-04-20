@@ -1,0 +1,176 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "be7819e7_2b720e6e",
+        "filename": "cmos-reset/cmos_reset.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1001712
+      },
+      "writtenOn": "2026-04-20T14:16:56Z",
+      "side": 1,
+      "message": "probably need to include lg2 headers in this file\n\nhttps://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines#rs-implicit",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 2
+      },
+      "revId": "9b4be5f0b13e7e30694aeaf8471a9d4cbcefc36c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6cd69750_13083d9f",
+        "filename": "cmos-reset/cmos_reset.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1001712
+      },
+      "writtenOn": "2026-04-20T14:16:56Z",
+      "side": 1,
+      "message": "```suggestion\n    ctx.request_name(busName);\n```\n\nWhy do you wrap it in an async task here.",
+      "range": {
+        "startLine": 49,
+        "startChar": 4,
+        "endLine": 52,
+        "endChar": 12
+      },
+      "revId": "9b4be5f0b13e7e30694aeaf8471a9d4cbcefc36c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e9928e1f_faeab62f",
+        "filename": "cmos-reset/cmos_reset.hpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1001712
+      },
+      "writtenOn": "2026-04-20T14:16:56Z",
+      "side": 1,
+      "message": "There is no lg2 usage in this header, right?\n\nhttps://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines#rs-implicit",
+      "range": {
+        "startLine": 4,
+        "startChar": 0,
+        "endLine": 4,
+        "endChar": 2
+      },
+      "revId": "9b4be5f0b13e7e30694aeaf8471a9d4cbcefc36c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3e462cac_72615274",
+        "filename": "cmos-reset/cmos_reset.hpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1001712
+      },
+      "writtenOn": "2026-04-20T14:16:56Z",
+      "side": 1,
+      "message": "There is no lg2 calls here, this can go into cpp file, right?",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 19
+      },
+      "revId": "9b4be5f0b13e7e30694aeaf8471a9d4cbcefc36c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "928384ad_fb518ffa",
+        "filename": "cmos-reset/cmos_reset_main.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1001712
+      },
+      "writtenOn": "2026-04-20T14:16:56Z",
+      "side": 1,
+      "message": "nit: would prefer we drop this since i only see one place it is used",
+      "range": {
+        "startLine": 12,
+        "startChar": 1,
+        "endLine": 13,
+        "endChar": 27
+      },
+      "revId": "9b4be5f0b13e7e30694aeaf8471a9d4cbcefc36c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3f51008b_be4982ae",
+        "filename": "cmos-reset/meson.build",
+        "patchSetId": 6
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1001712
+      },
+      "writtenOn": "2026-04-20T14:16:56Z",
+      "side": 1,
+      "message": "Can we drop this `../meta` include dir?\n\nIt\u0027s already covered by `..` and we can simply include `meta/${file}.hpp`",
+      "range": {
+        "startLine": 17,
+        "startChar": 37,
+        "endLine": 17,
+        "endChar": 46
+      },
+      "revId": "9b4be5f0b13e7e30694aeaf8471a9d4cbcefc36c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1151635a_f19df6b5",
+        "filename": "meta/catalina.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1001712
+      },
+      "writtenOn": "2026-04-20T14:16:56Z",
+      "side": 1,
+      "message": "stray newline here.",
+      "revId": "9b4be5f0b13e7e30694aeaf8471a9d4cbcefc36c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b3b76de0_fb3ae4c0",
+        "filename": "platform_init.service.in",
+        "patchSetId": 6
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1001712
+      },
+      "writtenOn": "2026-04-20T14:16:56Z",
+      "side": 1,
+      "message": "wouldn\u0027t this go with your previous change where you changed the install directory?",
+      "revId": "9b4be5f0b13e7e30694aeaf8471a9d4cbcefc36c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
