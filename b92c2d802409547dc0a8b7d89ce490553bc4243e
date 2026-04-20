@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "60e61722_24e27b7d",
+        "filename": "meson.build",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1001712
+      },
+      "writtenOn": "2026-04-20T13:52:46Z",
+      "side": 1,
+      "message": "What about `platform-init` subdirectory ? That would make it easy to find the binaries from the recipe.\n\nWith the amount of repos in the OpenBMC, IMO it\u0027s good to have some amount of consistency so folks can find stuff without digging (repo ~ recipe ~ subdirectories ~ systemd services)",
+      "range": {
+        "startLine": 26,
+        "startChar": 51,
+        "endLine": 26,
+        "endChar": 59
+      },
+      "revId": "b92c2d802409547dc0a8b7d89ce490553bc4243e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
