@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1bfde44b_2dadc4ca",
+        "filename": "cmos-reset/host_power.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1001712
+      },
+      "writtenOn": "2026-04-20T14:39:47Z",
+      "side": 1,
+      "message": "IMO there is no advantage for this extra variable. It\u0027s not much shorter and the existing `HOST_STATE_TRANSITION_TIMEOUT` probably just needs a cast?",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 2
+      },
+      "revId": "bfa72ee5a99d35ada574f54d9bc0c8789221121d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "67b8cc9f_d48a1c4e",
+        "filename": "cmos-reset/host_power.hpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1001712
+      },
+      "writtenOn": "2026-04-20T14:39:47Z",
+      "side": 1,
+      "message": "This can go into the cpp file. The include as well?",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 19
+      },
+      "revId": "bfa72ee5a99d35ada574f54d9bc0c8789221121d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
