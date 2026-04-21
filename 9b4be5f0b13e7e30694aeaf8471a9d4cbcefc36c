@@ -24,6 +24,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7894814e_cd1d5b0b",
+        "filename": "cmos-reset/cmos_reset.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1002065
+      },
+      "writtenOn": "2026-04-21T19:19:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "be7819e7_2b720e6e",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 2
+      },
+      "revId": "9b4be5f0b13e7e30694aeaf8471a9d4cbcefc36c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6cd69750_13083d9f",
@@ -37,6 +61,30 @@
       "writtenOn": "2026-04-20T14:16:56Z",
       "side": 1,
       "message": "```suggestion\n    ctx.request_name(busName);\n```\n\nWhy do you wrap it in an async task here.",
+      "range": {
+        "startLine": 49,
+        "startChar": 4,
+        "endLine": 52,
+        "endChar": 12
+      },
+      "revId": "9b4be5f0b13e7e30694aeaf8471a9d4cbcefc36c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "510aecdc_18e8a481",
+        "filename": "cmos-reset/cmos_reset.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1002065
+      },
+      "writtenOn": "2026-04-21T19:19:45Z",
+      "side": 1,
+      "message": "I have been following the example in sdbusplus repo:\n\nhttps://github.com/openbmc/sdbusplus/blob/a74f63b1903c8b00d9c134164eaa4ac8e925d0f5/example/calculator-aserver.cpp#L67\n\nI do agree though, your suggestion is more ergonomic",
+      "parentUuid": "6cd69750_13083d9f",
       "range": {
         "startLine": 49,
         "startChar": 4,
@@ -70,6 +118,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "474be49b_cda9bcc2",
+        "filename": "cmos-reset/cmos_reset.hpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1002065
+      },
+      "writtenOn": "2026-04-21T19:19:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e9928e1f_faeab62f",
+      "range": {
+        "startLine": 4,
+        "startChar": 0,
+        "endLine": 4,
+        "endChar": 2
+      },
+      "revId": "9b4be5f0b13e7e30694aeaf8471a9d4cbcefc36c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3e462cac_72615274",
@@ -83,6 +155,30 @@
       "writtenOn": "2026-04-20T14:16:56Z",
       "side": 1,
       "message": "There is no lg2 calls here, this can go into cpp file, right?",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 19
+      },
+      "revId": "9b4be5f0b13e7e30694aeaf8471a9d4cbcefc36c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "97424173_b361bdda",
+        "filename": "cmos-reset/cmos_reset.hpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1002065
+      },
+      "writtenOn": "2026-04-21T19:19:45Z",
+      "side": 1,
+      "message": "Yep. Done",
+      "parentUuid": "3e462cac_72615274",
       "range": {
         "startLine": 8,
         "startChar": 0,
@@ -116,6 +212,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7c91711a_325206e6",
+        "filename": "cmos-reset/cmos_reset_main.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1002065
+      },
+      "writtenOn": "2026-04-21T19:19:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "928384ad_fb518ffa",
+      "range": {
+        "startLine": 12,
+        "startChar": 1,
+        "endLine": 13,
+        "endChar": 27
+      },
+      "revId": "9b4be5f0b13e7e30694aeaf8471a9d4cbcefc36c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3f51008b_be4982ae",
@@ -129,6 +249,30 @@
       "writtenOn": "2026-04-20T14:16:56Z",
       "side": 1,
       "message": "Can we drop this `../meta` include dir?\n\nIt\u0027s already covered by `..` and we can simply include `meta/${file}.hpp`",
+      "range": {
+        "startLine": 17,
+        "startChar": 37,
+        "endLine": 17,
+        "endChar": 46
+      },
+      "revId": "9b4be5f0b13e7e30694aeaf8471a9d4cbcefc36c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7a905e73_1801bdfe",
+        "filename": "cmos-reset/meson.build",
+        "patchSetId": 6
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1002065
+      },
+      "writtenOn": "2026-04-21T19:19:45Z",
+      "side": 1,
+      "message": "Thanks. Done",
+      "parentUuid": "3f51008b_be4982ae",
       "range": {
         "startLine": 17,
         "startChar": 37,
@@ -156,6 +300,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c09aebf3_34113938",
+        "filename": "meta/catalina.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1002065
+      },
+      "writtenOn": "2026-04-21T19:19:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1151635a_f19df6b5",
+      "revId": "9b4be5f0b13e7e30694aeaf8471a9d4cbcefc36c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b3b76de0_fb3ae4c0",
@@ -169,6 +331,24 @@
       "writtenOn": "2026-04-20T14:16:56Z",
       "side": 1,
       "message": "wouldn\u0027t this go with your previous change where you changed the install directory?",
+      "revId": "9b4be5f0b13e7e30694aeaf8471a9d4cbcefc36c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1fb3fb33_df311ec7",
+        "filename": "platform_init.service.in",
+        "patchSetId": 6
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1002065
+      },
+      "writtenOn": "2026-04-21T19:19:45Z",
+      "side": 1,
+      "message": "Yes ^^ moved to previous change. Done",
+      "parentUuid": "b3b76de0_fb3ae4c0",
       "revId": "9b4be5f0b13e7e30694aeaf8471a9d4cbcefc36c",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
