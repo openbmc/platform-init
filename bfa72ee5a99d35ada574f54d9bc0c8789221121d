@@ -24,6 +24,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "269606af_d125d7c2",
+        "filename": "cmos-reset/host_power.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1002065
+      },
+      "writtenOn": "2026-04-21T19:20:27Z",
+      "side": 1,
+      "message": "Agreed. Done",
+      "parentUuid": "1bfde44b_2dadc4ca",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 2
+      },
+      "revId": "bfa72ee5a99d35ada574f54d9bc0c8789221121d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "67b8cc9f_d48a1c4e",
@@ -37,6 +61,30 @@
       "writtenOn": "2026-04-20T14:39:47Z",
       "side": 1,
       "message": "This can go into the cpp file. The include as well?",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 19
+      },
+      "revId": "bfa72ee5a99d35ada574f54d9bc0c8789221121d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7e2d3a68_5d426561",
+        "filename": "cmos-reset/host_power.hpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1002065
+      },
+      "writtenOn": "2026-04-21T19:20:27Z",
+      "side": 1,
+      "message": "Moved both to cpp. Done",
+      "parentUuid": "67b8cc9f_d48a1c4e",
       "range": {
         "startLine": 10,
         "startChar": 0,
