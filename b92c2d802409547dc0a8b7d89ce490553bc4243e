@@ -22,6 +22,30 @@
       },
       "revId": "b92c2d802409547dc0a8b7d89ce490553bc4243e",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "820b3ad2_df95c325",
+        "filename": "meson.build",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1002065
+      },
+      "writtenOn": "2026-04-21T18:46:39Z",
+      "side": 1,
+      "message": "Thanks for pointing out. Renamed to \u0027platform-init\u0027. Done",
+      "parentUuid": "60e61722_24e27b7d",
+      "range": {
+        "startLine": 26,
+        "startChar": 51,
+        "endLine": 26,
+        "endChar": 59
+      },
+      "revId": "b92c2d802409547dc0a8b7d89ce490553bc4243e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
