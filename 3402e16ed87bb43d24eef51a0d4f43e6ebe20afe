@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "325a869a_130b3003",
+        "filename": "cmos-reset/cmos_reset.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1001712
+      },
+      "writtenOn": "2026-04-22T08:14:03Z",
+      "side": 1,
+      "message": "```suggestion\n    if (!success)\n    {\n        error(\"CMOS reset failed\");\n    }\n\n    co_return success;\n```\n\nnitpick to make it more compact",
+      "range": {
+        "startLine": 37,
+        "startChar": 4,
+        "endLine": 43,
+        "endChar": 19
+      },
+      "revId": "3402e16ed87bb43d24eef51a0d4f43e6ebe20afe",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
