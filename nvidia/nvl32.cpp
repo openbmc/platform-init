@@ -36,6 +36,16 @@ void setup_devmem()
     logged_system("mknod /dev/mem c 1 1");
 }
 
+void enable_lpc_espi_clocks()
+{
+    // SCU094[1:0] = 1 ungates LCLK + eSPI clock that the Linux clock framework
+    // turned off in clk_disable_unused() because no driver claims espiclk.
+    // Workaround until upstream Aspeed eSPI driver lands and properly claims
+    // it.
+    static constexpr uint32_t reg = 0x1e6e2094;
+    logged_system(std::format("devmem 0x{:x} 32 0x3", reg));
+}
+
 void handle_passthrough_registers(bool enable)
 {
     static constexpr uint32_t reg = 0x1e6e24bc;
@@ -504,6 +514,7 @@ void wait_for_frus_to_probe()
 int init_nvl32()
 {
     setup_devmem();
+    enable_lpc_espi_clocks();
     gpio::set("BMC_INIT_DONE", 1);
     handle_passthrough_registers(false);
     sd_notify(0, "READY=1");
