@@ -5,6 +5,7 @@
 #include "i2c.hpp"
 #include "intel.hpp"
 #include "nvidia.hpp"
+#include "meta.hpp"
 #include "utilities.hpp"
 
 #include <fcntl.h>
@@ -19,12 +20,14 @@
 #include <string_view>
 #include <utility>
 
-constexpr std::array<std::pair<std::string_view, int (*)()>, 5> init_functions{
-    {{"intel-acrp", intel::init_acrp},
-     {"intel-jcrp", intel::init_jcrp},
-     {"nvidia-gb200", nvidia::init_gb200_base},
-     {"nvidia-gb200-with-p2020", nvidia::init_gb200_with_p2020},
-     {"nvidia-nvl32", nvidia::init_nvl32}}};
+constexpr std::array<std::pair<std::string_view, int (*)()>, 6> init_functions{{
+    {"intel-acrp", intel::init_acrp},
+    {"intel-jcrp", intel::init_jcrp},
+    {"nvidia-gb200", nvidia::init_gb200_base},
+    {"nvidia-gb200-with-p2020", nvidia::init_gb200_with_p2020},
+    {"nvidia-nvl32", nvidia::init_nvl32},
+    {"meta-ventura2", meta::init_ventura2},
+}};
 
 int main(int argc, char** argv)
 {

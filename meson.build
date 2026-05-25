@@ -10,7 +10,8 @@ gpiodcxx_dep = dependency('libgpiodcxx', default_options: ['bindings=cxx'])
 systemd_dep = dependency('systemd')
 libsystemd_dep = dependency('libsystemd')
 sdbusplus = dependency('sdbusplus', include_type: 'system')
-
+libmnl = dependency('libmnl')
+libftdi = dependency('libftdi1', include_type: 'system')
 
 cli11_dep = dependency(
     'CLI11',
@@ -24,14 +25,29 @@ platform_srcs = files(
     'intel/jcrp.cpp',
     'nvidia/gb200.cpp',
     'nvidia/nvl32.cpp',
+    'meta/ventura2.cpp',
 )
-util_srcs = files('gpio.cpp', 'i2c.cpp', 'utilities.cpp')
+util_srcs = files(
+    'gpio.cpp',
+    'i2c.cpp',
+    'utilities.cpp',
+    'mdio.cpp',
+    'ftdi_mdio.cpp',
+)
 
 exe = executable(
     'platform',
     ['platform.cpp'] + platform_srcs + util_srcs,
-    dependencies: [gpiodcxx_dep, libsystemd_dep, cli11_dep, i2c_dep, sdbusplus],
-    include_directories: ['.', 'nvidia', 'intel'],
+    dependencies: [
+        gpiodcxx_dep,
+        libsystemd_dep,
+        cli11_dep,
+        i2c_dep,
+        sdbusplus,
+        libmnl,
+        libftdi,
+    ],
+    include_directories: ['.', 'nvidia', 'intel', 'meta'],
     install: true,
     install_dir: get_option('libexecdir'),
 )
