@@ -4,3 +4,10 @@ option(
     value: 'nvidia-gb200',
     description: 'Platform to init (Temporary)',
 )
+
+option(
+    'mdio',
+    type: 'feature',
+    value: 'disabled',
+    description: 'Enable MDIO-based platform support',
+)

@@ -10,7 +10,25 @@ gpiodcxx_dep = dependency('libgpiodcxx', default_options: ['bindings=cxx'])
 systemd_dep = dependency('systemd')
 libsystemd_dep = dependency('libsystemd')
 sdbusplus = dependency('sdbusplus', include_type: 'system')
+platform_name = get_option('platform-name')
+mdio_opt = get_option('mdio')
 
+if platform_name == 'meta-ventura2' and not mdio_opt.enabled()
+    error('Ventura2 requires MDIO support; enable PACKAGECONFIG "mdio"')
+endif
+
+libmnl = dependency(
+    'libmnl',
+    required: mdio_opt,
+    fallback: ['libmnl', 'libmnl_dep'],
+)
+libftdi = dependency(
+    'libftdi1',
+    required: mdio_opt,
+    include_type: 'system',
+    fallback: ['libftdi1', 'libftdi1_dep'],
+)
+mdio_enabled = libmnl.found() and libftdi.found()
 
 cli11_dep = dependency(
     'CLI11',
@@ -22,16 +40,34 @@ i2c_dep = meson.get_compiler('cpp').find_library('i2c')
 platform_srcs = files(
     'intel/acrp.cpp',
     'intel/jcrp.cpp',
+    'meta/ventura2.cpp',
     'nvidia/gb200.cpp',
     'nvidia/nvl32.cpp',
 )
-util_srcs = files('gpio.cpp', 'i2c.cpp', 'utilities.cpp')
+util_srcs = files(
+    'gpio.cpp',
+    'i2c.cpp',
+    'utilities.cpp',
+)
+
+if mdio_enabled
+    util_srcs += files('ftdi_mdio.cpp', 'mdio.cpp')
+endif
 
 exe = executable(
     'platform',
     ['platform.cpp'] + platform_srcs + util_srcs,
-    dependencies: [gpiodcxx_dep, libsystemd_dep, cli11_dep, i2c_dep, sdbusplus],
-    include_directories: ['.', 'nvidia', 'intel'],
+    cpp_args: mdio_enabled ? ['-DENABLE_MDIO'] : [],
+    dependencies: [
+        gpiodcxx_dep,
+        libsystemd_dep,
+        cli11_dep,
+        i2c_dep,
+        sdbusplus,
+        libmnl,
+        libftdi,
+    ],
+    include_directories: ['.', 'nvidia', 'intel', 'meta'],
     install: true,
     install_dir: get_option('libexecdir'),
 )
@@ -43,6 +79,6 @@ configure_file(
     install_dir: systemd_system_unit_dir,
     install: true,
     configuration: configuration_data(
-        {'PLATFORM_NAME': get_option('platform-name')},
+        {'PLATFORM_NAME': platform_name},
     ),
 )
