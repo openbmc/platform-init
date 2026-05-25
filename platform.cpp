@@ -4,6 +4,7 @@
 #include "gpio.hpp"
 #include "i2c.hpp"
 #include "intel/platforms.hpp"
+#include "meta/platforms.hpp"
 #include "nvidia/platforms.hpp"
 #include "utilities.hpp"
 
@@ -26,7 +27,8 @@ constexpr auto init_functions =
          {"nvidia-gb200", nvidia::init_gb200_base},
          {"nvidia-gb200-with-p2020", nvidia::init_gb200_with_p2020},
          {"nvidia-nvl32", nvidia::init_nvl32},
-         {"nvidia-vr-nvl", nvidia::init_vr_nvl}});
+         {"nvidia-vr-nvl", nvidia::init_vr_nvl},
+         {"meta-ventura2", meta::init_ventura2}});
 
 int main(int argc, char** argv)
 {
