@@ -1,0 +1,9 @@
+[wrap-file]
+directory = libftdi1-1.5
+source_url = http://www.intra2net.com/en/developer/libftdi/download/libftdi1-1.5.tar.bz2
+source_filename = libftdi1-1.5.tar.bz2
+source_hash = 7c7091e9c86196148bd41177b4590dccb1510bfe6cea5bf7407ff194482eb049
+patch_directory = libftdi1
+
+[provide]
+libftdi1 = libftdi1_dep
