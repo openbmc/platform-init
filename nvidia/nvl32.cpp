@@ -3,6 +3,7 @@
 #include "utilities.hpp"
 
 #include <systemd/sd-daemon.h>
+#include <unistd.h>
 
 #include <sdbusplus/asio/connection.hpp>
 
