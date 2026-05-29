@@ -12,7 +12,11 @@ libsystemd_dep = dependency('libsystemd')
 sdbusplus = dependency('sdbusplus', include_type: 'system')
 
 
-cli11_dep = dependency('CLI11', required: true, include_type: 'system')
+cli11_dep = dependency(
+    'CLI11',
+    include_type: 'system',
+    default_options: ['tests=disabled'],
+)
 i2c_dep = meson.get_compiler('cpp').find_library('i2c')
 
 platform_srcs = files(
