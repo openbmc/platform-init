@@ -142,6 +142,24 @@
       "parentUuid": "ed6d55cc_edf2f451",
       "revId": "18770b8c0224f484fc12c51cd496e9684e462f9b",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "401c44b7_b08952d4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000153
+      },
+      "writtenOn": "2026-06-01T17:10:58Z",
+      "side": 1,
+      "message": "Cool",
+      "parentUuid": "c5bc10cf_f0dd44e3",
+      "revId": "18770b8c0224f484fc12c51cd496e9684e462f9b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
