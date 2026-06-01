@@ -16,6 +16,24 @@
       "message": "Lets move this until after we know we have a problem.  Today, and in the design doc platform-init is a single executable.  Clearly you have designs to change that, which is great to discuss, but lets stack up the new applications ahead of trying to invent a new folder structure until after we know we need it.\n\nSaid another way, at this time, there\u0027s one binary.  There\u0027s no reason for a subfolder.\n\nI suspect this patch can be abandoned for now.",
       "revId": "18770b8c0224f484fc12c51cd496e9684e462f9b",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "280f925c_642e3e93",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2026-06-01T16:16:00Z",
+      "side": 1,
+      "message": "This change makes it more in line with the documented approaches in https://github.com/openbmc/docs/blob/master/anti-patterns.md#incorrect-placement-of-executables-in-sbin-usrsbin-or-bin-usrbin\n\n\u003e Executables of type 1 should not be placed anywhere in ${PATH} because it is confusing and error-prone to users, but should instead be placed in a /usr/libexec/\u003cpackage\u003e subdirectory.\n\nI think this commit can go to the _front_ of the stack with that in mind.",
+      "parentUuid": "3ee93a2f_06f9d6f9",
+      "revId": "18770b8c0224f484fc12c51cd496e9684e462f9b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
