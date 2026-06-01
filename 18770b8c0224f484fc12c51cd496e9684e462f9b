@@ -106,6 +106,24 @@
       "parentUuid": "47c509b3_f3bd3b12",
       "revId": "18770b8c0224f484fc12c51cd496e9684e462f9b",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ed6d55cc_edf2f451",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000153
+      },
+      "writtenOn": "2026-06-01T16:57:16Z",
+      "side": 1,
+      "message": "Yep, but it has a CLI and help string whcih means it\u0027s able to be launched by humans.\n\nThis isn\u0027t the bridge I want to stand and die on.  My preference is binddir;  if everyone wants it to be a libexec subfolder, I think that\u0027s worse, but I don\u0027t care enough, that\u0027s fine.\n\nMy larger comment that we\u0027re adding new binaries here rather than adding sub commands is the more important one, but we can handle that in the next commit.",
+      "parentUuid": "8a218497_d591787d",
+      "revId": "18770b8c0224f484fc12c51cd496e9684e462f9b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
