@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3ee93a2f_06f9d6f9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000153
+      },
+      "writtenOn": "2026-06-01T15:57:25Z",
+      "side": 1,
+      "message": "Lets move this until after we know we have a problem.  Today, and in the design doc platform-init is a single executable.  Clearly you have designs to change that, which is great to discuss, but lets stack up the new applications ahead of trying to invent a new folder structure until after we know we need it.\n\nSaid another way, at this time, there\u0027s one binary.  There\u0027s no reason for a subfolder.\n\nI suspect this patch can be abandoned for now.",
+      "revId": "18770b8c0224f484fc12c51cd496e9684e462f9b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
