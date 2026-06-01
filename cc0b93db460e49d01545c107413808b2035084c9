@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "93ccae0d_a9c15f8b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000153
+      },
+      "writtenOn": "2026-06-01T17:51:56Z",
+      "side": 1,
+      "message": "To be more clear here, I\u0027m not against this, I would just like to see some discussion about why this repo is a logical place to put this feature.  The initial design doc for platform-init intentionally only covered init, ie the startup things the controller needs to do on launch.  It didn\u0027t cover runtime, and dbus was explicitly discounted.\n\nI\u0027m open to adding these things, would just like to see some amount of justification (like would go in a design doc) about why this is the best path.",
+      "parentUuid": "50a43133_55f6d05b",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 40
+      },
+      "revId": "cc0b93db460e49d01545c107413808b2035084c9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "76a079b8_344d36c8",
         "filename": "subprojects/phosphor-logging.wrap",
         "patchSetId": 9
