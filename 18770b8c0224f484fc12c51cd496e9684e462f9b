@@ -88,6 +88,24 @@
       "parentUuid": "59c6967e_efee82c5",
       "revId": "18770b8c0224f484fc12c51cd496e9684e462f9b",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8a218497_d591787d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2026-06-01T16:52:42Z",
+      "side": 1,
+      "message": "Isn\u0027t it still just a daemon / single command invoked from a systemd.service?\n\n```\n$ ./builddir/platform --help   \nPlatform init CLI\n\n\n./builddir/platform [OPTIONS] SUBCOMMANDS\n\n\nOPTIONS:\n  -h,     --help              Print this help message and exit\n\nSUBCOMMANDS:\n  init                        Initialize the platform and daemonize\n```\n\nI\u0027ve tried to move as much as I can easily out of `${bindir}` because it makes tab-complete worse for things that are never going to be ran by humans.",
+      "parentUuid": "47c509b3_f3bd3b12",
+      "revId": "18770b8c0224f484fc12c51cd496e9684e462f9b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
