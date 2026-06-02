@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9bbeb047_b6883daa",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1002065
+      },
+      "writtenOn": "2026-06-02T13:34:42Z",
+      "side": 1,
+      "message": "I provided additional info in the commit message.\n\nI agree, this changes platform-init from how it is documented. If we find agreement on this I would update the doc with the relevant information.\n\nTo pick up the conversation you and @patrick@stwcx.xyz had in the previous patch: \n\nThe reason I went with a second binary was mainly due to the fact how the init subcommand and the reset service functionally diverge. While `init` is calling a one-shot function, the reset service spawns an async dbus service with the provided reset function. Doing it this way felt cleaner to me, but I might be wrong. On the other hand it currently adds slightly more overhead on the yocto side and more importantly might be misaligned with already documented designs.\n\nI am fine expanding on the `platform` binary instead and adding a secondary subcommand.",
+      "parentUuid": "93ccae0d_a9c15f8b",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 40
+      },
+      "revId": "cc0b93db460e49d01545c107413808b2035084c9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "76a079b8_344d36c8",
         "filename": "subprojects/phosphor-logging.wrap",
         "patchSetId": 9
@@ -61,6 +85,24 @@
       "writtenOn": "2026-06-01T16:50:55Z",
       "side": 1,
       "message": "wrap files probably Need to go in their own commit?",
+      "revId": "cc0b93db460e49d01545c107413808b2035084c9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "acbcc7ed_9ef10fab",
+        "filename": "subprojects/phosphor-logging.wrap",
+        "patchSetId": 9
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1002065
+      },
+      "writtenOn": "2026-06-02T13:34:42Z",
+      "side": 1,
+      "message": "I was not aware of this requirement. Will do.",
+      "parentUuid": "76a079b8_344d36c8",
       "revId": "cc0b93db460e49d01545c107413808b2035084c9",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
