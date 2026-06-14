@@ -1,5 +1,5 @@
 [Unit]
-Description=Start up the platform hardware
+Description=init of platform hardware
 Before=xyz.openbmc_project.FruDevice.service
 
 [Service]
