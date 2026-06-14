@@ -46,6 +46,13 @@ void init_sub_callback(std::string& platform_name, bool& success)
         return;
     }
 
+    int notify_rc = sd_notify(0, "READY=1\nSTATUS=Platform init complete");
+    if (notify_rc < 0)
+    {
+        std::cerr << "sd_notify READY=1 failed: " << notify_rc << "\n";
+        return;
+    }
+
     success = true;
 }
 
