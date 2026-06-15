@@ -74,6 +74,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "83ba075f_ff282a61",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1002065
+      },
+      "writtenOn": "2026-06-15T16:16:05Z",
+      "side": 1,
+      "message": "I have updated the series to execute from a subcommand instead of a separate binary. I\u0027ll follow-up with a design doc update to continue the discussion there.",
+      "parentUuid": "9bbeb047_b6883daa",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 40
+      },
+      "revId": "cc0b93db460e49d01545c107413808b2035084c9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "76a079b8_344d36c8",
         "filename": "subprojects/phosphor-logging.wrap",
         "patchSetId": 9
