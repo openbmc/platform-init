@@ -3,6 +3,7 @@
 
 #include "gpio.hpp"
 #include "i2c.hpp"
+#include "sysfs.hpp"
 #include "utilities.hpp"
 
 #include <systemd/sd-daemon.h>
@@ -14,7 +15,6 @@
 #include <cstdint>
 #include <filesystem>
 #include <format>
-#include <fstream>
 #include <iostream>
 #include <span>
 #include <string_view>
@@ -306,11 +306,95 @@ void hmc_bypass()
     gpio::set("BMC_HMC_MUX_SEL-O", 0);
 }
 
+// The SMA MCU emulates a CP2112 but enumerates as 0955:CF11, which is
+// not in hid-cp2112's id_table, so it lands on hid-generic and needs binding.
+void bind_sma_cp2112()
+{
+    constexpr std::string_view cp2112_driver = "/sys/bus/hid/drivers/cp2112";
+    constexpr std::string_view hid_generic_driver =
+        "/sys/bus/hid/drivers/hid-generic";
+
+    auto register_result = sysfs::new_id(cp2112_driver, "3 0955 CF11");
+    if (!register_result)
+    {
+        std::cerr << std::format(
+            "Failed to register NVIDIA 0955:CF11 with cp2112 driver: {}\n",
+            register_result.error().message());
+        return;
+    }
+    std::cerr << "Registered NVIDIA 0955:CF11 with cp2112 driver\n";
+
+    constexpr const char* hid_devices_dir = "/sys/bus/hid/devices/";
+    std::error_code ec;
+    bool exists = std::filesystem::exists(hid_devices_dir, ec);
+    if (ec)
+    {
+        std::cerr << std::format("bind_sma_cp2112: failed to check {}: {}\n",
+                                 hid_devices_dir, ec.message());
+        return;
+    }
+    if (!exists)
+    {
+        return;
+    }
+
+    std::filesystem::directory_iterator entry(hid_devices_dir, ec);
+    if (ec)
+    {
+        std::cerr << std::format("bind_sma_cp2112: failed to open {}: {}\n",
+                                 hid_devices_dir, ec.message());
+        return;
+    }
+
+    const std::filesystem::directory_iterator end;
+    while (entry != end)
+    {
+        std::string devname = entry->path().filename().string();
+        if (devname.find(":0955:CF11") != std::string::npos)
+        {
+            auto unbind_result =
+                sysfs::unbind_device(hid_generic_driver, devname);
+            if (!unbind_result)
+            {
+                std::cerr << std::format(
+                    "Failed to unbind {} from hid-generic: {}\n", devname,
+                    unbind_result.error().message());
+            }
+            else
+            {
+                auto bind_result = sysfs::bind_device(cp2112_driver, devname);
+                if (!bind_result)
+                {
+                    std::cerr
+                        << std::format("Failed to bind {} to cp2112: {}\n",
+                                       devname, bind_result.error().message());
+                }
+                else
+                {
+                    std::cerr << std::format(
+                        "Migrated {} from hid-generic to cp2112\n", devname);
+                }
+            }
+        }
+
+        entry.increment(ec);
+        if (ec)
+        {
+            std::cerr << std::format(
+                "bind_sma_cp2112: failed while iterating {}: {}\n",
+                hid_devices_dir, ec.message());
+            return;
+        }
+    }
+}
+
 } // namespace
 
 int init_vr_nvl()
 {
     std::cerr << "vr-nvl platform init starting\n";
+
+    bind_sma_cp2112();
 
     int stby_b0 = gpio::get("B0_M0_STBY_POWER_PG-I");
     // Warm path expects Board 0 asserted.
