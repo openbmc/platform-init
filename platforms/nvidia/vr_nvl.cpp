@@ -38,12 +38,21 @@ constexpr uint8_t pdb_iox_parsec_addr = 0x75;
 constexpr auto hpm_iox_buses = std::to_array<uint8_t>({2, 7});
 constexpr auto hpm_iox_addrs = std::to_array<uint8_t>({0x20, 0x21});
 
+constexpr auto peripheral_reset_settle_delay = 1ms;
+constexpr auto hpm_run_power_stagger_delay = 10ms;
+
 enum class HscVendor
 {
     Unknown,
     TI,
     MPS,
     IFX
+};
+
+enum class HpmBoard
+{
+    Board0,
+    Board1
 };
 
 constexpr uint8_t pmbus_mfr_id_reg = 0x99;
@@ -423,6 +432,110 @@ void bind_sma_cp2112()
     }
 }
 
+bool hpm_board_present(HpmBoard board)
+{
+    switch (board)
+    {
+        case HpmBoard::Board0:
+            return gpio::get("B0_M0_STBY_POWER_PG-I") == 1;
+        case HpmBoard::Board1:
+            return gpio::get("B1_M0_STBY_POWER_PG-I") == 1;
+    }
+    return false;
+}
+
+bool host_power_on()
+{
+    if (!hpm_board_present(HpmBoard::Board0))
+    {
+        std::cerr << "Board 0 not present; skipping host power-on\n";
+        return true;
+    }
+
+    // Already-on check requires both board 0 run power good and main
+    // power ok. Board 1 is optional.
+    if (gpio::get("B0_M0_RUN_POWER_PG-I") == 1 &&
+        gpio::get("MAIN_PWR_OK-I") == 1)
+    {
+        std::cerr << "Board 0 already powered on; skipping host power-on\n";
+        return true;
+    }
+
+    std::cerr << "Starting host power-on\n";
+
+    gpio::set("MAIN_PWR_EN-O", 1);
+    if (!wait_gpio_assert_poll("MAIN_PWR_OK-I", 1s))
+    {
+        std::cerr << "MAIN_PWR_OK-I never asserted; aborting host power-on\n";
+        return false;
+    }
+
+    gpio::set("B0_M0_PRE_SYS_RST_L-O", 0);
+    const bool board1 = hpm_board_present(HpmBoard::Board1);
+    if (board1)
+    {
+        gpio::set("B1_M0_PRE_SYS_RST_L-O", 0);
+    }
+
+    gpio::set("SSD0_PWRDIS-O", 0);
+    gpio::set("BMC_SSD0_RST_L-O", 1);
+
+    sleep_milliseconds(peripheral_reset_settle_delay);
+
+    gpio::set("USB_PWR_EN-O", 1);
+    gpio::set("E1S_PWR_EN-O", 1);
+
+    gpio::set("B0_M0_RUN_POWER_EN-O", 1);
+    sleep_milliseconds(hpm_run_power_stagger_delay);
+    if (board1)
+    {
+        gpio::set("B1_M0_RUN_POWER_EN-O", 1);
+    }
+
+    if (!wait_gpio_assert_poll("B0_M0_RUN_POWER_PG-I", 10s))
+    {
+        std::cerr
+            << "B0_M0_RUN_POWER_PG-I never asserted; aborting host power-on\n";
+        return false;
+    }
+    if (board1)
+    {
+        wait_gpio_assert_poll_optional("B1_M0_RUN_POWER_PG-I", 10s,
+                                       "Board 1 run power may have failed");
+    }
+
+    gpio::set("B0_M0_PRE_SYS_RST_L-O", 1);
+    if (board1)
+    {
+        gpio::set("B1_M0_PRE_SYS_RST_L-O", 1);
+    }
+
+    if (!wait_gpio_assert_poll("CPU_RST_L-I", 2s))
+    {
+        std::cerr << "CPU_RST_L-I never de-asserted; power-on incomplete\n";
+        return false;
+    }
+
+    std::cerr << "Host power-on complete\n";
+    return true;
+}
+
+void reset_hpm_usb_hubs()
+{
+    if (!std::filesystem::exists("/dev/ttyUSB0"))
+    {
+        std::cerr << "Resetting USB_HUB0 on HPM Board 0\n";
+        gpio::set("B0_M0_USB_HUB0_RST_L-O", 0);
+        gpio::set("B0_M0_USB_HUB0_RST_L-O", 1);
+    }
+    if (!std::filesystem::exists("/dev/ttyUSB4"))
+    {
+        std::cerr << "Resetting USB_HUB0 on HPM Board 1\n";
+        gpio::set("B1_M0_USB_HUB0_RST_L-O", 0);
+        gpio::set("B1_M0_USB_HUB0_RST_L-O", 1);
+    }
+}
+
 } // namespace
 
 int init_vr_nvl()
@@ -497,6 +610,13 @@ int init_vr_nvl()
                                    "HPM Board 0 CPLD may be absent");
     wait_gpio_assert_poll_optional("B1_M0_CPLD_READY-I", 10s,
                                    "HPM Board 1 CPLD may be absent");
+
+    reset_hpm_usb_hubs();
+
+    if (!host_power_on())
+    {
+        std::cerr << "Host power-on did not complete; continuing\n";
+    }
 
     sd_notify(0, "READY=1");
     std::cerr << "vr-nvl platform init complete\n";
