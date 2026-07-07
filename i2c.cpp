@@ -8,6 +8,7 @@
 #include <sys/ioctl.h>
 #include <unistd.h>
 
+#include <cerrno>
 #include <filesystem>
 #include <format>
 #include <fstream>
@@ -82,6 +83,30 @@ void new_device(unsigned int bus, unsigned int address,
     std::cerr << std::format("{} device created at bus {}", device_type, bus);
 }
 
+std::expected<void, std::error_code> bind_device(
+    unsigned int bus, unsigned int address, std::string_view driver_name)
+{
+    std::string path = std::format("/sys/bus/i2c/drivers/{}/bind", driver_name);
+    std::ofstream bind_f(path);
+    if (!bind_f)
+    {
+        return std::unexpected(
+            errno ? std::error_code(errno, std::system_category())
+                  : std::make_error_code(std::errc::io_error));
+    }
+    std::string device = std::format("{}-{:04x}", bus, address);
+    errno = 0;
+    bind_f << device << std::flush;
+    if (!bind_f)
+    {
+        return std::unexpected(
+            errno ? std::error_code(errno, std::system_category())
+                  : std::make_error_code(std::errc::io_error));
+    }
+    std::cerr << std::format("bound {} to {} driver\n", device, driver_name);
+    return {};
+}
+
 RawDevice::RawDevice(size_t bus, uint8_t address)
 {
     std::string bus_path = std::format("/dev/i2c-{}", bus);
@@ -119,6 +144,48 @@ std::expected<uint8_t, std::error_code> RawDevice::read_byte(uint8_t reg)
     }
 
     return result;
+}
+
+std::expected<void, std::error_code> RawDevice::write_block(
+    std::span<const uint8_t> data)
+{
+    if (data.empty())
+    {
+        return std::unexpected(
+            std::make_error_code(std::errc::invalid_argument));
+    }
+    ssize_t n = ::write(fd, data.data(), data.size());
+    if (n < 0)
+    {
+        return std::unexpected(std::error_code(errno, std::system_category()));
+    }
+    if (static_cast<size_t>(n) != data.size())
+    {
+        return std::unexpected(std::make_error_code(std::errc::io_error));
+    }
+    return {};
+}
+
+std::expected<std::vector<uint8_t>, std::error_code> RawDevice::read_i2c_block(
+    uint8_t reg, size_t len)
+{
+    if (len == 0 || len > I2C_SMBUS_BLOCK_MAX)
+    {
+        return std::unexpected(
+            std::make_error_code(std::errc::invalid_argument));
+    }
+    std::vector<uint8_t> buf(len);
+    int32_t n = i2c_smbus_read_i2c_block_data(
+        fd, reg, static_cast<uint8_t>(len), buf.data());
+    if (n < 0)
+    {
+        return std::unexpected(std::error_code(-n, std::system_category()));
+    }
+    if (static_cast<size_t>(n) != len)
+    {
+        return std::unexpected(std::make_error_code(std::errc::io_error));
+    }
+    return buf;
 }
 
 } // namespace i2c
