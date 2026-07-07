@@ -10,5 +10,6 @@ namespace nvidia
 int init_gb200_base();
 int init_gb200_with_p2020();
 int init_nvl32();
+int init_vr_nvl();
 
 } // namespace nvidia
