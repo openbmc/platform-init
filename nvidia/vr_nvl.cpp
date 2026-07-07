@@ -329,11 +329,66 @@ void hmc_bypass()
     gpio::set("BMC_HMC_MUX_SEL-O", 0);
 }
 
+// The SMA MCU emulates a CP2112 but enumerates as 0955:CF11, which is
+// missing from hid-cp2112's id_table, so it lands on hid-generic and the
+// DT-declared pca9555 children never instantiate.
+void bind_sma_cp2112()
+{
+    constexpr const char* new_id_path = "/sys/bus/hid/drivers/cp2112/new_id";
+    {
+        std::ofstream new_id(new_id_path);
+        if (!new_id)
+        {
+            std::cerr << std::format(
+                "bind_sma_cp2112: cannot open {} (cp2112 module not loaded?); "
+                "SMA pca9555 children will not instantiate\n",
+                new_id_path);
+            return;
+        }
+        new_id << "3 0955 CF11";
+    }
+    std::cerr << "Registered NVIDIA 0955:CF11 with cp2112 driver\n";
+
+    constexpr const char* hid_devices_dir = "/sys/bus/hid/devices/";
+    if (!std::filesystem::exists(hid_devices_dir))
+    {
+        return;
+    }
+
+    for (const auto& ent : std::filesystem::directory_iterator(hid_devices_dir))
+    {
+        std::string devname = ent.path().filename().string();
+        if (devname.find(":0955:CF11") == std::string::npos)
+        {
+            continue;
+        }
+
+        {
+            std::ofstream unbind("/sys/bus/hid/drivers/hid-generic/unbind");
+            if (unbind)
+            {
+                unbind << devname;
+            }
+        }
+        {
+            std::ofstream bind("/sys/bus/hid/drivers/cp2112/bind");
+            if (bind)
+            {
+                bind << devname;
+            }
+        }
+        std::cerr << std::format("Migrated {} from hid-generic to cp2112\n",
+                                 devname);
+    }
+}
+
 } // namespace
 
 int init_vr_nvl()
 {
     std::cerr << "vr-nvl platform init starting\n";
+
+    bind_sma_cp2112();
 
     int stby_b0 = gpio::get("B0_M0_STBY_POWER_PG-I");
     if (stby_b0 != 1)
