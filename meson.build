@@ -24,6 +24,7 @@ platform_srcs = files(
     'intel/jcrp.cpp',
     'nvidia/gb200.cpp',
     'nvidia/nvl32.cpp',
+    'nvidia/vr_nvl.cpp',
 )
 util_srcs = files('gpio.cpp', 'i2c.cpp', 'utilities.cpp')
 
