@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7ed19752_80903e39",
+        "filename": "platform.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1002918
+      },
+      "writtenOn": "2026-07-20T11:02:49Z",
+      "side": 1,
+      "message": "Existing init functions already call sd_notify().\nNVIDIA never reaches this code due to pause(), while Intel would notify twice.\nWould you consider having Catalina notify within its init function instead?",
+      "range": {
+        "startLine": 49,
+        "startChar": 4,
+        "endLine": 49,
+        "endChar": 75
+      },
+      "revId": "0705e7dd8578275bc81bc68449b2f098eed99acc",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
