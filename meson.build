@@ -10,7 +10,8 @@ gpiodcxx_dep = dependency('libgpiodcxx', default_options: ['bindings=cxx'])
 systemd_dep = dependency('systemd')
 libsystemd_dep = dependency('libsystemd')
 sdbusplus = dependency('sdbusplus', include_type: 'system')
-
+phosphor_dbus_interfaces_dep = dependency('phosphor-dbus-interfaces')
+phosphor_logging_dep = dependency('phosphor-logging')
 
 cli11_dep = dependency(
     'CLI11',
