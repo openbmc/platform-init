@@ -22,6 +22,30 @@
       },
       "revId": "0705e7dd8578275bc81bc68449b2f098eed99acc",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4eb10b29_40bb8eaa",
+        "filename": "platform.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1002065
+      },
+      "writtenOn": "2026-07-22T13:45:00Z",
+      "side": 1,
+      "message": "Hi, thanks for pointing this out did sleep on that one. Sure, I will notify in catalina init instead",
+      "parentUuid": "7ed19752_80903e39",
+      "range": {
+        "startLine": 49,
+        "startChar": 4,
+        "endLine": 49,
+        "endChar": 75
+      },
+      "revId": "0705e7dd8578275bc81bc68449b2f098eed99acc",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
