@@ -5,7 +5,7 @@
 #include <systemd/sd-daemon.h>
 #include <unistd.h>
 
-#include <sdbusplus/asio/connection.hpp>
+#include <sdbusplus/bus.hpp>
 
 #include <chrono>
 #include <expected>
