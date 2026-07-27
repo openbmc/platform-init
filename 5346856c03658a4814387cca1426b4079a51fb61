@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d78d548b_4273ec19",
+        "filename": "nvidia/vr_nvl.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 353,
+      "author": {
+        "id": 1002810
+      },
+      "writtenOn": "2026-07-27T04:45:13Z",
+      "side": 1,
+      "message": "Consider wrapping this in a try/catch like the sibling helpers (read_hsc_mfr_id, mask_hsc_*, configure_pdb_*) — std::filesystem::exists/directory_iterator throw filesystem_error, and neither this function nor init_vr_nvl/main catches, so a stray filesystem error would terminate the daemon instead of being logged and skipped. Alternatively use the std::error_code overloads.",
+      "revId": "5346856c03658a4814387cca1426b4079a51fb61",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "739c20a9_f61ddf1b",
+        "filename": "nvidia/vr_nvl.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 358,
+      "author": {
+        "id": 1002810
+      },
+      "writtenOn": "2026-07-27T04:45:13Z",
+      "side": 1,
+      "message": "Also consider wrapping this in a try/catch.",
+      "revId": "5346856c03658a4814387cca1426b4079a51fb61",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a0e28f15_0e6efa96",
+        "filename": "nvidia/vr_nvl.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 380,
+      "author": {
+        "id": 1002810
+      },
+      "writtenOn": "2026-07-27T04:45:13Z",
+      "side": 1,
+      "message": "The if (unbind) / if (bind) checks only tell you the sysfs file opened; the write (unbind \u003c\u003c devname) isn\u0027t checked, and open failures fall through silently. Yet \"Migrated…\" (and \"Registered…\" at line 350) print unconditionally — so a device that never actually moved still logs as a success, which is misleading when debugging.",
+      "revId": "5346856c03658a4814387cca1426b4079a51fb61",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
