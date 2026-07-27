@@ -18,6 +18,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2069adec_b9227efe",
+        "filename": "nvidia/vr_nvl.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 353,
+      "author": {
+        "id": 1002918
+      },
+      "writtenOn": "2026-07-27T09:42:25Z",
+      "side": 1,
+      "message": "Fixed. Using the std::error_code overload.",
+      "parentUuid": "d78d548b_4273ec19",
+      "revId": "5346856c03658a4814387cca1426b4079a51fb61",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "739c20a9_f61ddf1b",
@@ -35,6 +53,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "20eeeb6f_ef5200e1",
+        "filename": "nvidia/vr_nvl.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 358,
+      "author": {
+        "id": 1002918
+      },
+      "writtenOn": "2026-07-27T09:42:25Z",
+      "side": 1,
+      "message": "Fixed. Construction and iteration now handle std::error_code.",
+      "parentUuid": "739c20a9_f61ddf1b",
+      "revId": "5346856c03658a4814387cca1426b4079a51fb61",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a0e28f15_0e6efa96",
@@ -48,6 +84,24 @@
       "writtenOn": "2026-07-27T04:45:13Z",
       "side": 1,
       "message": "The if (unbind) / if (bind) checks only tell you the sysfs file opened; the write (unbind \u003c\u003c devname) isn\u0027t checked, and open failures fall through silently. Yet \"Migrated…\" (and \"Registered…\" at line 350) print unconditionally — so a device that never actually moved still logs as a success, which is misleading when debugging.",
+      "revId": "5346856c03658a4814387cca1426b4079a51fb61",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "202966c1_8831b208",
+        "filename": "nvidia/vr_nvl.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 380,
+      "author": {
+        "id": 1002918
+      },
+      "writtenOn": "2026-07-27T09:42:25Z",
+      "side": 1,
+      "message": "Fixed. Open/write/flush are checked, and success is logged only afterward.",
+      "parentUuid": "a0e28f15_0e6efa96",
       "revId": "5346856c03658a4814387cca1426b4079a51fb61",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
