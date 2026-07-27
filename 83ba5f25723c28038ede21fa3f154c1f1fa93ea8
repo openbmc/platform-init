@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9779f779_4f39945d",
+        "filename": "nvidia/vr_nvl.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 1002810
+      },
+      "writtenOn": "2026-07-27T04:32:15Z",
+      "side": 1,
+      "message": "nit: The optional variant (286) documents that gpio::get returns -1 and early-exits on it, but this mandatory one silently treats -1 as \"not asserted\" and polls to timeout. A one-line comment on that intentional difference would save the next reader from wondering why only one handles -1.",
+      "revId": "83ba5f25723c28038ede21fa3f154c1f1fa93ea8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "926c02a2_5bd4325d",
+        "filename": "nvidia/vr_nvl.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 338,
+      "author": {
+        "id": 1002810
+      },
+      "writtenOn": "2026-07-27T04:32:15Z",
+      "side": 1,
+      "message": "Quick one on the cold/warm gate: it keys off B0_M0_STBY_POWER_PG-I (a Board-0 signal), and gpio::get returns -1 for an unresolvable line. Is Board 0 guaranteed present/bound at this point, so an absent board can\u0027t read as !\u003d 1 and fall onto the cold path (which runs the initial GPIO setup)?",
+      "revId": "83ba5f25723c28038ede21fa3f154c1f1fa93ea8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "77f03d6d_ff025d83",
+        "filename": "nvidia/vr_nvl.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 376,
+      "author": {
+        "id": 1002810
+      },
+      "writtenOn": "2026-07-27T04:32:15Z",
+      "side": 1,
+      "message": "These bus/address literals (2, 7, 0x20, 0x21) are bare, while the PDB expanders above (351-352) use named constants (pdb_bus, pdb_iox_*_addr). Naming the HPM-board expander bus/addresses too would make the topology self-documenting.",
+      "revId": "83ba5f25723c28038ede21fa3f154c1f1fa93ea8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
