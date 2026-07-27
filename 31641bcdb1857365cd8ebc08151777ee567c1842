@@ -18,6 +18,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bc1eaf80_87c78323",
+        "filename": "nvidia/vr_nvl.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 385,
+      "author": {
+        "id": 1002918
+      },
+      "writtenOn": "2026-07-27T09:44:21Z",
+      "side": 1,
+      "message": "Fixed. Using enum class HpmBoard.",
+      "parentUuid": "1d61ee59_fe4170e7",
+      "revId": "31641bcdb1857365cd8ebc08151777ee567c1842",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "71d2d034_e768a2ca",
@@ -35,6 +53,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3080b680_af96ddf0",
+        "filename": "nvidia/vr_nvl.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 428,
+      "author": {
+        "id": 1002918
+      },
+      "writtenOn": "2026-07-27T09:44:21Z",
+      "side": 1,
+      "message": "Replaced with peripheral_reset_settle_delay.",
+      "parentUuid": "71d2d034_e768a2ca",
+      "revId": "31641bcdb1857365cd8ebc08151777ee567c1842",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4e3047d3_858dc050",
@@ -48,6 +84,24 @@
       "writtenOn": "2026-07-27T05:32:37Z",
       "side": 1,
       "message": "Same for this 10ms -- a named constant or a one-line why would help.",
+      "revId": "31641bcdb1857365cd8ebc08151777ee567c1842",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "290d8a3f_f6a25cf3",
+        "filename": "nvidia/vr_nvl.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 434,
+      "author": {
+        "id": 1002918
+      },
+      "writtenOn": "2026-07-27T09:44:21Z",
+      "side": 1,
+      "message": "Replaced with hpm_run_power_stagger_delay.",
+      "parentUuid": "4e3047d3_858dc050",
       "revId": "31641bcdb1857365cd8ebc08151777ee567c1842",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
