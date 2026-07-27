@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5bf19182_6f9437e2",
+        "filename": "meson.build",
+        "patchSetId": 8
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1002918
+      },
+      "writtenOn": "2026-07-27T10:48:11Z",
+      "side": 1,
+      "message": "Related to the util_srcs comment. If MDIO support becomes a feature option, this dependency could use required: get_option(...), so other platforms wouldn\u0027t need libmnl.",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 1
+      },
+      "revId": "4c83606783fc49ef9524bbb3de235747abe4feba",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f84f3a04_5a819cc3",
+        "filename": "meson.build",
+        "patchSetId": 8
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1002918
+      },
+      "writtenOn": "2026-07-27T10:48:11Z",
+      "side": 1,
+      "message": "Same as libmnl above.",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 1
+      },
+      "revId": "4c83606783fc49ef9524bbb3de235747abe4feba",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2da8857a_2ea95495",
+        "filename": "meson.build",
+        "patchSetId": 8
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1002918
+      },
+      "writtenOn": "2026-07-27T10:48:11Z",
+      "side": 1,
+      "message": "Since ftdi_mdio.cpp and mdio.cpp are currently only used by meta/ventura2.cpp, would it make sense to gate them behind a meson feature option? Currently, util_srcs links them into every platform\u0027s binary (intel \u0026 nvidia), and it would be great if non-meta platforms could opt out.",
+      "range": {
+        "startLine": 38,
+        "startChar": 0,
+        "endLine": 44,
+        "endChar": 1
+      },
+      "revId": "4c83606783fc49ef9524bbb3de235747abe4feba",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
