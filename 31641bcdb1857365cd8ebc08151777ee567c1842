@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1d61ee59_fe4170e7",
+        "filename": "nvidia/vr_nvl.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 385,
+      "author": {
+        "id": 1002810
+      },
+      "writtenOn": "2026-07-27T05:32:37Z",
+      "side": 1,
+      "message": "`int board` means the call sites pass bare 0/1 (lines 394 and 419), and anything\nnon-zero silently falls through to B1 here. An `enum class HpmBoard { Board0,\nBoard1 }` would make those calls read for themselves and close off the\nout-of-range case -- you already use `enum class HscVendor` above",
+      "revId": "31641bcdb1857365cd8ebc08151777ee567c1842",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "71d2d034_e768a2ca",
+        "filename": "nvidia/vr_nvl.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 428,
+      "author": {
+        "id": 1002810
+      },
+      "writtenOn": "2026-07-27T05:32:37Z",
+      "side": 1,
+      "message": "sleep_milliseconds(1ms) here is bare magic number.\nA named constant or a short why comment (what each delay is waiting for) would\nhelp the next person tuning the sequence.",
+      "revId": "31641bcdb1857365cd8ebc08151777ee567c1842",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4e3047d3_858dc050",
+        "filename": "nvidia/vr_nvl.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 434,
+      "author": {
+        "id": 1002810
+      },
+      "writtenOn": "2026-07-27T05:32:37Z",
+      "side": 1,
+      "message": "Same for this 10ms -- a named constant or a one-line why would help.",
+      "revId": "31641bcdb1857365cd8ebc08151777ee567c1842",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
