@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3d9ab5a2_162ffb0e",
+        "filename": "i2c.hpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2026-07-27T20:49:27Z",
+      "side": 1,
+      "message": "Do we need an unbind?",
+      "revId": "be3228839e3acaf66aff8b91e9a4d51f57ea7766",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
