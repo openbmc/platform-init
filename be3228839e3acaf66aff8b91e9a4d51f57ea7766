@@ -16,6 +16,24 @@
       "message": "Do we need an unbind?",
       "revId": "be3228839e3acaf66aff8b91e9a4d51f57ea7766",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9f1c3fe1_675c950f",
+        "filename": "i2c.hpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1002918
+      },
+      "writtenOn": "2026-07-28T04:37:18Z",
+      "side": 1,
+      "message": "Current callers only bind after power on, so unbind is not used yet. I will send a follow up that adds unbind_device(), so future flows such as power loss recovery can use it. Thanks for pointing it out.",
+      "parentUuid": "3d9ab5a2_162ffb0e",
+      "revId": "be3228839e3acaf66aff8b91e9a4d51f57ea7766",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
