@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2fc22d08_fe48d0a9",
+        "filename": "nvidia/vr_nvl.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2026-07-28T19:49:05Z",
+      "side": 1,
+      "message": "Why are you using `unsigned`?",
+      "range": {
+        "startLine": 38,
+        "startChar": 21,
+        "endLine": 38,
+        "endChar": 29
+      },
+      "revId": "61b2b96603733ccf7f687c36cad748861e7154f8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5fc345dd_b1c7661f",
+        "filename": "nvidia/vr_nvl.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2026-07-28T19:49:05Z",
+      "side": 1,
+      "message": "Can we avoid sized-array specifiers?  Use to_array when in doubt.",
+      "range": {
+        "startLine": 38,
+        "startChar": 10,
+        "endLine": 38,
+        "endChar": 34
+      },
+      "revId": "61b2b96603733ccf7f687c36cad748861e7154f8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "858119b3_76443cb7",
+        "filename": "nvidia/vr_nvl.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 412,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2026-07-28T19:49:05Z",
+      "side": 1,
+      "message": "What is this sd_notify doing for us?",
+      "revId": "61b2b96603733ccf7f687c36cad748861e7154f8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
