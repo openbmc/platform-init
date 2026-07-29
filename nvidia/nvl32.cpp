@@ -7,6 +7,7 @@
 
 #include <sdbusplus/bus.hpp>
 
+#include <array>
 #include <chrono>
 #include <expected>
 #include <filesystem>
@@ -426,7 +427,7 @@ void bringup_devices()
     // delete this mess.
     static constexpr const char* usb_prefix =
         "/sys/devices/platform/ahb/1e6a3000.usb/usb1/1-1/";
-    const std::array<bridge_device, 10> device_name_map = {
+    const auto device_name_map = std::to_array<bridge_device>(
         {{.usb_path = "1-1.2/1-1.2.1/1-1.2.1:1.0",
           .name = "GPU_0",
           .board_name = "Nvidia_RTX_PRO_6000_Blackwell_1"},
@@ -456,7 +457,7 @@ void bringup_devices()
           .board_name = "Nvidia_RTX_PRO_6000_Blackwell_8"},
          {.usb_path = "1-1.1/1-1.1.2/1-1.1.2.3/1-1.1.2.3:1.0",
           .name = "CX8_1",
-          .board_name = "NVIDIA_Alon_cx8_Fru"}}};
+          .board_name = "NVIDIA_Alon_cx8_Fru"}});
 
     for (const auto& [usb_path, name, board_name] : device_name_map)
     {
