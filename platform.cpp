@@ -3,8 +3,8 @@
 
 #include "gpio.hpp"
 #include "i2c.hpp"
-#include "intel.hpp"
-#include "nvidia.hpp"
+#include "intel/platforms.hpp"
+#include "nvidia/platforms.hpp"
 #include "utilities.hpp"
 
 #include <fcntl.h>
