@@ -47,6 +47,54 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "50cca4dd_83fd003b",
+        "filename": "nvidia/vr_nvl.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1002918
+      },
+      "writtenOn": "2026-07-29T15:49:15Z",
+      "side": 1,
+      "message": "Fixed. uint8_t is enough. Thanks for pointing that out.",
+      "parentUuid": "2fc22d08_fe48d0a9",
+      "range": {
+        "startLine": 38,
+        "startChar": 21,
+        "endLine": 38,
+        "endChar": 29
+      },
+      "revId": "61b2b96603733ccf7f687c36cad748861e7154f8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9fad907f_fca1b99e",
+        "filename": "nvidia/vr_nvl.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1002918
+      },
+      "writtenOn": "2026-07-29T15:49:15Z",
+      "side": 1,
+      "message": "Fixed. Switched to std::to_array",
+      "parentUuid": "5fc345dd_b1c7661f",
+      "range": {
+        "startLine": 38,
+        "startChar": 10,
+        "endLine": 38,
+        "endChar": 34
+      },
+      "revId": "61b2b96603733ccf7f687c36cad748861e7154f8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "858119b3_76443cb7",
@@ -60,6 +108,24 @@
       "writtenOn": "2026-07-28T19:49:05Z",
       "side": 1,
       "message": "What is this sd_notify doing for us?",
+      "revId": "61b2b96603733ccf7f687c36cad748861e7154f8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3d2b7b9f_6571446a",
+        "filename": "nvidia/vr_nvl.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 412,
+      "author": {
+        "id": 1002918
+      },
+      "writtenOn": "2026-07-29T15:49:15Z",
+      "side": 1,
+      "message": "platform_init.service is Type\u003dnotify, so this tells systemd that platform bring-up finished successfully.",
+      "parentUuid": "858119b3_76443cb7",
       "revId": "61b2b96603733ccf7f687c36cad748861e7154f8",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
