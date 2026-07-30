@@ -95,6 +95,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1bacdaf1_26930612",
+        "filename": "nvidia/vr_nvl.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2026-07-30T21:23:55Z",
+      "side": 1,
+      "message": "I wasn\u0027t actually asking for an optimization.  Generally we use sized types for things that are hardware oriented and size_t for things that are countable or index-able.  Rarely do we use `unsigned` in openbmc.",
+      "parentUuid": "50cca4dd_83fd003b",
+      "range": {
+        "startLine": 38,
+        "startChar": 21,
+        "endLine": 38,
+        "endChar": 29
+      },
+      "revId": "61b2b96603733ccf7f687c36cad748861e7154f8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "858119b3_76443cb7",
@@ -126,6 +150,24 @@
       "side": 1,
       "message": "platform_init.service is Type\u003dnotify, so this tells systemd that platform bring-up finished successfully.",
       "parentUuid": "858119b3_76443cb7",
+      "revId": "61b2b96603733ccf7f687c36cad748861e7154f8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8261f675_3cf06db8",
+        "filename": "nvidia/vr_nvl.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 412,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2026-07-30T21:23:55Z",
+      "side": 1,
+      "message": "That\u0027s strange, but I\u0027ll take that on in another commit.  I don\u0027t understand what the point is of notifying right before we exit when we could just give a good clean exit code.",
+      "parentUuid": "3d2b7b9f_6571446a",
       "revId": "61b2b96603733ccf7f687c36cad748861e7154f8",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
