@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "14ae83cc_18d054ff",
+        "filename": "platforms/nvidia/vr_nvl.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 345,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2026-07-30T22:53:16Z",
+      "side": 1,
+      "message": "This looks like something multiple platforms would need to do.\n\nCan you make a sysfs utility?  I don\u0027t really like the `string_view operation` where we\u0027re doing strings with bind/unbind.  Can we come up with some meaningful bind and unbind utilities?",
+      "revId": "37e6165c205b7648676d757bb571353f1d3a782f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
