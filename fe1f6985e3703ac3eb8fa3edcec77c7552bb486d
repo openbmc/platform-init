@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "72dbb379_a15f0548",
+        "filename": "platforms/nvidia/vr_nvl.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2026-07-30T21:27:28Z",
+      "side": 1,
+      "message": "size_t ?",
+      "range": {
+        "startLine": 38,
+        "startChar": 45,
+        "endLine": 38,
+        "endChar": 52
+      },
+      "revId": "fe1f6985e3703ac3eb8fa3edcec77c7552bb486d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "69cac563_4881f0bf",
+        "filename": "platforms/nvidia/vr_nvl.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2026-07-30T21:27:28Z",
+      "side": 1,
+      "message": "I shouldn\u0027t need to comment on every instance.",
+      "range": {
+        "startLine": 52,
+        "startChar": 10,
+        "endLine": 52,
+        "endChar": 32
+      },
+      "revId": "fe1f6985e3703ac3eb8fa3edcec77c7552bb486d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b6365d46_65b3dd5c",
+        "filename": "platforms/nvidia/vr_nvl.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2026-07-30T21:27:28Z",
+      "side": 1,
+      "message": "Can we comment why we need to sleep?",
+      "revId": "fe1f6985e3703ac3eb8fa3edcec77c7552bb486d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
