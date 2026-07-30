@@ -24,6 +24,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "94677b45_1670d145",
+        "filename": "platforms/nvidia/vr_nvl.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1002918
+      },
+      "writtenOn": "2026-07-30T21:54:17Z",
+      "side": 1,
+      "message": "Fixed. size_t for the bus numbers.",
+      "parentUuid": "72dbb379_a15f0548",
+      "range": {
+        "startLine": 38,
+        "startChar": 45,
+        "endLine": 38,
+        "endChar": 52
+      },
+      "revId": "fe1f6985e3703ac3eb8fa3edcec77c7552bb486d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "69cac563_4881f0bf",
@@ -47,6 +71,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b8a2ba01_8259192f",
+        "filename": "platforms/nvidia/vr_nvl.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1002918
+      },
+      "writtenOn": "2026-07-30T21:54:17Z",
+      "side": 1,
+      "message": "Sorry. Converted every sized std::array in this file, none left.",
+      "parentUuid": "69cac563_4881f0bf",
+      "range": {
+        "startLine": 52,
+        "startChar": 10,
+        "endLine": 52,
+        "endChar": 32
+      },
+      "revId": "fe1f6985e3703ac3eb8fa3edcec77c7552bb486d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b6365d46_65b3dd5c",
@@ -60,6 +108,24 @@
       "writtenOn": "2026-07-30T21:27:28Z",
       "side": 1,
       "message": "Can we comment why we need to sleep?",
+      "revId": "fe1f6985e3703ac3eb8fa3edcec77c7552bb486d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2cd44ab3_55d3c874",
+        "filename": "platforms/nvidia/vr_nvl.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1002918
+      },
+      "writtenOn": "2026-07-30T21:54:17Z",
+      "side": 1,
+      "message": "Done. The HSC can return all-zero/all-FF during early boot, so\nwe retry with a short delay between attempts.",
+      "parentUuid": "b6365d46_65b3dd5c",
       "revId": "fe1f6985e3703ac3eb8fa3edcec77c7552bb486d",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
