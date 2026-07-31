@@ -26,7 +26,7 @@ platform_srcs = files(
     'platforms/nvidia/nvl32.cpp',
     'platforms/nvidia/vr_nvl.cpp',
 )
-util_srcs = files('gpio.cpp', 'i2c.cpp', 'utilities.cpp')
+util_srcs = files('gpio.cpp', 'i2c.cpp', 'sysfs.cpp', 'utilities.cpp')
 
 exe = executable(
     'platform',
