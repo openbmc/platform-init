@@ -16,6 +16,24 @@
       "message": "This looks like something multiple platforms would need to do.\n\nCan you make a sysfs utility?  I don\u0027t really like the `string_view operation` where we\u0027re doing strings with bind/unbind.  Can we come up with some meaningful bind and unbind utilities?",
       "revId": "37e6165c205b7648676d757bb571353f1d3a782f",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a0582cd6_c97f7604",
+        "filename": "platforms/nvidia/vr_nvl.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 345,
+      "author": {
+        "id": 1002918
+      },
+      "writtenOn": "2026-07-31T09:42:51Z",
+      "side": 1,
+      "message": "Done. Yes, this looks useful across platforms. I added shared\nsysfs::new_id/bind_device/unbind_device helpers in a preceding\ncommit and switched this code to use them.",
+      "parentUuid": "14ae83cc_18d054ff",
+      "revId": "37e6165c205b7648676d757bb571353f1d3a782f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
