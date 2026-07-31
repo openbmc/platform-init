@@ -3,6 +3,8 @@
 
 #include "i2c.hpp"
 
+#include "sysfs.hpp"
+
 #include <fcntl.h>
 #include <linux/i2c-dev.h>
 #include <sys/ioctl.h>
@@ -86,22 +88,11 @@ void new_device(unsigned int bus, unsigned int address,
 std::expected<void, std::error_code> bind_device(
     unsigned int bus, unsigned int address, std::string_view driver_name)
 {
-    std::string path = std::format("/sys/bus/i2c/drivers/{}/bind", driver_name);
-    std::ofstream bind_f(path);
-    if (!bind_f)
-    {
-        return std::unexpected(
-            errno ? std::error_code(errno, std::system_category())
-                  : std::make_error_code(std::errc::io_error));
-    }
+    std::string driver = std::format("/sys/bus/i2c/drivers/{}", driver_name);
     std::string device = std::format("{}-{:04x}", bus, address);
-    errno = 0;
-    bind_f << device << std::flush;
-    if (!bind_f)
+    if (auto result = sysfs::bind_device(driver, device); !result)
     {
-        return std::unexpected(
-            errno ? std::error_code(errno, std::system_category())
-                  : std::make_error_code(std::errc::io_error));
+        return result;
     }
     std::cerr << std::format("bound {} to {} driver\n", device, driver_name);
     return {};
