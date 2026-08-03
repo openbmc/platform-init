@@ -38,11 +38,17 @@ owners:
 reviewers:
 
 matchers:
+- partial_regex: platforms/nvidia/vr_nvl
+  owners:
+    - jackyhuang@nvidia.com
 
 openbmc:
 - name: Ed Tanous
   email: ed@tanous.net
   discord: edtanous
+- name: Jacky Huang
+  email: jackyhuang@nvidia.com
+  discord: jacky_code_huang
 - name: Patrick Williams
   email: patrick@stwcx.xyz
   discord: stwcx
