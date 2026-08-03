@@ -38,6 +38,9 @@ owners:
 reviewers:
 
 matchers:
+- partial_regex: platforms/nvidia/vr_nvl
+  owners:
+    - jackyhuang@nvidia.com
 
 openbmc:
 - name: Ed Tanous
