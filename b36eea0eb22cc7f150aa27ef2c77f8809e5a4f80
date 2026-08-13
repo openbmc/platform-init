@@ -24,6 +24,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "06dede5b_5333fab0",
+        "filename": "sysfs.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1002918
+      },
+      "writtenOn": "2026-08-13T09:48:50Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "aa033c67_e72866a0",
+      "range": {
+        "startLine": 32,
+        "startChar": 4,
+        "endLine": 32,
+        "endChar": 55
+      },
+      "revId": "b36eea0eb22cc7f150aa27ef2c77f8809e5a4f80",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9535a910_50030277",
@@ -37,6 +61,30 @@
       "writtenOn": "2026-08-06T06:51:03Z",
       "side": 1,
       "message": "`i2c::bind_device()` open-codes this exact same ofstream/errno logic. Could it be converted to call this helper in the same commit?",
+      "range": {
+        "startLine": 58,
+        "startChar": 37,
+        "endLine": 58,
+        "endChar": 48
+      },
+      "revId": "b36eea0eb22cc7f150aa27ef2c77f8809e5a4f80",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e27bdf2b_1f8d71d1",
+        "filename": "sysfs.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1002918
+      },
+      "writtenOn": "2026-08-13T09:48:50Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "9535a910_50030277",
       "range": {
         "startLine": 58,
         "startChar": 37,
