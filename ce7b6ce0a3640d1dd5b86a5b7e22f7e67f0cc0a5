@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "12ee2ad4_fd4e981f",
+        "filename": "OWNERS",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1002321
+      },
+      "writtenOn": "2026-08-14T12:41:04Z",
+      "side": 1,
+      "message": "Partial owners must also be listed in `openbmc`",
+      "revId": "ce7b6ce0a3640d1dd5b86a5b7e22f7e67f0cc0a5",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
