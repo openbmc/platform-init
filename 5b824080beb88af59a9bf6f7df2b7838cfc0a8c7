@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a7d57cce_03c737ec",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1002790
+      },
+      "writtenOn": "2026-08-25T07:56:42Z",
+      "side": 1,
+      "message": "Please add a Tested: line like the earlier \"i2c: add bind_device\" commit.",
+      "revId": "5b824080beb88af59a9bf6f7df2b7838cfc0a8c7",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "54531923_450aab68",
+        "filename": "sysfs.hpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1002790
+      },
+      "writtenOn": "2026-08-25T07:56:42Z",
+      "side": 1,
+      "message": "nit: Could this rename to `driver_path`? Thanks.",
+      "range": {
+        "startLine": 42,
+        "startChar": 66,
+        "endLine": 42,
+        "endChar": 72
+      },
+      "revId": "5b824080beb88af59a9bf6f7df2b7838cfc0a8c7",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5694c3fb_4b0a8a49",
+        "filename": "sysfs.hpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1002790
+      },
+      "writtenOn": "2026-08-25T07:56:42Z",
+      "side": 1,
+      "message": "Could these four be `[[nodiscard]]`?",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 52,
+        "endChar": 75
+      },
+      "revId": "5b824080beb88af59a9bf6f7df2b7838cfc0a8c7",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
