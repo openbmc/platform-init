@@ -5,10 +5,13 @@
 
 #include "utilities.hpp"
 
+#include <algorithm>
 #include <cstring>
 #include <filesystem>
 #include <format>
 #include <iostream>
+#include <system_error>
+#include <thread>
 #include <unordered_map>
 
 static std::unordered_map<std::string, gpiod::line> io;
@@ -16,6 +19,42 @@ using namespace std::chrono_literals;
 
 namespace gpio
 {
+
+namespace
+{
+
+enum class LineState
+{
+    Unavailable,
+    Deasserted,
+    Asserted,
+    Error,
+};
+
+LineState read_line_state(const char* line_name, std::error_code* ec = nullptr)
+{
+    try
+    {
+        gpiod::line line = gpiod::find_line(line_name);
+        if (!line)
+        {
+            return LineState::Unavailable;
+        }
+        line.request({app_name, gpiod::line_request::DIRECTION_INPUT, 0});
+        return line.get_value() == 1 ? LineState::Asserted
+                                     : LineState::Deasserted;
+    }
+    catch (const std::system_error& e)
+    {
+        if (ec != nullptr)
+        {
+            *ec = e.code();
+        }
+        return LineState::Error;
+    }
+}
+
+} // namespace
 
 void set(const char* line_name, int value,
          std::chrono::milliseconds find_timeout)
@@ -66,24 +105,50 @@ int get(const char* line_name)
 {
     std::cerr << std::format("{} Request to get\n", line_name);
 
-    gpiod::line line = gpiod::find_line(line_name);
-    if (!line)
+    std::error_code ec;
+    switch (read_line_state(line_name, &ec))
     {
-        std::cerr << std::format("{} Set unable to find\n", line_name);
-        return -1;
+        case LineState::Asserted:
+            std::cerr << std::format("{} was 1\n", line_name);
+            return 1;
+        case LineState::Deasserted:
+            std::cerr << std::format("{} was 0\n", line_name);
+            return 0;
+        case LineState::Unavailable:
+            std::cerr << std::format("{} Set unable to find\n", line_name);
+            return -1;
+        case LineState::Error:
+            std::cerr << std::format("{} unable to get {}\n", line_name,
+                                     std::system_error(ec).what());
+            return -1;
     }
-    try
+    return -1;
+}
+
+bool wait_asserted(const char* line_name, std::chrono::seconds timeout,
+                   std::chrono::milliseconds poll_interval)
+{
+    if (poll_interval <= 0ms)
     {
-        line.request({app_name, gpiod::line_request::DIRECTION_INPUT, 0});
-    }
-    catch (const std::system_error& e)
-    {
-        std::cerr << std::format("{} unable to set {}\n", line_name, e.what());
+        std::cerr << std::format("{} invalid poll interval: {}ms\n", line_name,
+                                 poll_interval.count());
+        return false;
     }
 
-    int value = line.get_value();
-    std::cerr << std::format("{} was {}\n", line_name, value);
-    return value;
+    const auto deadline = std::chrono::steady_clock::now() + timeout;
+    while (std::chrono::steady_clock::now() < deadline)
+    {
+        if (read_line_state(line_name) == LineState::Asserted)
+        {
+            std::cerr << std::format("{} asserted\n", line_name);
+            return true;
+        }
+        std::this_thread::sleep_until(std::min(
+            deadline, std::chrono::steady_clock::now() + poll_interval));
+    }
+    std::cerr << std::format("{} failed to assert within {}s\n", line_name,
+                             timeout.count());
+    return false;
 }
 
 Event::Event(const char* line_name_in, int value_in) :
