@@ -38,6 +38,9 @@ constexpr uint8_t pdb_iox_parsec_addr = 0x75;
 constexpr auto hpm_iox_buses = std::to_array<size_t>({2, 7});
 constexpr auto hpm_iox_addrs = std::to_array<uint8_t>({0x20, 0x21});
 
+// These signals remain asserted, and 100ms limits polling overhead.
+constexpr auto gpio_poll_interval = 100ms;
+
 enum class HscVendor
 {
     Unknown,
@@ -277,57 +280,6 @@ void bind_iox(size_t bus, uint8_t addr)
     }
 }
 
-[[nodiscard]] bool wait_gpio_assert_poll(
-    const char* name, std::chrono::seconds timeout = std::chrono::seconds{30})
-{
-    constexpr auto poll_interval = 100ms;
-    auto deadline = std::chrono::steady_clock::now() + timeout;
-    while (std::chrono::steady_clock::now() < deadline)
-    {
-        int v = gpio::get(name);
-        if (v == 1)
-        {
-            std::cerr << std::format("{} asserted\n", name);
-            return true;
-        }
-        // Unresolvable mandatory signal: keep polling until timeout.
-        sleep_milliseconds(poll_interval);
-    }
-    std::cerr << std::format("{} failed to assert within {}s\n", name,
-                             timeout.count());
-    return false;
-}
-
-void wait_gpio_assert_poll_optional(
-    const char* name, std::chrono::seconds timeout = std::chrono::seconds{5},
-    std::string_view reason = "")
-{
-    constexpr auto poll_interval = 100ms;
-    auto deadline = std::chrono::steady_clock::now() + timeout;
-    while (std::chrono::steady_clock::now() < deadline)
-    {
-        int v = gpio::get(name);
-        if (v == 1)
-        {
-            std::cerr << std::format("{} asserted\n", name);
-            return;
-        }
-        // -1 means the optional line is unbound; skip the wait.
-        if (v < 0)
-        {
-            std::cerr << std::format(
-                "{} unresolvable (line not in any bound gpiochip){}{} - "
-                "skipping wait\n",
-                name, reason.empty() ? "" : ": ", reason);
-            return;
-        }
-        sleep_milliseconds(poll_interval);
-    }
-    std::cerr << std::format(
-        "{} did not assert within {}s{}{} - continuing anyway\n", name,
-        timeout.count(), reason.empty() ? "" : "; ", reason);
-}
-
 void hmc_bypass()
 {
     int prsnt = gpio::get("HMC_PRSNT_R-I");
@@ -370,7 +322,7 @@ int init_vr_nvl()
 
     gpio::set("STBY_POWER_EN-O", 1);
 
-    if (!wait_gpio_assert_poll("STBY_POWER_PG-I", 20s))
+    if (!gpio::wait_asserted("STBY_POWER_PG-I", 20s, gpio_poll_interval))
     {
         std::cerr << "BMC STBY power good never asserted; aborting\n";
         return EXIT_FAILURE;
@@ -381,7 +333,7 @@ int init_vr_nvl()
 
     gpio::set("PDB_12V_EN_N_R-O", 0);
 
-    if (!wait_gpio_assert_poll("STBY_PWR_OK-I", 20s))
+    if (!gpio::wait_asserted("STBY_PWR_OK-I", 20s, gpio_poll_interval))
     {
         std::cerr << "PDB STBY power good never asserted; aborting\n";
         return EXIT_FAILURE;
@@ -400,20 +352,22 @@ int init_vr_nvl()
     gpio::set("USB_MUX_EN-O", 1);
     gpio::set("BMC_MUX_PI3DP_SEL-O", 0);
 
-    wait_gpio_assert_poll_optional("B0_M0_STBY_POWER_PG-I", 20s,
-                                   "HPM Board 0 may be absent");
-    wait_gpio_assert_poll_optional("B1_M0_STBY_POWER_PG-I", 20s,
-                                   "HPM Board 1 may be absent");
+    gpio::wait_asserted_optional("B0_M0_STBY_POWER_PG-I", 20s,
+                                 gpio_poll_interval,
+                                 "HPM Board 0 may be absent");
+    gpio::wait_asserted_optional("B1_M0_STBY_POWER_PG-I", 20s,
+                                 gpio_poll_interval,
+                                 "HPM Board 1 may be absent");
 
-    wait_gpio_assert_poll_optional("B0_M0_HPM_MCU_OK-I", 10s,
-                                   "HPM Board 0 MCU may be absent");
-    wait_gpio_assert_poll_optional("B1_M0_HPM_MCU_OK-I", 10s,
-                                   "HPM Board 1 MCU may be absent");
+    gpio::wait_asserted_optional("B0_M0_HPM_MCU_OK-I", 10s, gpio_poll_interval,
+                                 "HPM Board 0 MCU may be absent");
+    gpio::wait_asserted_optional("B1_M0_HPM_MCU_OK-I", 10s, gpio_poll_interval,
+                                 "HPM Board 1 MCU may be absent");
 
-    wait_gpio_assert_poll_optional("B0_M0_CPLD_READY-I", 10s,
-                                   "HPM Board 0 CPLD may be absent");
-    wait_gpio_assert_poll_optional("B1_M0_CPLD_READY-I", 10s,
-                                   "HPM Board 1 CPLD may be absent");
+    gpio::wait_asserted_optional("B0_M0_CPLD_READY-I", 10s, gpio_poll_interval,
+                                 "HPM Board 0 CPLD may be absent");
+    gpio::wait_asserted_optional("B1_M0_CPLD_READY-I", 10s, gpio_poll_interval,
+                                 "HPM Board 1 CPLD may be absent");
 
     sd_notify(0, "READY=1");
     std::cerr << "vr-nvl platform init complete\n";

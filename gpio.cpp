@@ -5,10 +5,13 @@
 
 #include "utilities.hpp"
 
+#include <algorithm>
 #include <cstring>
 #include <filesystem>
 #include <format>
 #include <iostream>
+#include <system_error>
+#include <thread>
 #include <unordered_map>
 
 static std::unordered_map<std::string, gpiod::line> io;
@@ -84,6 +87,110 @@ int get(const char* line_name)
     int value = line.get_value();
     std::cerr << std::format("{} was {}\n", line_name, value);
     return value;
+}
+
+namespace
+{
+
+enum class LineState
+{
+    Unavailable,
+    Deasserted,
+    Asserted,
+    Error,
+};
+
+LineState read_line_state(const char* line_name)
+{
+    try
+    {
+        gpiod::line line = gpiod::find_line(line_name);
+        if (!line)
+        {
+            return LineState::Unavailable;
+        }
+
+        line.request({app_name, gpiod::line_request::DIRECTION_INPUT, 0});
+        return line.get_value() == 1 ? LineState::Asserted
+                                     : LineState::Deasserted;
+    }
+    catch (const std::system_error& e)
+    {
+        std::cerr << std::format("Failed to read {}: {}\n", line_name,
+                                 e.what());
+        return LineState::Error;
+    }
+}
+
+enum class UnavailableLinePolicy
+{
+    Poll,
+    Skip,
+};
+
+bool wait_until_asserted(const char* line_name, std::chrono::seconds timeout,
+                         std::chrono::milliseconds poll_interval,
+                         UnavailableLinePolicy policy, std::string_view reason)
+{
+    if (poll_interval <= 0ms)
+    {
+        std::cerr << std::format("{} invalid poll interval: {}ms\n", line_name,
+                                 poll_interval.count());
+        return false;
+    }
+
+    auto deadline = std::chrono::steady_clock::now() + timeout;
+    while (std::chrono::steady_clock::now() < deadline)
+    {
+        LineState state = read_line_state(line_name);
+        if (state == LineState::Asserted)
+        {
+            std::cerr << std::format("{} asserted\n", line_name);
+            return true;
+        }
+        if (state == LineState::Error)
+        {
+            return false;
+        }
+        if (state == LineState::Unavailable &&
+            policy == UnavailableLinePolicy::Skip)
+        {
+            std::cerr << std::format("{} unresolvable{}{} - skipping wait\n",
+                                     line_name, reason.empty() ? "" : ": ",
+                                     reason);
+            return false;
+        }
+        auto wake_time = std::min(deadline, std::chrono::steady_clock::now() +
+                                                poll_interval);
+        std::this_thread::sleep_until(wake_time);
+    }
+    if (policy == UnavailableLinePolicy::Skip)
+    {
+        std::cerr << std::format(
+            "{} did not assert within {}s{}{} - continuing\n", line_name,
+            timeout.count(), reason.empty() ? "" : ": ", reason);
+        return false;
+    }
+    std::cerr << std::format("{} failed to assert within {}s\n", line_name,
+                             timeout.count());
+    return false;
+}
+
+} // namespace
+
+bool wait_asserted(const char* line_name, std::chrono::seconds timeout,
+                   std::chrono::milliseconds poll_interval)
+{
+    return wait_until_asserted(line_name, timeout, poll_interval,
+                               UnavailableLinePolicy::Poll, {});
+}
+
+void wait_asserted_optional(const char* line_name, std::chrono::seconds timeout,
+                            std::chrono::milliseconds poll_interval,
+                            std::string_view reason)
+{
+    wait_until_asserted(line_name, timeout, poll_interval,
+                        UnavailableLinePolicy::Skip, reason);
 }
 
 Event::Event(const char* line_name_in, int value_in) :
