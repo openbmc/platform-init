@@ -7,6 +7,7 @@
 
 #include <chrono>
 #include <string>
+#include <string_view>
 
 namespace gpio
 {
@@ -16,6 +17,20 @@ void set(const char* line_name, int value,
 void set_raw(unsigned int chip_num, unsigned bit_num, int value);
 
 int get(const char* line_name);
+
+/**
+ * Poll until the named line reads 1.
+ *
+ * Missing or unreadable lines are retried until timeout.
+ *
+ * @param line_name GPIO line name.
+ * @param timeout Maximum time to wait.
+ * @param poll_interval Delay between attempts; must be positive.
+ * @return true if the line read 1 before timeout, otherwise false.
+ */
+[[nodiscard]] bool wait_asserted(const char* line_name,
+                                 std::chrono::seconds timeout,
+                                 std::chrono::milliseconds poll_interval);
 
 enum class EventResult
 {
