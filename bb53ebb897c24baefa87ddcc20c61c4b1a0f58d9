@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b641fbc1_99949363",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002790
+      },
+      "writtenOn": "2026-08-26T06:05:55Z",
+      "side": 1,
+      "message": "Overall code LGTM",
+      "revId": "bb53ebb897c24baefa87ddcc20c61c4b1a0f58d9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6aa05614_21e870e5",
+        "filename": "sysfs.hpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1002790
+      },
+      "writtenOn": "2026-08-26T06:05:55Z",
+      "side": 1,
+      "message": "Since the empty-value check was added, this can also return invalid_argument, which isn\u0027t a write error.",
+      "revId": "bb53ebb897c24baefa87ddcc20c61c4b1a0f58d9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
