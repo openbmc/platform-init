@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5db3f104_c18f8fa0",
+        "filename": "gpio.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1002790
+      },
+      "writtenOn": "2026-08-27T09:35:19Z",
+      "side": 1,
+      "message": "`read_line_state()` is the same find_line/request/read that `get()` already does.\nCould `get()` be reimplemented on top of it? \nThat would also fix `get()` falling through to `get_value()` after a failed request.",
+      "revId": "21235f1df1af5b21d56fdde075ee2d451fe97ba4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2c001755_b53f4d03",
+        "filename": "gpio.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1002790
+      },
+      "writtenOn": "2026-08-27T09:35:19Z",
+      "side": 1,
+      "message": "A transient EBUSY here aborts the whole 20s wait on the first attempt and fails platform init.\nShould an Error be retried until timeout like Unavailable is?",
+      "revId": "21235f1df1af5b21d56fdde075ee2d451fe97ba4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6c26136f_c0bf8387",
+        "filename": "gpio.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1002790
+      },
+      "writtenOn": "2026-08-27T09:35:19Z",
+      "side": 1,
+      "message": "Worth distinguishing \"line never appeared\" from \"line stayed deasserted\" here. They point at very different root causes.",
+      "revId": "21235f1df1af5b21d56fdde075ee2d451fe97ba4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
