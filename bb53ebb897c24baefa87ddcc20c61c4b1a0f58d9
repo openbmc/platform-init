@@ -33,6 +33,24 @@
       "message": "Since the empty-value check was added, this can also return invalid_argument, which isn\u0027t a write error.",
       "revId": "bb53ebb897c24baefa87ddcc20c61c4b1a0f58d9",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "74505ce8_a57bdf01",
+        "filename": "sysfs.hpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1002918
+      },
+      "writtenOn": "2026-09-03T08:01:59Z",
+      "side": 1,
+      "message": "Done. @return now includes invalid_argument for an empty value.",
+      "parentUuid": "6aa05614_21e870e5",
+      "revId": "bb53ebb897c24baefa87ddcc20c61c4b1a0f58d9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
