@@ -18,6 +18,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f4f81d61_c513b568",
+        "filename": "gpio.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1002918
+      },
+      "writtenOn": "2026-09-03T07:50:33Z",
+      "side": 1,
+      "message": "Done. get() now uses read_line_state(). A failed request no longer falls through to get_value().",
+      "parentUuid": "5db3f104_c18f8fa0",
+      "revId": "21235f1df1af5b21d56fdde075ee2d451fe97ba4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2c001755_b53f4d03",
@@ -35,6 +53,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1f6bc3f5_8245c596",
+        "filename": "gpio.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1002918
+      },
+      "writtenOn": "2026-09-03T07:50:33Z",
+      "side": 1,
+      "message": "Done. wait_asserted retries until timeout for both missing and unreadable lines.",
+      "parentUuid": "2c001755_b53f4d03",
+      "revId": "21235f1df1af5b21d56fdde075ee2d451fe97ba4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6c26136f_c0bf8387",
@@ -48,6 +84,24 @@
       "writtenOn": "2026-08-27T09:35:19Z",
       "side": 1,
       "message": "Worth distinguishing \"line never appeared\" from \"line stayed deasserted\" here. They point at very different root causes.",
+      "revId": "21235f1df1af5b21d56fdde075ee2d451fe97ba4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "47107a12_fae4cb3c",
+        "filename": "gpio.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1002918
+      },
+      "writtenOn": "2026-09-03T07:50:33Z",
+      "side": 1,
+      "message": "Left as is. The helper only waits for 1. Platform abort messages carry the diagnosis.",
+      "parentUuid": "6c26136f_c0bf8387",
       "revId": "21235f1df1af5b21d56fdde075ee2d451fe97ba4",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
