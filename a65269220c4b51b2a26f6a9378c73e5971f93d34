@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8305bc4f_ee6c3794",
+        "filename": "platform.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1002918
+      },
+      "writtenOn": "2026-09-08T06:04:27Z",
+      "side": 1,
+      "message": "Would it be possible to add an unknown platform invocation to Tested:?",
+      "revId": "a65269220c4b51b2a26f6a9378c73e5971f93d34",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3704abe7_2d979f81",
+        "filename": "platform.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1002918
+      },
+      "writtenOn": "2026-09-08T06:04:27Z",
+      "side": 1,
+      "message": "Would it be possible to preserve the previous help output for an unknown platform, and include the platform name and a trailing newline?",
+      "revId": "a65269220c4b51b2a26f6a9378c73e5971f93d34",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5eed20f4_8f63ebdf",
+        "filename": "platform.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1002918
+      },
+      "writtenOn": "2026-09-08T06:04:27Z",
+      "side": 1,
+      "message": "Could we preserve the original return value here, instead of converting every nonzero result to EXIT_FAILURE?",
+      "revId": "a65269220c4b51b2a26f6a9378c73e5971f93d34",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
